@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ORTO p.g.a.</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f4;
+      color: #202522;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    #data {
+      margin-top: 6px;
+      color: #747b77;
+      font-size: 15px;
+    }
+
+    .meteo {
+      margin-top: 18px;
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .meteo-principale {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .meteo-icona {
+      font-size: 38px;
+    }
+
+    .temperatura {
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .umidita {
+      margin-top: 5px;
+      color: #6f7672;
+    }
+
+    .system {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+      font-weight: 700;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .verde {
+      background: #32a852;
+    }
+
+    .giallo {
+      background: #e5b82e;
+    }
+
+    .rosso {
+      background: #d64242;
+    }
+
+    .grigio {
+      background: #999;
+    }
+
+    .titolo-sezione {
+      margin: 28px 2px 12px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #777;
+      letter-spacing: 1px;
+    }
+
+    .indicatori {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 14px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .card .icona {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .numero {
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .label {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #666;
+    }
+
+    .stato-card {
+      margin-top: 10px;
+    }
+
+    .camere {
+      grid-column: 1 / -1;
+    }
+
+    .alert {
+      margin-top: 12px;
+      background: white;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .alert-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .alert-testo strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .alert-testo span {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .zone {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .zona {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 10px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+      font-weight: 800;
+    }
+
+    .zona .emoji {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+      <h1>ORTO p.g.a.</h1>
+      <div id="data"></div>
+
+      <div class="meteo">
+        <div class="meteo-principale">
+          <div class="meteo-icona">🌤️</div>
+
+          <div>
+            <div class="temperatura">18°C</div>
+            <div class="umidita">Umidità 64% · Parzialmente nuvoloso</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="system">
+        <span>SYSTEM</span>
+
+        <div class="status">
+          <span class="dot verde"></span>
+          <span>ONLINE</span>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="titolo-sezione">STATO GENERALE</div>
+
+    <section class="indicatori">
+
+      <div class="card">
+        <div class="icona">💡</div>
+        <div class="numero">4</div>
+        <div class="label">LUCI ACCESE</div>
+        <div class="stato-card">
+          <span class="dot verde"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icona">🚪</div>
+        <div class="numero">2</div>
+        <div class="label">PORTE APERTE</div>
+        <div class="stato-card">
+          <span class="dot verde"></span>
+        </div>
+      </div>
+
+      <div class="card camere">
+        <div class="icona">📷</div>
+        <div class="numero">6 / 6</div>
+        <div class="label">CAMERE ONLINE</div>
+        <div class="stato-card">
+          <span class="dot verde"></span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <div class="titolo-sezione">ALLERT</div>
+
+    <section class="alert">
+
+      <div class="alert-item">
+        <span class="dot rosso"></span>
+
+        <div class="alert-testo">
+          <strong>POLLAIO · LUCE 2</strong>
+          <span>Accesa fuori dall'orario previsto</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <div class="titolo-sezione">ZONE</div>
+
+    <section class="zone">
+
+      <div class="zona">
+        <span class="emoji">🐇</span>
+        CONIGLI
+      </div>
+
+      <div class="zona">
+        <span class="emoji">🐔</span>
+        POLLAIO
+      </div>
+
+      <div class="zona">
+        <span class="emoji">🐦</span>
+        QUAGLIE
+      </div>
+
+      <div class="zona">
+        <span class="emoji">⚙️</span>
+        GENERALE
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+    const oggi = new Date();
+
+    const dataFormattata = oggi.toLocaleDateString("it-IT", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+
+    document.getElementById("data").textContent =
+      dataFormattata.charAt(0).toUpperCase() + dataFormattata.slice(1);
+  </script>
+
+</body>
+</html>
