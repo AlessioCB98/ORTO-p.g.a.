@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
 
   <title>ORTO p.g.a.</title>
 
@@ -18,6 +19,103 @@
       color: #202522;
     }
 
+    /* =========================
+       SCHERMATA PIN
+       ========================= */
+
+    #loginScreen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 380px;
+      background: white;
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    }
+
+    .login-icon {
+      font-size: 46px;
+      margin-bottom: 12px;
+    }
+
+    .login-box h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .login-subtitle {
+      margin-top: 7px;
+      color: #777;
+      font-size: 15px;
+    }
+
+    .pin-label {
+      display: block;
+      margin-top: 30px;
+      margin-bottom: 9px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #555;
+    }
+
+    #pinInput {
+      width: 100%;
+      height: 58px;
+      border: 2px solid #d9ddda;
+      border-radius: 15px;
+      font-size: 28px;
+      text-align: center;
+      letter-spacing: 10px;
+      outline: none;
+      background: #fafbfa;
+    }
+
+    #pinInput:focus {
+      border-color: #32a852;
+    }
+
+    #loginButton {
+      width: 100%;
+      height: 54px;
+      margin-top: 16px;
+      border: 0;
+      border-radius: 15px;
+      background: #202522;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    #loginButton:active {
+      transform: scale(0.98);
+    }
+
+    #pinError {
+      min-height: 20px;
+      margin-top: 13px;
+      color: #d64242;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       APPLICAZIONE
+       ========================= */
+
+    #appScreen {
+      display: none;
+    }
+
     .app {
       width: 100%;
       max-width: 600px;
@@ -27,6 +125,13 @@
 
     header {
       margin-bottom: 24px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
     }
 
     h1 {
@@ -39,6 +144,17 @@
       margin-top: 6px;
       color: #747b77;
       font-size: 15px;
+    }
+
+    .logout {
+      border: 0;
+      background: #e5e8e6;
+      color: #555;
+      border-radius: 10px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     .meteo {
@@ -92,6 +208,7 @@
       height: 12px;
       border-radius: 50%;
       display: inline-block;
+      flex-shrink: 0;
     }
 
     .verde {
@@ -194,6 +311,11 @@
       text-align: center;
       box-shadow: 0 3px 12px rgba(0,0,0,0.06);
       font-weight: 800;
+      cursor: pointer;
+    }
+
+    .zona:active {
+      transform: scale(0.98);
     }
 
     .zona .emoji {
@@ -206,125 +328,379 @@
 
 <body>
 
-  <main class="app">
+  <!-- =========================
+       ACCESSO CON PIN
+       ========================= -->
 
-    <header>
+  <section id="loginScreen">
+
+    <div class="login-box">
+
+      <div class="login-icon">🌱</div>
+
       <h1>ORTO p.g.a.</h1>
-      <div id="data"></div>
 
-      <div class="meteo">
-        <div class="meteo-principale">
-          <div class="meteo-icona">🌤️</div>
+      <div class="login-subtitle">
+        Controllo allevamento
+      </div>
+
+      <label class="pin-label" for="pinInput">
+        Inserisci PIN
+      </label>
+
+      <input
+        id="pinInput"
+        type="password"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        maxlength="4"
+        autocomplete="off"
+        autofocus
+      >
+
+      <button id="loginButton">
+        ENTRA
+      </button>
+
+      <div id="pinError"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       HOME
+       ========================= -->
+
+  <section id="appScreen">
+
+    <main class="app">
+
+      <header>
+
+        <div class="header-top">
 
           <div>
-            <div class="temperatura">18°C</div>
-            <div class="umidita">Umidità 64% · Parzialmente nuvoloso</div>
+            <h1>ORTO p.g.a.</h1>
+            <div id="data"></div>
           </div>
+
+          <button class="logout" id="logoutButton">
+            ESCI
+          </button>
+
         </div>
-      </div>
 
-      <div class="system">
-        <span>SYSTEM</span>
 
-        <div class="status">
-          <span class="dot verde"></span>
-          <span>ONLINE</span>
+        <div class="meteo">
+
+          <div class="meteo-principale">
+
+            <div class="meteo-icona">
+              🌤️
+            </div>
+
+            <div>
+              <div class="temperatura">
+                18°C
+              </div>
+
+              <div class="umidita">
+                Umidità 64% · Parzialmente nuvoloso
+              </div>
+            </div>
+
+          </div>
+
         </div>
-      </div>
-    </header>
 
 
-    <div class="titolo-sezione">STATO GENERALE</div>
+        <div class="system">
 
-    <section class="indicatori">
+          <span>SYSTEM</span>
 
-      <div class="card">
-        <div class="icona">💡</div>
-        <div class="numero">4</div>
-        <div class="label">LUCI ACCESE</div>
-        <div class="stato-card">
-          <span class="dot verde"></span>
+          <div class="status">
+            <span class="dot verde"></span>
+            <span>ONLINE</span>
+          </div>
+
         </div>
+
+      </header>
+
+
+      <div class="titolo-sezione">
+        STATO GENERALE
       </div>
 
-      <div class="card">
-        <div class="icona">🚪</div>
-        <div class="numero">2</div>
-        <div class="label">PORTE APERTE</div>
-        <div class="stato-card">
-          <span class="dot verde"></span>
+
+      <section class="indicatori">
+
+        <div class="card">
+
+          <div class="icona">
+            💡
+          </div>
+
+          <div class="numero">
+            4
+          </div>
+
+          <div class="label">
+            LUCI ACCESE
+          </div>
+
+          <div class="stato-card">
+            <span class="dot verde"></span>
+          </div>
+
         </div>
-      </div>
 
-      <div class="card camere">
-        <div class="icona">📷</div>
-        <div class="numero">6 / 6</div>
-        <div class="label">CAMERE ONLINE</div>
-        <div class="stato-card">
-          <span class="dot verde"></span>
+
+        <div class="card">
+
+          <div class="icona">
+            🚪
+          </div>
+
+          <div class="numero">
+            2
+          </div>
+
+          <div class="label">
+            PORTE APERTE
+          </div>
+
+          <div class="stato-card">
+            <span class="dot verde"></span>
+          </div>
+
         </div>
-      </div>
-
-    </section>
 
 
-    <div class="titolo-sezione">ALLERT</div>
+        <div class="card camere">
 
-    <section class="alert">
+          <div class="icona">
+            📷
+          </div>
 
-      <div class="alert-item">
-        <span class="dot rosso"></span>
+          <div class="numero">
+            6 / 6
+          </div>
 
-        <div class="alert-testo">
-          <strong>POLLAIO · LUCE 2</strong>
-          <span>Accesa fuori dall'orario previsto</span>
+          <div class="label">
+            CAMERE ONLINE
+          </div>
+
+          <div class="stato-card">
+            <span class="dot verde"></span>
+          </div>
+
         </div>
+
+      </section>
+
+
+      <!--
+      QUESTA SEZIONE IN FUTURO
+      VERRÀ MOSTRATA SOLO SE ESISTONO ALLERT
+      -->
+
+      <div class="titolo-sezione">
+        ALLERT
       </div>
 
-    </section>
+      <section class="alert">
+
+        <div class="alert-item">
+
+          <span class="dot rosso"></span>
+
+          <div class="alert-testo">
+
+            <strong>
+              POLLAIO · LUCE 2
+            </strong>
+
+            <span>
+              Accesa fuori dall'orario previsto
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
 
 
-    <div class="titolo-sezione">ZONE</div>
-
-    <section class="zone">
-
-      <div class="zona">
-        <span class="emoji">🐇</span>
-        CONIGLI
+      <div class="titolo-sezione">
+        ZONE
       </div>
 
-      <div class="zona">
-        <span class="emoji">🐔</span>
-        POLLAIO
-      </div>
 
-      <div class="zona">
-        <span class="emoji">🐦</span>
-        QUAGLIE
-      </div>
+      <section class="zone">
 
-      <div class="zona">
-        <span class="emoji">⚙️</span>
-        GENERALE
-      </div>
+        <div class="zona">
+          <span class="emoji">🐇</span>
+          CONIGLI
+        </div>
 
-    </section>
+        <div class="zona">
+          <span class="emoji">🐔</span>
+          POLLAIO
+        </div>
 
-  </main>
+        <div class="zona">
+          <span class="emoji">🐦</span>
+          QUAGLIE
+        </div>
+
+        <div class="zona">
+          <span class="emoji">⚙️</span>
+          GENERALE
+        </div>
+
+      </section>
+
+    </main>
+
+  </section>
 
 
   <script>
+
+    /* PIN DEMO.
+       Non costituisce una protezione reale:
+       il codice è visibile nel repository pubblico.
+    */
+
+    const PIN_CORRETTO = "5588";
+
+
+    const loginScreen =
+      document.getElementById("loginScreen");
+
+    const appScreen =
+      document.getElementById("appScreen");
+
+    const pinInput =
+      document.getElementById("pinInput");
+
+    const pinError =
+      document.getElementById("pinError");
+
+
+    function mostraApp() {
+
+      loginScreen.style.display = "none";
+      appScreen.style.display = "block";
+
+      sessionStorage.setItem(
+        "ortoAccesso",
+        "consentito"
+      );
+    }
+
+
+    function mostraLogin() {
+
+      appScreen.style.display = "none";
+      loginScreen.style.display = "flex";
+
+      pinInput.value = "";
+      pinError.textContent = "";
+
+      sessionStorage.removeItem(
+        "ortoAccesso"
+      );
+
+      setTimeout(() => {
+        pinInput.focus();
+      }, 100);
+    }
+
+
+    function verificaPin() {
+
+      if (pinInput.value === PIN_CORRETTO) {
+
+        pinError.textContent = "";
+        mostraApp();
+
+      } else {
+
+        pinError.textContent =
+          "PIN non corretto";
+
+        pinInput.value = "";
+        pinInput.focus();
+
+      }
+
+    }
+
+
+    document
+      .getElementById("loginButton")
+      .addEventListener(
+        "click",
+        verificaPin
+      );
+
+
+    pinInput.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Enter") {
+          verificaPin();
+        }
+
+      }
+    );
+
+
+    document
+      .getElementById("logoutButton")
+      .addEventListener(
+        "click",
+        mostraLogin
+      );
+
+
+    if (
+      sessionStorage.getItem("ortoAccesso")
+      === "consentito"
+    ) {
+
+      mostraApp();
+
+    }
+
+
     const oggi = new Date();
 
-    const dataFormattata = oggi.toLocaleDateString("it-IT", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    });
+    const dataFormattata =
+      oggi.toLocaleDateString(
+        "it-IT",
+        {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
 
-    document.getElementById("data").textContent =
-      dataFormattata.charAt(0).toUpperCase() + dataFormattata.slice(1);
+    document
+      .getElementById("data")
+      .textContent =
+        dataFormattata
+          .charAt(0)
+          .toUpperCase()
+        +
+        dataFormattata.slice(1);
+
   </script>
 
 </body>
