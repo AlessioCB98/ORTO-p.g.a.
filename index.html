@@ -1,1773 +1,1628 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ORTO p.g.a.</title>
 
-  <title>ORTO p.g.a.</title>
+<style>
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+:root {
+    --bg: #090b0a;
+    --card: #151816;
+    --card2: #1c201d;
+    --border: #2a2f2b;
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f5f4;
-      color: #202522;
-    }
+    --text: #f4f6f4;
+    --secondary: #9ca39e;
 
-    button {
-      font-family: inherit;
-    }
+    --green: #36c55f;
+    --green-bg: #173720;
 
-    /* =========================
-       COLORI
-       ========================= */
+    --yellow: #e7bd37;
+    --yellow-bg: #403718;
 
-    :root {
-      --verde: #32a852;
-      --verde-bg: #eaf7ee;
+    --red: #e05252;
+    --red-bg: #401c1c;
 
-      --giallo: #e5b82e;
-      --giallo-bg: #fff8df;
+    --grey: #747b76;
+    --grey-bg: #292d2a;
+}
 
-      --rosso: #d64242;
-      --rosso-bg: #fdecec;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
 
-      --grigio: #8c9390;
-      --grigio-bg: #eef0ef;
+button {
+    font-family: inherit;
+    color: inherit;
+}
 
-      --bianco: #ffffff;
-      --testo: #202522;
-      --testo-secondario: #707773;
-    }
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .verde {
-      background: var(--verde);
-    }
-
-    .giallo {
-      background: var(--giallo);
-    }
-
-    .rosso {
-      background: var(--rosso);
-    }
-
-    .grigio {
-      background: var(--grigio);
-    }
+.verde { background: var(--green); }
+.giallo { background: var(--yellow); }
+.rosso { background: var(--red); }
+.grigio { background: var(--grey); }
 
 
-    /* =========================
-       LOGIN
-       ========================= */
+/* LOGIN */
 
-    #loginScreen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
+#loginScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
 
-    .login-box {
-      width: 100%;
-      max-width: 380px;
-      background: white;
-      border-radius: 24px;
-      padding: 32px 24px;
-      text-align: center;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
-    }
+.login-box {
+    width: 100%;
+    max-width: 380px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+}
 
-    .login-icon {
-      font-size: 46px;
-      margin-bottom: 12px;
-    }
+.login-icon {
+    font-size: 46px;
+    margin-bottom: 12px;
+}
 
-    .login-box h1 {
-      margin: 0;
-      font-size: 30px;
-    }
+.login-box h1 {
+    margin: 0;
+    font-size: 30px;
+}
 
-    .login-subtitle {
-      margin-top: 7px;
-      color: #777;
-      font-size: 15px;
-    }
+.login-subtitle {
+    margin-top: 7px;
+    color: var(--secondary);
+}
 
-    .pin-label {
-      display: block;
-      margin-top: 30px;
-      margin-bottom: 9px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #555;
-    }
+.pin-label {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--secondary);
+}
 
-    #pinInput {
-      width: 100%;
-      height: 58px;
-      border: 2px solid #d9ddda;
-      border-radius: 15px;
-      font-size: 28px;
-      text-align: center;
-      letter-spacing: 10px;
-      outline: none;
-      background: #fafbfa;
-    }
+#pinInput {
+    width: 100%;
+    height: 58px;
+    border: 2px solid var(--border);
+    border-radius: 15px;
+    background: var(--card2);
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 10px;
+    outline: none;
+}
 
-    #pinInput:focus {
-      border-color: var(--verde);
-    }
+#pinInput:focus {
+    border-color: var(--green);
+}
 
-    #loginButton {
-      width: 100%;
-      height: 54px;
-      margin-top: 16px;
-      border: 0;
-      border-radius: 15px;
-      background: #202522;
-      color: white;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-    }
+#loginButton {
+    width: 100%;
+    height: 54px;
+    margin-top: 16px;
+    border: 0;
+    border-radius: 15px;
+    background: var(--green);
+    color: #071009;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-    #pinError {
-      min-height: 20px;
-      margin-top: 13px;
-      color: var(--rosso);
-      font-size: 14px;
-      font-weight: 700;
-    }
+#pinError {
+    min-height: 20px;
+    margin-top: 13px;
+    color: var(--red);
+    font-size: 14px;
+    font-weight: bold;
+}
 
 
-    /* =========================
-       STRUTTURA APP
-       ========================= */
+/* STRUTTURA */
 
-    #appScreen {
-      display: none;
-    }
+#appScreen {
+    display: none;
+}
 
-    .pagina {
-      display: none;
-    }
+.pagina {
+    display: none;
+}
 
-    .pagina.attiva {
-      display: block;
-    }
+.pagina.attiva {
+    display: block;
+}
 
+.app {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 22px 16px 45px;
+}
+
+.titolo-sezione {
+    margin: 28px 2px 12px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--secondary);
+    letter-spacing: 1.2px;
+}
+
+
+/* HOME */
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+#data {
+    margin-top: 6px;
+    color: var(--secondary);
+    font-size: 15px;
+}
+
+.logout {
+    border: 1px solid var(--border);
+    background: var(--card2);
+    border-radius: 10px;
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.meteo {
+    margin-top: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.meteo-principale {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.meteo-icona {
+    font-size: 38px;
+}
+
+.temperatura {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.umidita {
+    margin-top: 5px;
+    color: var(--secondary);
+}
+
+.system {
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.status {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.indicatori {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px 14px;
+    text-align: center;
+}
+
+.card .icona {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.numero {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.label {
+    margin-top: 4px;
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.stato-card {
+    margin-top: 10px;
+}
+
+.camere {
+    grid-column: 1 / -1;
+}
+
+.alert {
+    background: var(--red-bg);
+    border: 1px solid var(--red);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.alert-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.alert-testo strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.alert-testo span {
+    color: #d7c2c2;
+    font-size: 14px;
+}
+
+.zone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.zona {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 18px;
+    padding: 20px 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.zona:active {
+    transform: scale(.97);
+}
+
+.zona .emoji {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+
+/* PAGINA ZONA */
+
+.zona-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 18px;
+}
+
+.back-button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--card);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.zona-titolo {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+
+/* RIEPILOGO */
+
+.riepilogo {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.riepilogo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.riepilogo-titolo {
+    font-weight: 800;
+}
+
+.riepilogo-ok {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.riepilogo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.dato {
+    background: var(--card2);
+    border-radius: 14px;
+    padding: 13px;
+}
+
+.dato-label {
+    color: var(--secondary);
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.dato-valore {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+/* LUCI */
+
+.controlli-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+}
+
+.device-button {
+    width: 100%;
+    min-height: 120px;
+    border-radius: 17px;
+    padding: 12px 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.device-button:active {
+    transform: scale(.96);
+}
+
+.device-icon {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.device-name {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.device-state {
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.stato-on {
+    background: var(--green-bg);
+    border: 2px solid var(--green);
+}
+
+.stato-off {
+    background: var(--grey-bg);
+    border: 2px solid var(--grey);
+}
+
+.stato-working {
+    background: var(--yellow-bg);
+    border: 2px solid var(--yellow);
+}
+
+.stato-error {
+    background: var(--red-bg);
+    border: 2px solid var(--red);
+}
+
+
+/* SPORTELLI */
+
+.sportello {
+    background: var(--card);
+    border-radius: 17px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.sportello-comando {
+    width: 100%;
+    min-height: 112px;
+    padding: 12px 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.sportello-comando.bloccato {
+    opacity: .55;
+    cursor: default;
+}
+
+.auto-row {
+    display: block;
+    border-top: 1px solid var(--border);
+    padding: 11px 2px;
+    text-align: center;
+    background: var(--card2);
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.auto-row input {
+    transform: scale(1.15);
+    margin-right: 4px;
+}
+
+
+/* CAMERE */
+
+.camere-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.camera-button {
+    min-height: 100px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--card);
+    cursor: pointer;
+}
+
+.camera-button:active {
+    transform: scale(.97);
+}
+
+.camera-icon {
+    font-size: 28px;
+    margin-bottom: 7px;
+}
+
+.camera-name {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.camera-status {
+    margin-top: 8px;
+}
+
+
+/* CAMERA DEMO */
+
+#cameraDemo {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.camera-demo-box {
+    width: 100%;
+    max-width: 500px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 25px;
+    text-align: center;
+}
+
+.camera-demo-icon {
+    font-size: 55px;
+}
+
+.camera-demo-title {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.camera-demo-text {
+    margin-top: 8px;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.camera-close {
+    width: 100%;
+    height: 48px;
+    margin-top: 25px;
+    border: 0;
+    border-radius: 13px;
+    background: var(--card2);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+@media(max-width:390px) {
     .app {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 22px 16px 40px;
-    }
-
-    .titolo-sezione {
-      margin: 28px 2px 12px;
-      font-size: 14px;
-      font-weight: 800;
-      color: #777;
-      letter-spacing: 1px;
-    }
-
-    .dot-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-
-    /* =========================
-       HOME
-       ========================= */
-
-    header {
-      margin-bottom: 24px;
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 15px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 28px;
-      font-weight: 800;
-    }
-
-    #data {
-      margin-top: 6px;
-      color: #747b77;
-      font-size: 15px;
-    }
-
-    .logout {
-      border: 0;
-      background: #e5e8e6;
-      color: #555;
-      border-radius: 10px;
-      padding: 8px 11px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .meteo {
-      margin-top: 18px;
-      background: white;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .meteo-principale {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .meteo-icona {
-      font-size: 38px;
-    }
-
-    .temperatura {
-      font-size: 30px;
-      font-weight: 800;
-    }
-
-    .umidita {
-      margin-top: 5px;
-      color: #6f7672;
-    }
-
-    .system {
-      margin-top: 16px;
-      padding: 14px 18px;
-      background: white;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-      font-weight: 700;
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .indicatori {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px 14px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .card .icona {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    .numero {
-      font-size: 30px;
-      font-weight: 800;
-    }
-
-    .label {
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #666;
-    }
-
-    .stato-card {
-      margin-top: 10px;
-    }
-
-    .camere {
-      grid-column: 1 / -1;
-    }
-
-    .alert {
-      margin-top: 12px;
-      background: white;
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .alert-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .alert-testo strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .alert-testo span {
-      font-size: 14px;
-      color: #666;
-    }
-
-    .zone {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .zona {
-      border: 0;
-      background: white;
-      border-radius: 18px;
-      padding: 20px 10px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-      font-weight: 800;
-      cursor: pointer;
-      color: var(--testo);
-      font-size: 14px;
-    }
-
-    .zona:active {
-      transform: scale(0.98);
-    }
-
-    .zona .emoji {
-      display: block;
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-
-    /* =========================
-       PAGINA ZONA
-       ========================= */
-
-    .zona-header {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin-bottom: 18px;
-    }
-
-    .back-button {
-      width: 42px;
-      height: 42px;
-      border: 0;
-      border-radius: 13px;
-      background: white;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .zona-titolo {
-      font-size: 26px;
-      font-weight: 800;
-    }
-
-
-    /* =========================
-       RIASSUNTO CONIGLI
-       ========================= */
-
-    .riepilogo {
-      background: white;
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .riepilogo-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 17px;
-    }
-
-    .riepilogo-titolo {
-      font-weight: 800;
-      font-size: 17px;
-    }
-
-    .riepilogo-ok {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .riepilogo-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .dato {
-      background: #f6f7f6;
-      border-radius: 14px;
-      padding: 13px;
-    }
-
-    .dato-label {
-      color: #777;
-      font-size: 12px;
-      margin-bottom: 5px;
-    }
-
-    .dato-valore {
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-
-    /* =========================
-       PULSANTI DISPOSITIVI
-       ========================= */
-
-    .controlli-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .device-button {
-      min-height: 118px;
-      border: 0;
-      border-radius: 18px;
-      padding: 12px 6px;
-      cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-      transition: transform 0.1s;
-      color: var(--testo);
-    }
-
-    .device-button:active {
-      transform: scale(0.97);
-    }
-
-    .device-icon {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-
-    .device-name {
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 7px;
-    }
-
-    .device-state {
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .stato-on {
-      background: var(--verde-bg);
-      border: 2px solid var(--verde);
-    }
-
-    .stato-off {
-      background: var(--grigio-bg);
-      border: 2px solid var(--grigio);
-    }
-
-    .stato-working {
-      background: var(--giallo-bg);
-      border: 2px solid var(--giallo);
-    }
-
-    .stato-error {
-      background: var(--rosso-bg);
-      border: 2px solid var(--rosso);
-    }
-
-
-    /* =========================
-       SPORTELLI
-       ========================= */
-
-    .sportello {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .sportello-comando {
-      width: 100%;
-      min-height: 112px;
-      border: 0;
-      padding: 12px 6px;
-      cursor: pointer;
-      color: var(--testo);
-    }
-
-    .sportello-comando.bloccato {
-      cursor: default;
-      opacity: 0.62;
-    }
-
-    .auto-row {
-      border-top: 1px solid #e3e5e4;
-      padding: 10px 5px;
-      text-align: center;
-      background: white;
-      font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .auto-row input {
-      margin-right: 5px;
-      transform: scale(1.15);
-    }
-
-
-    /* =========================
-       TELECAMERE
-       ========================= */
-
-    .camere-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .camera-button {
-      min-height: 95px;
-      border: 0;
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-      cursor: pointer;
-      color: var(--testo);
-    }
-
-    .camera-button:active {
-      transform: scale(0.98);
-    }
-
-    .camera-icon {
-      font-size: 27px;
-      margin-bottom: 7px;
-    }
-
-    .camera-name {
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .camera-status {
-      margin-top: 8px;
-    }
-
-
-    /* =========================
-       MESSAGGIO CAMERA DEMO
-       ========================= */
-
-    #cameraDemo {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.72);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 100;
-    }
-
-    .camera-demo-box {
-      width: 100%;
-      max-width: 500px;
-      background: #171a18;
-      color: white;
-      border-radius: 22px;
-      padding: 25px;
-      text-align: center;
-    }
-
-    .camera-demo-icon {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
-
-    .camera-demo-title {
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .camera-demo-text {
-      color: #bbb;
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    .camera-close {
-      width: 100%;
-      margin-top: 25px;
-      height: 48px;
-      border: 0;
-      border-radius: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-
-    @media (max-width: 390px) {
-      .device-name {
-        font-size: 12px;
-      }
-
-      .device-state {
-        font-size: 11px;
-      }
-
-      .app {
         padding-left: 12px;
         padding-right: 12px;
-      }
     }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- LOGIN -->
+<!-- LOGIN -->
 
-  <section id="loginScreen">
+<section id="loginScreen">
+<div class="login-box">
 
-    <div class="login-box">
+    <div class="login-icon">🌱</div>
 
-      <div class="login-icon">🌱</div>
+    <h1>ORTO p.g.a.</h1>
 
-      <h1>ORTO p.g.a.</h1>
-
-      <div class="login-subtitle">
+    <div class="login-subtitle">
         Controllo allevamento
-      </div>
+    </div>
 
-      <label class="pin-label" for="pinInput">
+    <label class="pin-label">
         Inserisci PIN
-      </label>
+    </label>
 
-      <input
+    <input
         id="pinInput"
         type="password"
         inputmode="numeric"
-        pattern="[0-9]*"
         maxlength="4"
         autocomplete="off"
-        autofocus
-      >
+    >
 
-      <button id="loginButton">
+    <button id="loginButton">
         ENTRA
-      </button>
+    </button>
 
-      <div id="pinError"></div>
+    <div id="pinError"></div>
+
+</div>
+</section>
+
+
+<!-- APP -->
+
+<section id="appScreen">
+
+
+<!-- HOME -->
+
+<div id="homePage" class="pagina attiva">
+<main class="app">
+
+    <div class="header-top">
+
+        <div>
+            <h1>ORTO p.g.a.</h1>
+            <div id="data"></div>
+        </div>
+
+        <button
+            class="logout"
+            id="logoutButton"
+        >
+            ESCI
+        </button>
 
     </div>
 
-  </section>
 
+    <div class="meteo">
 
-  <!-- APP -->
+        <div class="meteo-principale">
 
-  <section id="appScreen">
-
-
-    <!-- =========================
-         HOME
-         ========================= -->
-
-    <div id="homePage" class="pagina attiva">
-
-      <main class="app">
-
-        <header>
-
-          <div class="header-top">
-
-            <div>
-              <h1>ORTO p.g.a.</h1>
-              <div id="data"></div>
+            <div class="meteo-icona">
+                🌤️
             </div>
 
-            <button class="logout" id="logoutButton">
-              ESCI
-            </button>
-
-          </div>
-
-
-          <div class="meteo">
-
-            <div class="meteo-principale">
-
-              <div class="meteo-icona">
-                🌤️
-              </div>
-
-              <div>
+            <div>
 
                 <div class="temperatura">
-                  18°C
+                    18°C
                 </div>
 
                 <div class="umidita">
-                  Umidità 64% · Parzialmente nuvoloso
+                    Umidità 64% · Parzialmente nuvoloso
                 </div>
 
-              </div>
-
             </div>
 
-          </div>
+        </div>
+
+    </div>
 
 
-          <div class="system">
+    <div class="system">
 
-            <span>SYSTEM</span>
+        <span>SYSTEM</span>
 
-            <div class="status">
-              <span class="dot verde"></span>
-              <span>ONLINE</span>
+        <div class="status">
+            <span class="dot verde"></span>
+            ONLINE
+        </div>
+
+    </div>
+
+
+    <div class="titolo-sezione">
+        STATO GENERALE
+    </div>
+
+
+    <section class="indicatori">
+
+        <div class="card">
+
+            <div class="icona">💡</div>
+
+            <div
+                class="numero"
+                id="homeLuciAccese"
+            >
+                4
             </div>
 
-          </div>
+            <div class="label">
+                LUCI ACCESE
+            </div>
 
-        </header>
+            <div class="stato-card">
+                <span class="dot verde"></span>
+            </div>
 
-
-        <div class="titolo-sezione">
-          STATO GENERALE
         </div>
 
 
-        <section class="indicatori">
+        <div class="card">
 
-          <div class="card">
+            <div class="icona">🚪</div>
 
-            <div class="icona">
-              💡
-            </div>
-
-            <div class="numero" id="homeLuciAccese">
-              4
-            </div>
-
-            <div class="label">
-              LUCI ACCESE
-            </div>
-
-            <div class="stato-card">
-              <span class="dot verde"></span>
-            </div>
-
-          </div>
-
-
-          <div class="card">
-
-            <div class="icona">
-              🚪
-            </div>
-
-            <div class="numero" id="homePorteAperte">
-              2
+            <div
+                class="numero"
+                id="homePorteAperte"
+            >
+                2
             </div>
 
             <div class="label">
-              PORTE APERTE
+                PORTE APERTE
             </div>
 
             <div class="stato-card">
-              <span class="dot verde"></span>
+                <span class="dot verde"></span>
             </div>
 
-          </div>
+        </div>
 
 
-          <div class="card camere">
+        <div class="card camere">
 
-            <div class="icona">
-              📷
-            </div>
+            <div class="icona">📷</div>
 
             <div class="numero">
-              6 / 6
+                6 / 6
             </div>
 
             <div class="label">
-              CAMERE ONLINE
+                CAMERE ONLINE
             </div>
 
             <div class="stato-card">
-              <span class="dot verde"></span>
+                <span class="dot verde"></span>
             </div>
 
-          </div>
-
-        </section>
-
-
-        <div class="titolo-sezione">
-          ALLERT
         </div>
 
+    </section>
 
-        <section class="alert">
 
-          <div class="alert-item">
+    <div class="titolo-sezione">
+        ALLERT
+    </div>
+
+    <section class="alert">
+
+        <div class="alert-item">
 
             <span class="dot rosso"></span>
 
             <div class="alert-testo">
 
-              <strong>
-                POLLAIO · LUCE 2
-              </strong>
+                <strong>
+                    POLLAIO · LUCE 2
+                </strong>
 
-              <span>
-                Accesa fuori dall'orario previsto
-              </span>
+                <span>
+                    Accesa fuori dall'orario previsto
+                </span>
 
             </div>
 
-          </div>
-
-        </section>
-
-
-        <div class="titolo-sezione">
-          ZONE
         </div>
 
+    </section>
 
-        <section class="zone">
 
-          <button
+    <div class="titolo-sezione">
+        ZONE
+    </div>
+
+
+    <section class="zone">
+
+        <button
             class="zona"
             onclick="apriPagina('conigliPage')"
-          >
+        >
             <span class="emoji">🐇</span>
             CONIGLI
-          </button>
+        </button>
 
-          <button class="zona">
+        <button class="zona">
             <span class="emoji">🐔</span>
             POLLAIO
-          </button>
+        </button>
 
-          <button class="zona">
+        <button class="zona">
             <span class="emoji">🐦</span>
             QUAGLIE
-          </button>
+        </button>
 
-          <button class="zona">
+        <button class="zona">
             <span class="emoji">⚙️</span>
             GENERALE
-          </button>
+        </button>
 
-        </section>
+    </section>
 
-      </main>
+</main>
+</div>
+
+
+<!-- CONIGLI -->
+
+<div id="conigliPage" class="pagina">
+<main class="app">
+
+    <div class="zona-header">
+
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
+            ‹
+        </button>
+
+        <div class="zona-titolo">
+            🐇 CONIGLI
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         CONIGLI
-         ========================= -->
+    <section class="riepilogo">
 
-    <div id="conigliPage" class="pagina">
-
-      <main class="app">
-
-        <div class="zona-header">
-
-          <button
-            class="back-button"
-            onclick="apriPagina('homePage')"
-          >
-            ‹
-          </button>
-
-          <div class="zona-titolo">
-            🐇 CONIGLI
-          </div>
-
-        </div>
-
-
-        <!-- RIEPILOGO -->
-
-        <section class="riepilogo">
-
-          <div class="riepilogo-header">
+        <div class="riepilogo-header">
 
             <div class="riepilogo-titolo">
-              STATO GENERALE
+                STATO GENERALE
             </div>
 
             <div class="riepilogo-ok">
-              <span class="dot verde"></span>
-              TUTTO OK
+                <span class="dot verde"></span>
+                TUTTO OK
             </div>
 
-          </div>
-
-
-          <div class="riepilogo-grid">
-
-            <div class="dato">
-              <div class="dato-label">
-                🌡 TEMPERATURA
-              </div>
-              <div class="dato-valore">
-                18,5°C
-              </div>
-            </div>
-
-            <div class="dato">
-              <div class="dato-label">
-                💧 ACQUA
-              </div>
-              <div class="dato-valore">
-                OK
-              </div>
-            </div>
-
-            <div class="dato">
-              <div class="dato-label">
-                💡 LUCI
-              </div>
-              <div
-                class="dato-valore"
-                id="riepilogoLuci"
-              >
-                2 / 3 accese
-              </div>
-            </div>
-
-            <div class="dato">
-              <div class="dato-label">
-                🚪 SPORTELLI
-              </div>
-              <div
-                class="dato-valore"
-                id="riepilogoSportelli"
-              >
-                2 / 3 aperti
-              </div>
-            </div>
-
-            <div class="dato">
-              <div class="dato-label">
-                📷 CAMERE
-              </div>
-              <div class="dato-valore">
-                2 / 2 online
-              </div>
-            </div>
-
-          </div>
-
-        </section>
-
-
-        <!-- LUCI -->
-
-        <div class="titolo-sezione">
-          LUCI
         </div>
 
-        <section class="controlli-grid">
 
-          <button
+        <div class="riepilogo-grid">
+
+            <div class="dato">
+                <div class="dato-label">
+                    🌡 TEMPERATURA
+                </div>
+                <div class="dato-valore">
+                    18,5°C
+                </div>
+            </div>
+
+            <div class="dato">
+                <div class="dato-label">
+                    💧 ACQUA
+                </div>
+                <div class="dato-valore">
+                    OK
+                </div>
+            </div>
+
+            <div class="dato">
+                <div class="dato-label">
+                    💡 LUCI
+                </div>
+                <div
+                    class="dato-valore"
+                    id="riepilogoLuci"
+                ></div>
+            </div>
+
+            <div class="dato">
+                <div class="dato-label">
+                    🚪 SPORTELLI
+                </div>
+                <div
+                    class="dato-valore"
+                    id="riepilogoSportelli"
+                ></div>
+            </div>
+
+            <div class="dato">
+                <div class="dato-label">
+                    📷 CAMERE
+                </div>
+                <div class="dato-valore">
+                    2 / 2 online
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="titolo-sezione">
+        LUCI
+    </div>
+
+    <section class="controlli-grid">
+
+        <button
             id="luce1"
             class="device-button"
             onclick="toggleLuce(1)"
-          >
-          </button>
+        ></button>
 
-          <button
+        <button
             id="luce2"
             class="device-button"
             onclick="toggleLuce(2)"
-          >
-          </button>
+        ></button>
 
-          <button
+        <button
             id="luce3"
             class="device-button"
             onclick="toggleLuce(3)"
-          >
-          </button>
+        ></button>
 
-        </section>
+    </section>
 
 
-        <!-- SPORTELLI -->
+    <div class="titolo-sezione">
+        SPORTELLI
+    </div>
 
-        <div class="titolo-sezione">
-          SPORTELLI
+    <section class="controlli-grid">
+
+        <div class="sportello">
+
+            <button
+                id="sportello1"
+                class="sportello-comando"
+                onclick="toggleSportello(1)"
+            ></button>
+
+            <label class="auto-row">
+                <input
+                    id="auto1"
+                    type="checkbox"
+                    onchange="cambiaAuto(1)"
+                >
+                AUTO
+            </label>
+
         </div>
 
-        <section class="controlli-grid">
 
-          <div class="sportello">
-
-            <button
-              id="sportello1"
-              class="sportello-comando"
-              onclick="toggleSportello(1)"
-            >
-            </button>
-
-            <label class="auto-row">
-              <input
-                id="auto1"
-                type="checkbox"
-                checked
-                onchange="cambiaAuto(1)"
-              >
-              AUTO
-            </label>
-
-          </div>
-
-
-          <div class="sportello">
+        <div class="sportello">
 
             <button
-              id="sportello2"
-              class="sportello-comando"
-              onclick="toggleSportello(2)"
-            >
-            </button>
+                id="sportello2"
+                class="sportello-comando"
+                onclick="toggleSportello(2)"
+            ></button>
 
             <label class="auto-row">
-              <input
-                id="auto2"
-                type="checkbox"
-                onchange="cambiaAuto(2)"
-              >
-              AUTO
+                <input
+                    id="auto2"
+                    type="checkbox"
+                    onchange="cambiaAuto(2)"
+                >
+                AUTO
             </label>
 
-          </div>
-
-
-          <div class="sportello">
-
-            <button
-              id="sportello3"
-              class="sportello-comando"
-              onclick="toggleSportello(3)"
-            >
-            </button>
-
-            <label class="auto-row">
-              <input
-                id="auto3"
-                type="checkbox"
-                checked
-                onchange="cambiaAuto(3)"
-              >
-              AUTO
-            </label>
-
-          </div>
-
-        </section>
-
-
-        <!-- TELECAMERE -->
-
-        <div class="titolo-sezione">
-          TELECAMERE
         </div>
 
-        <section class="camere-grid">
 
-          <button
+        <div class="sportello">
+
+            <button
+                id="sportello3"
+                class="sportello-comando"
+                onclick="toggleSportello(3)"
+            ></button>
+
+            <label class="auto-row">
+                <input
+                    id="auto3"
+                    type="checkbox"
+                    onchange="cambiaAuto(3)"
+                >
+                AUTO
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <div class="titolo-sezione">
+        TELECAMERE
+    </div>
+
+    <section class="camere-grid">
+
+        <button
             class="camera-button"
             onclick="apriCamera('CAMERA 1')"
-          >
-
-            <div class="camera-icon">
-              📷
-            </div>
-
-            <div class="camera-name">
-              CAMERA 1
-            </div>
-
+        >
+            <div class="camera-icon">📷</div>
+            <div class="camera-name">CAMERA 1</div>
             <div class="camera-status">
-              <span class="dot verde"></span>
+                <span class="dot verde"></span>
             </div>
+        </button>
 
-          </button>
 
-
-          <button
+        <button
             class="camera-button"
             onclick="apriCamera('CAMERA 2')"
-          >
-
-            <div class="camera-icon">
-              📷
-            </div>
-
-            <div class="camera-name">
-              CAMERA 2
-            </div>
-
+        >
+            <div class="camera-icon">📷</div>
+            <div class="camera-name">CAMERA 2</div>
             <div class="camera-status">
-              <span class="dot verde"></span>
+                <span class="dot verde"></span>
             </div>
+        </button>
 
-          </button>
+    </section>
 
-        </section>
+</main>
+</div>
 
-      </main>
+</section>
 
+
+<!-- CAMERA DEMO -->
+
+<div id="cameraDemo">
+
+<div class="camera-demo-box">
+
+    <div class="camera-demo-icon">
+        📷
     </div>
 
-  </section>
-
-
-  <!-- FINTA VISTA CAMERA -->
-
-  <div id="cameraDemo">
-
-    <div class="camera-demo-box">
-
-      <div class="camera-demo-icon">
-        📷
-      </div>
-
-      <div
-        class="camera-demo-title"
+    <div
         id="cameraDemoTitle"
-      >
+        class="camera-demo-title"
+    >
         CAMERA
-      </div>
+    </div>
 
-      <div class="camera-demo-text">
-        Qui verrà visualizzato il flusso video
-        della telecamera.
-      </div>
+    <div class="camera-demo-text">
+        Qui verrà visualizzato il flusso video della telecamera.
+    </div>
 
-      <button
+    <button
         class="camera-close"
         onclick="chiudiCamera()"
-      >
+    >
         CHIUDI
-      </button>
+    </button>
 
-    </div>
-
-  </div>
-
-
-  <script>
-
-    /* =========================
-       PIN DEMO
-       ========================= */
-
-    const PIN_CORRETTO = "5588";
-
-    const loginScreen =
-      document.getElementById("loginScreen");
-
-    const appScreen =
-      document.getElementById("appScreen");
-
-    const pinInput =
-      document.getElementById("pinInput");
-
-    const pinError =
-      document.getElementById("pinError");
+</div>
+</div>
 
 
-    function mostraApp() {
+<script>
 
-      loginScreen.style.display = "none";
-      appScreen.style.display = "block";
+/* =============================
+   DATI SIMULATI
+   IMPORTANTE:
+   vengono creati PRIMA di
+   aggiornare l'interfaccia.
+   ============================= */
 
-      sessionStorage.setItem(
+const luci = [
+    true,
+    false,
+    true
+];
+
+const luciInMovimento = [
+    false,
+    false,
+    false
+];
+
+const sportelli = [
+    true,
+    false,
+    true
+];
+
+const sportelliInMovimento = [
+    false,
+    false,
+    false
+];
+
+const autoSportelli = [
+    true,
+    false,
+    true
+];
+
+
+/* =============================
+   PIN
+   ============================= */
+
+const PIN_CORRETTO = "5588";
+
+const loginScreen =
+    document.getElementById("loginScreen");
+
+const appScreen =
+    document.getElementById("appScreen");
+
+const pinInput =
+    document.getElementById("pinInput");
+
+const pinError =
+    document.getElementById("pinError");
+
+
+function mostraApp() {
+
+    loginScreen.style.display = "none";
+    appScreen.style.display = "block";
+
+    sessionStorage.setItem(
         "ortoAccesso",
         "consentito"
-      );
+    );
 
-      aggiornaInterfaccia();
-    }
+    aggiornaInterfaccia();
+}
 
 
-    function mostraLogin() {
+function mostraLogin() {
 
-      appScreen.style.display = "none";
-      loginScreen.style.display = "flex";
+    appScreen.style.display = "none";
+    loginScreen.style.display = "flex";
 
-      pinInput.value = "";
-      pinError.textContent = "";
-
-      sessionStorage.removeItem(
+    sessionStorage.removeItem(
         "ortoAccesso"
-      );
+    );
 
-      apriPagina("homePage");
+    pinInput.value = "";
+    pinError.textContent = "";
 
-      setTimeout(() => {
-        pinInput.focus();
-      }, 100);
-    }
+    apriPagina("homePage");
+}
 
 
-    function verificaPin() {
+function verificaPin() {
 
-      if (pinInput.value === PIN_CORRETTO) {
+    if (pinInput.value === PIN_CORRETTO) {
 
         pinError.textContent = "";
         mostraApp();
 
-      } else {
+    } else {
 
         pinError.textContent =
-          "PIN non corretto";
+            "PIN non corretto";
 
         pinInput.value = "";
         pinInput.focus();
-
-      }
-
     }
+}
 
 
-    document
-      .getElementById("loginButton")
-      .addEventListener(
+document
+    .getElementById("loginButton")
+    .addEventListener(
         "click",
         verificaPin
-      );
-
-
-    pinInput.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (event.key === "Enter") {
-          verificaPin();
-        }
-
-      }
     );
 
 
-    document
-      .getElementById("logoutButton")
-      .addEventListener(
+pinInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            verificaPin();
+        }
+    }
+);
+
+
+document
+    .getElementById("logoutButton")
+    .addEventListener(
         "click",
         mostraLogin
-      );
+    );
 
 
-    if (
-      sessionStorage.getItem("ortoAccesso")
-      === "consentito"
-    ) {
+/* =============================
+   DATA
+   ============================= */
 
-      mostraApp();
+const oggi = new Date();
 
-    }
-
-
-    /* =========================
-       DATA
-       ========================= */
-
-    const oggi = new Date();
-
-    const dataFormattata =
-      oggi.toLocaleDateString(
+const dataFormattata =
+    oggi.toLocaleDateString(
         "it-IT",
         {
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-          year: "numeric"
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
         }
-      );
+    );
 
-    document
-      .getElementById("data")
-      .textContent =
+document
+    .getElementById("data")
+    .textContent =
         dataFormattata
-          .charAt(0)
-          .toUpperCase()
+            .charAt(0)
+            .toUpperCase()
         +
         dataFormattata.slice(1);
 
 
-    /* =========================
-       NAVIGAZIONE
-       ========================= */
+/* =============================
+   NAVIGAZIONE
+   ============================= */
 
-    function apriPagina(idPagina) {
+function apriPagina(idPagina) {
 
-      document
+    document
         .querySelectorAll(".pagina")
-        .forEach(pagina => {
-          pagina.classList.remove("attiva");
+        .forEach(function(pagina) {
+            pagina.classList.remove("attiva");
         });
 
-      document
+    document
         .getElementById(idPagina)
         .classList.add("attiva");
 
-      window.scrollTo(0, 0);
+    window.scrollTo(0,0);
 
-      aggiornaInterfaccia();
-    }
-
-
-    /* =========================
-       DATI SIMULATI
-       ========================= */
-
-    const luci = [
-      true,
-      false,
-      true
-    ];
-
-    const sportelli = [
-      true,
-      false,
-      true
-    ];
-
-    const autoSportelli = [
-      true,
-      false,
-      true
-    ];
-
-    const luciInMovimento = [
-      false,
-      false,
-      false
-    ];
-
-    const sportelliInMovimento = [
-      false,
-      false,
-      false
-    ];
+    aggiornaInterfaccia();
+}
 
 
-    /* =========================
-       LUCI
-       ========================= */
+/* =============================
+   LUCI
+   ============================= */
 
-    function toggleLuce(numero) {
+function toggleLuce(numero) {
 
-      const indice = numero - 1;
+    const i = numero - 1;
 
-      if (luciInMovimento[indice]) {
+    if (luciInMovimento[i]) {
         return;
-      }
-
-      luciInMovimento[indice] = true;
-
-      aggiornaInterfaccia();
-
-      setTimeout(() => {
-
-        luci[indice] =
-          !luci[indice];
-
-        luciInMovimento[indice] =
-          false;
-
-        aggiornaInterfaccia();
-
-      }, 700);
     }
 
-
-    /* =========================
-       SPORTELLI
-       ========================= */
-
-    function cambiaAuto(numero) {
-
-      const indice = numero - 1;
-
-      autoSportelli[indice] =
-        document
-          .getElementById(
-            "auto" + numero
-          )
-          .checked;
-
-      aggiornaInterfaccia();
-    }
-
-
-    function toggleSportello(numero) {
-
-      const indice = numero - 1;
-
-      if (
-        autoSportelli[indice] ||
-        sportelliInMovimento[indice]
-      ) {
-        return;
-      }
-
-      sportelliInMovimento[indice] =
-        true;
-
-      aggiornaInterfaccia();
-
-      setTimeout(() => {
-
-        sportelli[indice] =
-          !sportelli[indice];
-
-        sportelliInMovimento[indice] =
-          false;
-
-        aggiornaInterfaccia();
-
-      }, 1200);
-    }
-
-
-    /* =========================
-       AGGIORNAMENTO GRAFICA
-       ========================= */
-
-    function aggiornaInterfaccia() {
-
-      aggiornaLuci();
-      aggiornaSportelli();
-      aggiornaRiepilogo();
-    }
-
-
-    function aggiornaLuci() {
-
-      luci.forEach(
-        (accesa, indice) => {
-
-          const numero = indice + 1;
-
-          const pulsante =
-            document.getElementById(
-              "luce" + numero
-            );
-
-          if (!pulsante) {
-            return;
-          }
-
-          pulsante.className =
-            "device-button";
-
-          if (
-            luciInMovimento[indice]
-          ) {
-
-            pulsante.classList.add(
-              "stato-working"
-            );
-
-            pulsante.innerHTML = `
-              <div class="device-icon">💡</div>
-              <div class="device-name">
-                LUCE ${numero}
-              </div>
-              <div class="device-state">
-                CAMBIO STATO...
-              </div>
-            `;
-
-          } else if (accesa) {
-
-            pulsante.classList.add(
-              "stato-on"
-            );
-
-            pulsante.innerHTML = `
-              <div class="device-icon">💡</div>
-              <div class="device-name">
-                LUCE ${numero}
-              </div>
-              <div class="device-state">
-                ACCESA
-              </div>
-            `;
-
-          } else {
-
-            pulsante.classList.add(
-              "stato-off"
-            );
-
-            pulsante.innerHTML = `
-              <div class="device-icon">💡</div>
-              <div class="device-name">
-                LUCE ${numero}
-              </div>
-              <div class="device-state">
-                SPENTA
-              </div>
-            `;
-
-          }
-
-        }
-      );
-    }
-
-
-    function aggiornaSportelli() {
-
-      sportelli.forEach(
-        (aperto, indice) => {
-
-          const numero = indice + 1;
-
-          const pulsante =
-            document.getElementById(
-              "sportello" + numero
-            );
-
-          if (!pulsante) {
-            return;
-          }
-
-          const auto =
-            autoSportelli[indice];
-
-          document
-            .getElementById(
-              "auto" + numero
-            )
-            .checked = auto;
-
-          pulsante.className =
-            "sportello-comando";
-
-          if (auto) {
-            pulsante.classList.add(
-              "bloccato"
-            );
-          }
-
-          if (
-            sportelliInMovimento[indice]
-          ) {
-
-            pulsante.classList.add(
-              "stato-working"
-            );
-
-            pulsante.innerHTML = `
-              <div class="device-icon">🚪</div>
-              <div class="device-name">
-                SPORTELLO ${numero}
-              </div>
-              <div class="device-state">
-                ${
-                  aperto
-                    ? "CHIUSURA..."
-                    : "APERTURA..."
-                }
-              </div>
-            `;
-
-          } else if (aperto) {
-
-            pulsante.classList.add(
-              "stato-on"
-            );
-
-            pulsante.innerHTML = `
-              <div class="device-icon">🚪</div>
-              <div class="device-name">
-                SPORTELLO ${numero}
-              </div>
-              <div class="device-state">
-                APERTO
-              </div>
-            `;
-
-          } else {
-
-            pulsante.classList.add(
-              "stato-off"
-            );
-
-            pulsante.innerHTML = `
-              <div class="device-icon">🚪</div>
-              <div class="device-name">
-                SPORTELLO ${numero}
-              </div>
-              <div class="device-state">
-                CHIUSO
-              </div>
-            `;
-
-          }
-
-        }
-      );
-    }
-
-
-    function aggiornaRiepilogo() {
-
-      const numeroLuci =
-        luci.filter(
-          stato => stato
-        ).length;
-
-      const numeroSportelli =
-        sportelli.filter(
-          stato => stato
-        ).length;
-
-
-      const riepilogoLuci =
-        document.getElementById(
-          "riepilogoLuci"
-        );
-
-      const riepilogoSportelli =
-        document.getElementById(
-          "riepilogoSportelli"
-        );
-
-
-      if (riepilogoLuci) {
-
-        riepilogoLuci.textContent =
-          numeroLuci +
-          " / 3 accese";
-
-      }
-
-
-      if (riepilogoSportelli) {
-
-        riepilogoSportelli.textContent =
-          numeroSportelli +
-          " / 3 aperti";
-
-      }
-
-
-      /*
-       Per ora la HOME comprende anche
-       dispositivi simulati delle altre zone.
-      */
-
-      document
-        .getElementById(
-          "homeLuciAccese"
-        )
-        .textContent =
-          numeroLuci + 2;
-
-      document
-        .getElementById(
-          "homePorteAperte"
-        )
-        .textContent =
-          numeroSportelli;
-
-    }
-
-
-    /* =========================
-       TELECAMERE DEMO
-       ========================= */
-
-    function apriCamera(nome) {
-
-      document
-        .getElementById(
-          "cameraDemoTitle"
-        )
-        .textContent = nome;
-
-      document
-        .getElementById(
-          "cameraDemo"
-        )
-        .style.display = "flex";
-    }
-
-
-    function chiudiCamera() {
-
-      document
-        .getElementById(
-          "cameraDemo"
-        )
-        .style.display = "none";
-    }
-
-
-    /* PRIMO AGGIORNAMENTO */
+    luciInMovimento[i] = true;
 
     aggiornaInterfaccia();
 
-  </script>
+    setTimeout(function() {
+
+        luci[i] = !luci[i];
+
+        luciInMovimento[i] = false;
+
+        aggiornaInterfaccia();
+
+    }, 700);
+}
+
+
+/* =============================
+   AUTO SPORTELLI
+   ============================= */
+
+function cambiaAuto(numero) {
+
+    const i = numero - 1;
+
+    autoSportelli[i] =
+        document
+            .getElementById(
+                "auto" + numero
+            )
+            .checked;
+
+    aggiornaInterfaccia();
+}
+
+
+/* =============================
+   SPORTELLI
+   ============================= */
+
+function toggleSportello(numero) {
+
+    const i = numero - 1;
+
+    if (
+        autoSportelli[i] ||
+        sportelliInMovimento[i]
+    ) {
+        return;
+    }
+
+    sportelliInMovimento[i] = true;
+
+    aggiornaInterfaccia();
+
+    setTimeout(function() {
+
+        sportelli[i] =
+            !sportelli[i];
+
+        sportelliInMovimento[i] =
+            false;
+
+        aggiornaInterfaccia();
+
+    }, 1200);
+}
+
+
+/* =============================
+   GRAFICA LUCI
+   ============================= */
+
+function aggiornaLuci() {
+
+    for (
+        let i = 0;
+        i < luci.length;
+        i++
+    ) {
+
+        const numero = i + 1;
+
+        const pulsante =
+            document.getElementById(
+                "luce" + numero
+            );
+
+        if (!pulsante) {
+            continue;
+        }
+
+        pulsante.className =
+            "device-button";
+
+        let stato = "";
+        let classe = "";
+
+        if (luciInMovimento[i]) {
+
+            classe = "stato-working";
+
+            stato =
+                luci[i]
+                ? "SPEGNIMENTO..."
+                : "ACCENSIONE...";
+
+        } else if (luci[i]) {
+
+            classe = "stato-on";
+            stato = "ACCESA";
+
+        } else {
+
+            classe = "stato-off";
+            stato = "SPENTA";
+        }
+
+        pulsante.classList.add(classe);
+
+        pulsante.innerHTML =
+            '<div class="device-icon">💡</div>' +
+            '<div class="device-name">LUCE ' +
+            numero +
+            '</div>' +
+            '<div class="device-state">' +
+            stato +
+            '</div>';
+    }
+}
+
+
+/* =============================
+   GRAFICA SPORTELLI
+   ============================= */
+
+function aggiornaSportelli() {
+
+    for (
+        let i = 0;
+        i < sportelli.length;
+        i++
+    ) {
+
+        const numero = i + 1;
+
+        const pulsante =
+            document.getElementById(
+                "sportello" + numero
+            );
+
+        const checkbox =
+            document.getElementById(
+                "auto" + numero
+            );
+
+        if (!pulsante || !checkbox) {
+            continue;
+        }
+
+        checkbox.checked =
+            autoSportelli[i];
+
+        pulsante.className =
+            "sportello-comando";
+
+        if (autoSportelli[i]) {
+
+            pulsante.classList.add(
+                "bloccato"
+            );
+        }
+
+        let stato = "";
+        let classe = "";
+
+        if (
+            sportelliInMovimento[i]
+        ) {
+
+            classe =
+                "stato-working";
+
+            stato =
+                sportelli[i]
+                ? "CHIUSURA..."
+                : "APERTURA...";
+
+        } else if (
+            sportelli[i]
+        ) {
+
+            classe =
+                "stato-on";
+
+            stato =
+                "APERTO";
+
+        } else {
+
+            classe =
+                "stato-off";
+
+            stato =
+                "CHIUSO";
+        }
+
+        pulsante.classList.add(
+            classe
+        );
+
+        pulsante.innerHTML =
+            '<div class="device-icon">🚪</div>' +
+            '<div class="device-name">SPORTELLO ' +
+            numero +
+            '</div>' +
+            '<div class="device-state">' +
+            stato +
+            '</div>';
+    }
+}
+
+
+/* =============================
+   RIEPILOGO
+   ============================= */
+
+function aggiornaRiepilogo() {
+
+    const numeroLuci =
+        luci.filter(function(x) {
+            return x;
+        }).length;
+
+    const numeroSportelli =
+        sportelli.filter(function(x) {
+            return x;
+        }).length;
+
+
+    document
+        .getElementById(
+            "riepilogoLuci"
+        )
+        .textContent =
+            numeroLuci +
+            " / 3 accese";
+
+
+    document
+        .getElementById(
+            "riepilogoSportelli"
+        )
+        .textContent =
+            numeroSportelli +
+            " / 3 aperti";
+
+
+    document
+        .getElementById(
+            "homeLuciAccese"
+        )
+        .textContent =
+            numeroLuci + 2;
+
+
+    document
+        .getElementById(
+            "homePorteAperte"
+        )
+        .textContent =
+            numeroSportelli;
+}
+
+
+/* =============================
+   AGGIORNA TUTTO
+   ============================= */
+
+function aggiornaInterfaccia() {
+
+    aggiornaLuci();
+    aggiornaSportelli();
+    aggiornaRiepilogo();
+}
+
+
+/* =============================
+   CAMERE
+   ============================= */
+
+function apriCamera(nome) {
+
+    document
+        .getElementById(
+            "cameraDemoTitle"
+        )
+        .textContent = nome;
+
+    document
+        .getElementById(
+            "cameraDemo"
+        )
+        .style.display =
+            "flex";
+}
+
+
+function chiudiCamera() {
+
+    document
+        .getElementById(
+            "cameraDemo"
+        )
+        .style.display =
+            "none";
+}
+
+
+/* =============================
+   AVVIO
+   ============================= */
+
+aggiornaInterfaccia();
+
+if (
+    sessionStorage.getItem(
+        "ortoAccesso"
+    ) === "consentito"
+) {
+
+    mostraApp();
+}
+
+</script>
 
 </body>
 </html>
