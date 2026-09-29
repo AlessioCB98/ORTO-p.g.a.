@@ -17,19 +17,14 @@
     --card: #151816;
     --card2: #1c201d;
     --border: #2a2f2b;
-
     --text: #f4f6f4;
     --secondary: #9ca39e;
-
     --green: #36c55f;
     --green-bg: #173720;
-
     --yellow: #e7bd37;
     --yellow-bg: #403718;
-
     --red: #e05252;
     --red-bg: #401c1c;
-
     --grey: #747b76;
     --grey-bg: #292d2a;
 }
@@ -58,7 +53,6 @@ button {
 .giallo { background: var(--yellow); }
 .rosso { background: var(--red); }
 .grigio { background: var(--grey); }
-
 
 /* LOGIN */
 
@@ -142,7 +136,6 @@ button {
     font-weight: bold;
 }
 
-
 /* STRUTTURA */
 
 #appScreen {
@@ -171,7 +164,6 @@ button {
     font-weight: 800;
     letter-spacing: 1.2px;
 }
-
 
 /* HOME */
 
@@ -263,6 +255,16 @@ h1 {
     text-align: center;
 }
 
+.card-click {
+    cursor: pointer;
+    transition: transform .12s, border-color .12s;
+}
+
+.card-click:active {
+    transform: scale(.97);
+    border-color: var(--green);
+}
+
 .card .icona {
     font-size: 30px;
     margin-bottom: 8px;
@@ -336,7 +338,6 @@ h1 {
     margin-bottom: 8px;
 }
 
-
 /* HEADER PAGINE */
 
 .zona-header {
@@ -360,7 +361,6 @@ h1 {
     font-size: 25px;
     font-weight: 800;
 }
-
 
 /* RIEPILOGO */
 
@@ -413,7 +413,6 @@ h1 {
     font-size: 15px;
     font-weight: 800;
 }
-
 
 /* CONTROLLI */
 
@@ -472,7 +471,6 @@ h1 {
     border: 2px solid var(--red);
 }
 
-
 /* SPORTELLI */
 
 .sportello {
@@ -511,7 +509,6 @@ h1 {
     margin-right: 4px;
 }
 
-
 /* CAMERE */
 
 .camere-grid {
@@ -546,6 +543,32 @@ h1 {
     margin-top: 8px;
 }
 
+/* PAGINE TRASVERSALI */
+
+.gruppo-generale {
+    margin-bottom: 28px;
+}
+
+.gruppo-header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 2px 11px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: .7px;
+}
+
+.gruppo-emoji {
+    font-size: 20px;
+}
+
+.gruppo-count {
+    margin-left: auto;
+    color: var(--secondary);
+    font-size: 11px;
+    font-weight: 700;
+}
 
 /* GENERALE */
 
@@ -615,7 +638,6 @@ h1 {
     font-weight: 800;
 }
 
-
 /* CAMERA OVERLAY */
 
 #cameraDemo {
@@ -666,8 +688,7 @@ h1 {
     cursor: pointer;
 }
 
-
-/* MESSAGGIO */
+/* TOAST */
 
 #toast {
     position: fixed;
@@ -707,7 +728,6 @@ h1 {
 
 <body>
 
-
 <!-- LOGIN -->
 
 <section id="loginScreen">
@@ -715,7 +735,6 @@ h1 {
 <div class="login-box">
 
     <div class="login-icon">🌱</div>
-
     <h1>ORTO p.g.a.</h1>
 
     <div class="login-subtitle">
@@ -763,10 +782,7 @@ h1 {
             <div id="data"></div>
         </div>
 
-        <button
-            class="logout"
-            id="logoutButton"
-        >
+        <button class="logout" id="logoutButton">
             ESCI
         </button>
 
@@ -782,7 +798,6 @@ h1 {
             </div>
 
             <div>
-
                 <div class="temperatura">
                     18°C
                 </div>
@@ -790,7 +805,6 @@ h1 {
                 <div class="umidita">
                     Umidità 64% · Parzialmente nuvoloso
                 </div>
-
             </div>
 
         </div>
@@ -817,14 +831,14 @@ h1 {
 
     <section class="indicatori">
 
-        <div class="card">
+        <div
+            class="card card-click"
+            onclick="apriPaginaGenerale('luci')"
+        >
 
             <div class="icona">💡</div>
 
-            <div
-                class="numero"
-                id="homeLuci"
-            >
+            <div class="numero" id="homeLuci">
                 0
             </div>
 
@@ -839,14 +853,14 @@ h1 {
         </div>
 
 
-        <div class="card">
+        <div
+            class="card card-click"
+            onclick="apriPaginaGenerale('sportelli')"
+        >
 
             <div class="icona">🚪</div>
 
-            <div
-                class="numero"
-                id="homeSportelli"
-            >
+            <div class="numero" id="homeSportelli">
                 0
             </div>
 
@@ -861,14 +875,14 @@ h1 {
         </div>
 
 
-        <div class="card camere">
+        <div
+            class="card camere card-click"
+            onclick="apriPaginaGenerale('camere')"
+        >
 
             <div class="icona">📷</div>
 
-            <div
-                class="numero"
-                id="homeCamere"
-            >
+            <div class="numero" id="homeCamere">
                 0 / 0
             </div>
 
@@ -919,37 +933,22 @@ h1 {
 
     <section class="zone">
 
-        <button
-            class="zona"
-            onclick="apriZona('conigli')"
-        >
+        <button class="zona" onclick="apriZona('conigli')">
             <span class="emoji">🐇</span>
             CONIGLI
         </button>
 
-
-        <button
-            class="zona"
-            onclick="apriZona('pollaio')"
-        >
+        <button class="zona" onclick="apriZona('pollaio')">
             <span class="emoji">🐔</span>
             POLLAIO
         </button>
 
-
-        <button
-            class="zona"
-            onclick="apriZona('quaglie')"
-        >
+        <button class="zona" onclick="apriZona('quaglie')">
             <span class="emoji">🐦</span>
             QUAGLIE
         </button>
 
-
-        <button
-            class="zona"
-            onclick="apriPagina('generalePage')"
-        >
+        <button class="zona" onclick="apriPagina('generalePage')">
             <span class="emoji">⚙️</span>
             GENERALE
         </button>
@@ -961,7 +960,7 @@ h1 {
 </div>
 
 
-<!-- PAGINA ANIMALI -->
+<!-- PAGINA SINGOLA ZONA -->
 
 <div id="zonaPage" class="pagina">
 
@@ -969,17 +968,11 @@ h1 {
 
     <div class="zona-header">
 
-        <button
-            class="back-button"
-            onclick="apriPagina('homePage')"
-        >
+        <button class="back-button" onclick="apriPagina('homePage')">
             ‹
         </button>
 
-        <div
-            class="zona-titolo"
-            id="zonaTitolo"
-        ></div>
+        <div class="zona-titolo" id="zonaTitolo"></div>
 
     </div>
 
@@ -1006,12 +999,8 @@ h1 {
                 <div class="dato-label">
                     🌡 TEMPERATURA
                 </div>
-                <div
-                    class="dato-valore"
-                    id="zonaTemperatura"
-                ></div>
+                <div class="dato-valore" id="zonaTemperatura"></div>
             </div>
-
 
             <div class="dato">
                 <div class="dato-label">
@@ -1022,37 +1011,25 @@ h1 {
                 </div>
             </div>
 
-
             <div class="dato">
                 <div class="dato-label">
                     💡 LUCI
                 </div>
-                <div
-                    class="dato-valore"
-                    id="zonaRiepilogoLuci"
-                ></div>
+                <div class="dato-valore" id="zonaRiepilogoLuci"></div>
             </div>
-
 
             <div class="dato">
                 <div class="dato-label">
                     🚪 SPORTELLI
                 </div>
-                <div
-                    class="dato-valore"
-                    id="zonaRiepilogoSportelli"
-                ></div>
+                <div class="dato-valore" id="zonaRiepilogoSportelli"></div>
             </div>
-
 
             <div class="dato">
                 <div class="dato-label">
                     📷 CAMERE
                 </div>
-                <div
-                    class="dato-valore"
-                    id="zonaRiepilogoCamere"
-                ></div>
+                <div class="dato-valore" id="zonaRiepilogoCamere"></div>
             </div>
 
         </div>
@@ -1064,30 +1041,96 @@ h1 {
         LUCI
     </div>
 
-    <section
-        class="controlli-grid"
-        id="zonaLuci"
-    ></section>
+    <section class="controlli-grid" id="zonaLuci"></section>
 
 
     <div class="titolo-sezione">
         SPORTELLI
     </div>
 
-    <section
-        class="controlli-grid"
-        id="zonaSportelli"
-    ></section>
+    <section class="controlli-grid" id="zonaSportelli"></section>
 
 
     <div class="titolo-sezione">
         TELECAMERE
     </div>
 
-    <section
-        class="camere-grid"
-        id="zonaCamere"
-    ></section>
+    <section class="camere-grid" id="zonaCamere"></section>
+
+</main>
+
+</div>
+
+
+<!-- TUTTE LE LUCI -->
+
+<div id="tutteLuciPage" class="pagina">
+
+<main class="app">
+
+    <div class="zona-header">
+
+        <button class="back-button" onclick="apriPagina('homePage')">
+            ‹
+        </button>
+
+        <div class="zona-titolo">
+            💡 TUTTE LE LUCI
+        </div>
+
+    </div>
+
+    <div id="tutteLuciContenuto"></div>
+
+</main>
+
+</div>
+
+
+<!-- TUTTI GLI SPORTELLI -->
+
+<div id="tuttiSportelliPage" class="pagina">
+
+<main class="app">
+
+    <div class="zona-header">
+
+        <button class="back-button" onclick="apriPagina('homePage')">
+            ‹
+        </button>
+
+        <div class="zona-titolo">
+            🚪 TUTTI GLI SPORTELLI
+        </div>
+
+    </div>
+
+    <div id="tuttiSportelliContenuto"></div>
+
+</main>
+
+</div>
+
+
+<!-- TUTTE LE CAMERE -->
+
+<div id="tutteCamerePage" class="pagina">
+
+<main class="app">
+
+    <div class="zona-header">
+
+        <button class="back-button" onclick="apriPagina('homePage')">
+            ‹
+        </button>
+
+        <div class="zona-titolo">
+            📷 TUTTE LE CAMERE
+        </div>
+
+    </div>
+
+    <div id="tutteCamereContenuto"></div>
 
 </main>
 
@@ -1102,10 +1145,7 @@ h1 {
 
     <div class="zona-header">
 
-        <button
-            class="back-button"
-            onclick="apriPagina('homePage')"
-        >
+        <button class="back-button" onclick="apriPagina('homePage')">
             ‹
         </button>
 
@@ -1182,21 +1222,12 @@ h1 {
     <section class="livello-box">
 
         <div class="livello-top">
-
-            <span>
-                💧 LIVELLO
-            </span>
-
-            <span class="livello-percentuale">
-                78%
-            </span>
-
+            <span>💧 LIVELLO</span>
+            <span class="livello-percentuale">78%</span>
         </div>
 
         <div class="livello-barra">
-
             <div class="livello-riempimento"></div>
-
         </div>
 
     </section>
@@ -1206,10 +1237,7 @@ h1 {
         LUCI AREA SERVIZI
     </div>
 
-    <section
-        class="controlli-grid"
-        id="generaleLuci"
-    ></section>
+    <section class="controlli-grid" id="generaleLuci"></section>
 
 
     <div class="titolo-sezione">
@@ -1220,9 +1248,7 @@ h1 {
 
         <div class="info-card">
 
-            <div class="info-icon">
-                🚪
-            </div>
+            <div class="info-icon">🚪</div>
 
             <div class="info-name">
                 PORTA DEPOSITO
@@ -1238,9 +1264,7 @@ h1 {
 
         <div class="info-card">
 
-            <div class="info-icon">
-                🌡️
-            </div>
+            <div class="info-icon">🌡️</div>
 
             <div class="info-name">
                 TEMPERATURA
@@ -1284,8 +1308,9 @@ h1 {
 
         <button
             class="camera-button"
-            onclick="apriCamera('CAMERA GENERALE')"
+            onclick="apriCamera('GENERALE · CAMERA GENERALE')"
         >
+
             <div class="camera-icon">
                 📷
             </div>
@@ -1297,6 +1322,7 @@ h1 {
             <div class="camera-status">
                 <span class="dot verde"></span>
             </div>
+
         </button>
 
     </section>
@@ -1308,7 +1334,7 @@ h1 {
 </section>
 
 
-<!-- CAMERA -->
+<!-- CAMERA OVERLAY -->
 
 <div id="cameraDemo">
 
@@ -1318,10 +1344,7 @@ h1 {
         📷
     </div>
 
-    <div
-        id="cameraDemoTitle"
-        class="camera-demo-title"
-    >
+    <div id="cameraDemoTitle" class="camera-demo-title">
         CAMERA
     </div>
 
@@ -1329,10 +1352,7 @@ h1 {
         Qui verrà visualizzato il flusso video della telecamera.
     </div>
 
-    <button
-        class="camera-close"
-        onclick="chiudiCamera()"
-    >
+    <button class="camera-close" onclick="chiudiCamera()">
         CHIUDI
     </button>
 
@@ -1353,7 +1373,6 @@ h1 {
 const zone = {
 
     conigli: {
-
         nome: "CONIGLI",
         emoji: "🐇",
         temperatura: "18,5°C",
@@ -1378,7 +1397,6 @@ const zone = {
 
 
     pollaio: {
-
         nome: "POLLAIO",
         emoji: "🐔",
         temperatura: "19,2°C",
@@ -1403,7 +1421,6 @@ const zone = {
 
 
     quaglie: {
-
         nome: "QUAGLIE",
         emoji: "🐦",
         temperatura: "20,1°C",
@@ -1429,8 +1446,6 @@ const zone = {
 };
 
 
-/* GENERALE */
-
 const generale = {
 
     luci: [
@@ -1438,6 +1453,11 @@ const generale = {
         { nome: "LUCE 2", on: false, working: false },
         { nome: "LUCE 3", on: false, working: false }
     ],
+
+    camera: {
+        nome: "CAMERA GENERALE",
+        online: true
+    },
 
     frigo: true,
     incubatrice: false
@@ -1561,9 +1581,7 @@ const dataFormattata =
 document
     .getElementById("data")
     .textContent =
-        dataFormattata
-            .charAt(0)
-            .toUpperCase()
+        dataFormattata.charAt(0).toUpperCase()
         +
         dataFormattata.slice(1);
 
@@ -1583,9 +1601,11 @@ function apriPagina(id) {
             );
         });
 
+
     document
         .getElementById(id)
         .classList.add("attiva");
+
 
     window.scrollTo(0, 0);
 
@@ -1603,8 +1623,261 @@ function apriZona(nomeZona) {
 }
 
 
+function apriPaginaGenerale(tipo) {
+
+    if (tipo === "luci") {
+
+        renderTutteLuci();
+        apriPagina("tutteLuciPage");
+
+    } else if (tipo === "sportelli") {
+
+        renderTuttiSportelli();
+        apriPagina("tuttiSportelliPage");
+
+    } else if (tipo === "camere") {
+
+        renderTutteCamere();
+        apriPagina("tutteCamerePage");
+    }
+}
+
+
 /* ===================================
-   RENDER ZONA
+   HELPERS GRAFICI
+   =================================== */
+
+function creaPulsanteLuce(luce, callback) {
+
+    const button =
+        document.createElement("button");
+
+    button.className =
+        "device-button";
+
+
+    let stato = "";
+    let classe = "";
+
+
+    if (luce.working) {
+
+        classe =
+            "stato-working";
+
+        stato =
+            luce.on
+            ? "SPEGNIMENTO..."
+            : "ACCENSIONE...";
+
+    } else if (luce.on) {
+
+        classe =
+            "stato-on";
+
+        stato =
+            "ACCESA";
+
+    } else {
+
+        classe =
+            "stato-off";
+
+        stato =
+            "SPENTA";
+    }
+
+
+    button.classList.add(classe);
+
+
+    button.innerHTML =
+        '<div class="device-icon">💡</div>' +
+        '<div class="device-name">' +
+        luce.nome +
+        '</div>' +
+        '<div class="device-state">' +
+        stato +
+        '</div>';
+
+
+    button.onclick = callback;
+
+    return button;
+}
+
+
+function creaSportello(sportello, callbackComando, callbackAuto) {
+
+    const box =
+        document.createElement("div");
+
+    box.className =
+        "sportello";
+
+
+    const button =
+        document.createElement("button");
+
+    button.className =
+        "sportello-comando";
+
+
+    if (sportello.auto) {
+
+        button.classList.add(
+            "bloccato"
+        );
+    }
+
+
+    let stato = "";
+    let classe = "";
+
+
+    if (sportello.working) {
+
+        classe =
+            "stato-working";
+
+        stato =
+            sportello.open
+            ? "CHIUSURA..."
+            : "APERTURA...";
+
+    } else if (sportello.open) {
+
+        classe =
+            "stato-on";
+
+        stato =
+            "APERTO";
+
+    } else {
+
+        classe =
+            "stato-off";
+
+        stato =
+            "CHIUSO";
+    }
+
+
+    button.classList.add(classe);
+
+
+    button.innerHTML =
+        '<div class="device-icon">🚪</div>' +
+        '<div class="device-name">' +
+        sportello.nome +
+        '</div>' +
+        '<div class="device-state">' +
+        stato +
+        '</div>';
+
+
+    button.onclick =
+        callbackComando;
+
+
+    const label =
+        document.createElement("label");
+
+    label.className =
+        "auto-row";
+
+
+    const checkbox =
+        document.createElement("input");
+
+    checkbox.type =
+        "checkbox";
+
+    checkbox.checked =
+        sportello.auto;
+
+
+    checkbox.onchange =
+        function() {
+
+            callbackAuto(
+                checkbox.checked
+            );
+        };
+
+
+    label.appendChild(
+        checkbox
+    );
+
+    label.appendChild(
+        document.createTextNode(
+            " AUTO"
+        )
+    );
+
+
+    box.appendChild(
+        button
+    );
+
+    box.appendChild(
+        label
+    );
+
+    return box;
+}
+
+
+function creaPulsanteCamera(camera, titoloCompleto) {
+
+    const button =
+        document.createElement("button");
+
+    button.className =
+        "camera-button";
+
+
+    button.innerHTML =
+        '<div class="camera-icon">📷</div>' +
+        '<div class="camera-name">' +
+        camera.nome +
+        '</div>' +
+        '<div class="camera-status">' +
+        '<span class="dot ' +
+        (
+            camera.online
+            ? "verde"
+            : "rosso"
+        ) +
+        '"></span>' +
+        '</div>';
+
+
+    button.onclick =
+        function() {
+
+            if (!camera.online) {
+
+                mostraToast(
+                    "Telecamera offline"
+                );
+
+                return;
+            }
+
+            apriCamera(
+                titoloCompleto
+            );
+        };
+
+
+    return button;
+}
+
+
+/* ===================================
+   PAGINA ZONA
    =================================== */
 
 function renderZona() {
@@ -1612,10 +1885,13 @@ function renderZona() {
     const zona =
         zone[zonaAttuale];
 
+
     document
         .getElementById("zonaTitolo")
         .textContent =
-            zona.emoji + " " + zona.nome;
+            zona.emoji +
+            " " +
+            zona.nome;
 
 
     document
@@ -1627,21 +1903,27 @@ function renderZona() {
 
 
     const luciAccese =
-        zona.luci.filter(function(luce) {
-            return luce.on;
-        }).length;
+        zona.luci.filter(
+            function(luce) {
+                return luce.on;
+            }
+        ).length;
 
 
     const sportelliAperti =
-        zona.sportelli.filter(function(sportello) {
-            return sportello.open;
-        }).length;
+        zona.sportelli.filter(
+            function(sportello) {
+                return sportello.open;
+            }
+        ).length;
 
 
     const camereOnline =
-        zona.camere.filter(function(camera) {
-            return camera.online;
-        }).length;
+        zona.camere.filter(
+            function(camera) {
+                return camera.online;
+            }
+        ).length;
 
 
     document
@@ -1703,86 +1985,30 @@ function renderLuciZona() {
     zona.luci.forEach(
         function(luce, indice) {
 
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "device-button";
-
-
-            let stato = "";
-            let classe = "";
-
-
-            if (luce.working) {
-
-                classe =
-                    "stato-working";
-
-                stato =
-                    luce.on
-                    ? "SPEGNIMENTO..."
-                    : "ACCENSIONE...";
-
-            } else if (luce.on) {
-
-                classe =
-                    "stato-on";
-
-                stato =
-                    "ACCESA";
-
-            } else {
-
-                classe =
-                    "stato-off";
-
-                stato =
-                    "SPENTA";
-            }
-
-
-            button.classList.add(
-                classe
-            );
-
-
-            button.innerHTML =
-                '<div class="device-icon">💡</div>' +
-                '<div class="device-name">' +
-                luce.nome +
-                '</div>' +
-                '<div class="device-state">' +
-                stato +
-                '</div>';
-
-
-            button.onclick =
-                function() {
-
-                    toggleLuceZona(
-                        indice
-                    );
-                };
-
-
             contenitore.appendChild(
-                button
+
+                creaPulsanteLuce(
+                    luce,
+                    function() {
+
+                        toggleLuceZona(
+                            zonaAttuale,
+                            indice
+                        );
+                    }
+                )
+
             );
         }
     );
 }
 
 
-function toggleLuceZona(indice) {
-
-    const zona =
-        zone[zonaAttuale];
+function toggleLuceZona(nomeZona, indice) {
 
     const luce =
-        zona.luci[indice];
+        zone[nomeZona]
+            .luci[indice];
 
 
     if (luce.working) {
@@ -1832,155 +2058,40 @@ function renderSportelliZona() {
     zona.sportelli.forEach(
         function(sportello, indice) {
 
-            const box =
-                document.createElement(
-                    "div"
-                );
-
-            box.className =
-                "sportello";
-
-
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "sportello-comando";
-
-
-            if (sportello.auto) {
-
-                button.classList.add(
-                    "bloccato"
-                );
-            }
-
-
-            let stato = "";
-            let classe = "";
-
-
-            if (sportello.working) {
-
-                classe =
-                    "stato-working";
-
-                stato =
-                    sportello.open
-                    ? "CHIUSURA..."
-                    : "APERTURA...";
-
-            } else if (
-                sportello.open
-            ) {
-
-                classe =
-                    "stato-on";
-
-                stato =
-                    "APERTO";
-
-            } else {
-
-                classe =
-                    "stato-off";
-
-                stato =
-                    "CHIUSO";
-            }
-
-
-            button.classList.add(
-                classe
-            );
-
-
-            button.innerHTML =
-                '<div class="device-icon">🚪</div>' +
-                '<div class="device-name">' +
-                sportello.nome +
-                '</div>' +
-                '<div class="device-state">' +
-                stato +
-                '</div>';
-
-
-            button.onclick =
-                function() {
-
-                    toggleSportelloZona(
-                        indice
-                    );
-                };
-
-
-            const label =
-                document.createElement(
-                    "label"
-                );
-
-            label.className =
-                "auto-row";
-
-
-            const checkbox =
-                document.createElement(
-                    "input"
-                );
-
-            checkbox.type =
-                "checkbox";
-
-            checkbox.checked =
-                sportello.auto;
-
-
-            checkbox.onchange =
-                function() {
-
-                    sportello.auto =
-                        checkbox.checked;
-
-                    aggiornaTutto();
-                };
-
-
-            label.appendChild(
-                checkbox
-            );
-
-            label.appendChild(
-                document.createTextNode(
-                    " AUTO"
-                )
-            );
-
-
-            box.appendChild(
-                button
-            );
-
-            box.appendChild(
-                label
-            );
-
             contenitore.appendChild(
-                box
+
+                creaSportello(
+
+                    sportello,
+
+                    function() {
+
+                        toggleSportelloZona(
+                            zonaAttuale,
+                            indice
+                        );
+                    },
+
+                    function(valore) {
+
+                        sportello.auto =
+                            valore;
+
+                        aggiornaTutto();
+                    }
+                )
+
             );
         }
     );
 }
 
 
-function toggleSportelloZona(indice) {
-
-    const zona =
-        zone[zonaAttuale];
+function toggleSportelloZona(nomeZona, indice) {
 
     const sportello =
-        zona.sportelli[indice];
+        zone[nomeZona]
+            .sportelli[indice];
 
 
     if (sportello.auto) {
@@ -1998,8 +2109,7 @@ function toggleSportelloZona(indice) {
     }
 
 
-    sportello.working =
-        true;
+    sportello.working = true;
 
     aggiornaTutto();
 
@@ -2041,46 +2151,416 @@ function renderCamereZona() {
     zona.camere.forEach(
         function(camera) {
 
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "camera-button";
-
-
-            button.innerHTML =
-                '<div class="camera-icon">📷</div>' +
-                '<div class="camera-name">' +
-                camera.nome +
-                '</div>' +
-                '<div class="camera-status">' +
-                '<span class="dot ' +
-                (
-                    camera.online
-                    ? "verde"
-                    : "rosso"
-                ) +
-                '"></span>' +
-                '</div>';
-
-
-            button.onclick =
-                function() {
-
-                    apriCamera(
-                        zona.nome +
-                        " · " +
-                        camera.nome
-                    );
-                };
-
-
             contenitore.appendChild(
-                button
+
+                creaPulsanteCamera(
+                    camera,
+                    zona.nome +
+                    " · " +
+                    camera.nome
+                )
+
             );
         }
+    );
+}
+
+
+/* ===================================
+   TUTTE LE LUCI
+   =================================== */
+
+function renderTutteLuci() {
+
+    const contenitore =
+        document.getElementById(
+            "tutteLuciContenuto"
+        );
+
+    contenitore.innerHTML = "";
+
+
+    Object.entries(zone)
+        .forEach(
+            function([chiave, zona]) {
+
+                const gruppo =
+                    document.createElement(
+                        "section"
+                    );
+
+                gruppo.className =
+                    "gruppo-generale";
+
+
+                const accese =
+                    zona.luci.filter(
+                        function(luce) {
+                            return luce.on;
+                        }
+                    ).length;
+
+
+                gruppo.innerHTML =
+                    '<div class="gruppo-header">' +
+                    '<span class="gruppo-emoji">' +
+                    zona.emoji +
+                    '</span>' +
+                    zona.nome +
+                    '<span class="gruppo-count">' +
+                    accese +
+                    ' / ' +
+                    zona.luci.length +
+                    ' ACCESE</span>' +
+                    '</div>';
+
+
+                const grid =
+                    document.createElement(
+                        "div"
+                    );
+
+                grid.className =
+                    "controlli-grid";
+
+
+                zona.luci.forEach(
+                    function(luce, indice) {
+
+                        grid.appendChild(
+
+                            creaPulsanteLuce(
+                                luce,
+                                function() {
+
+                                    toggleLuceZona(
+                                        chiave,
+                                        indice
+                                    );
+                                }
+                            )
+
+                        );
+                    }
+                );
+
+
+                gruppo.appendChild(
+                    grid
+                );
+
+                contenitore.appendChild(
+                    gruppo
+                );
+            }
+        );
+
+
+    const gruppoGenerale =
+        document.createElement(
+            "section"
+        );
+
+    gruppoGenerale.className =
+        "gruppo-generale";
+
+
+    const acceseGenerale =
+        generale.luci.filter(
+            function(luce) {
+                return luce.on;
+            }
+        ).length;
+
+
+    gruppoGenerale.innerHTML =
+        '<div class="gruppo-header">' +
+        '<span class="gruppo-emoji">⚙️</span>' +
+        'GENERALE' +
+        '<span class="gruppo-count">' +
+        acceseGenerale +
+        ' / ' +
+        generale.luci.length +
+        ' ACCESE</span>' +
+        '</div>';
+
+
+    const gridGenerale =
+        document.createElement(
+            "div"
+        );
+
+    gridGenerale.className =
+        "controlli-grid";
+
+
+    generale.luci.forEach(
+        function(luce, indice) {
+
+            gridGenerale.appendChild(
+
+                creaPulsanteLuce(
+                    luce,
+                    function() {
+
+                        toggleGeneraleLuce(
+                            indice
+                        );
+                    }
+                )
+
+            );
+        }
+    );
+
+
+    gruppoGenerale.appendChild(
+        gridGenerale
+    );
+
+    contenitore.appendChild(
+        gruppoGenerale
+    );
+}
+
+
+/* ===================================
+   TUTTI GLI SPORTELLI
+   =================================== */
+
+function renderTuttiSportelli() {
+
+    const contenitore =
+        document.getElementById(
+            "tuttiSportelliContenuto"
+        );
+
+    contenitore.innerHTML = "";
+
+
+    Object.entries(zone)
+        .forEach(
+            function([chiave, zona]) {
+
+                const gruppo =
+                    document.createElement(
+                        "section"
+                    );
+
+                gruppo.className =
+                    "gruppo-generale";
+
+
+                const aperti =
+                    zona.sportelli.filter(
+                        function(sportello) {
+                            return sportello.open;
+                        }
+                    ).length;
+
+
+                gruppo.innerHTML =
+                    '<div class="gruppo-header">' +
+                    '<span class="gruppo-emoji">' +
+                    zona.emoji +
+                    '</span>' +
+                    zona.nome +
+                    '<span class="gruppo-count">' +
+                    aperti +
+                    ' / ' +
+                    zona.sportelli.length +
+                    ' APERTI</span>' +
+                    '</div>';
+
+
+                const grid =
+                    document.createElement(
+                        "div"
+                    );
+
+                grid.className =
+                    "controlli-grid";
+
+
+                zona.sportelli.forEach(
+                    function(sportello, indice) {
+
+                        grid.appendChild(
+
+                            creaSportello(
+
+                                sportello,
+
+                                function() {
+
+                                    toggleSportelloZona(
+                                        chiave,
+                                        indice
+                                    );
+                                },
+
+                                function(valore) {
+
+                                    sportello.auto =
+                                        valore;
+
+                                    aggiornaTutto();
+                                }
+
+                            )
+
+                        );
+                    }
+                );
+
+
+                gruppo.appendChild(
+                    grid
+                );
+
+                contenitore.appendChild(
+                    gruppo
+                );
+            }
+        );
+}
+
+
+/* ===================================
+   TUTTE LE CAMERE
+   =================================== */
+
+function renderTutteCamere() {
+
+    const contenitore =
+        document.getElementById(
+            "tutteCamereContenuto"
+        );
+
+    contenitore.innerHTML = "";
+
+
+    Object.values(zone)
+        .forEach(
+            function(zona) {
+
+                const gruppo =
+                    document.createElement(
+                        "section"
+                    );
+
+                gruppo.className =
+                    "gruppo-generale";
+
+
+                const online =
+                    zona.camere.filter(
+                        function(camera) {
+                            return camera.online;
+                        }
+                    ).length;
+
+
+                gruppo.innerHTML =
+                    '<div class="gruppo-header">' +
+                    '<span class="gruppo-emoji">' +
+                    zona.emoji +
+                    '</span>' +
+                    zona.nome +
+                    '<span class="gruppo-count">' +
+                    online +
+                    ' / ' +
+                    zona.camere.length +
+                    ' ONLINE</span>' +
+                    '</div>';
+
+
+                const grid =
+                    document.createElement(
+                        "div"
+                    );
+
+                grid.className =
+                    "camere-grid";
+
+
+                zona.camere.forEach(
+                    function(camera) {
+
+                        grid.appendChild(
+
+                            creaPulsanteCamera(
+                                camera,
+                                zona.nome +
+                                " · " +
+                                camera.nome
+                            )
+
+                        );
+                    }
+                );
+
+
+                gruppo.appendChild(
+                    grid
+                );
+
+                contenitore.appendChild(
+                    gruppo
+                );
+            }
+        );
+
+
+    const gruppoGenerale =
+        document.createElement(
+            "section"
+        );
+
+    gruppoGenerale.className =
+        "gruppo-generale";
+
+
+    gruppoGenerale.innerHTML =
+        '<div class="gruppo-header">' +
+        '<span class="gruppo-emoji">⚙️</span>' +
+        'GENERALE' +
+        '<span class="gruppo-count">' +
+        (
+            generale.camera.online
+            ? "1 / 1 ONLINE"
+            : "0 / 1 ONLINE"
+        ) +
+        '</span>' +
+        '</div>';
+
+
+    const gridGenerale =
+        document.createElement(
+            "div"
+        );
+
+    gridGenerale.className =
+        "camere-grid";
+
+
+    gridGenerale.appendChild(
+
+        creaPulsanteCamera(
+            generale.camera,
+            "GENERALE · " +
+            generale.camera.nome
+        )
+
+    );
+
+
+    gruppoGenerale.appendChild(
+        gridGenerale
+    );
+
+    contenitore.appendChild(
+        gruppoGenerale
     );
 }
 
@@ -2102,73 +2582,18 @@ function renderGeneraleLuci() {
     generale.luci.forEach(
         function(luce, indice) {
 
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "device-button";
-
-
-            let classe = "";
-            let stato = "";
-
-
-            if (luce.working) {
-
-                classe =
-                    "stato-working";
-
-                stato =
-                    luce.on
-                    ? "SPEGNIMENTO..."
-                    : "ACCENSIONE...";
-
-            } else if (luce.on) {
-
-                classe =
-                    "stato-on";
-
-                stato =
-                    "ACCESA";
-
-            } else {
-
-                classe =
-                    "stato-off";
-
-                stato =
-                    "SPENTA";
-            }
-
-
-            button.classList.add(
-                classe
-            );
-
-
-            button.innerHTML =
-                '<div class="device-icon">💡</div>' +
-                '<div class="device-name">' +
-                luce.nome +
-                '</div>' +
-                '<div class="device-state">' +
-                stato +
-                '</div>';
-
-
-            button.onclick =
-                function() {
-
-                    toggleGeneraleLuce(
-                        indice
-                    );
-                };
-
-
             contenitore.appendChild(
-                button
+
+                creaPulsanteLuce(
+                    luce,
+                    function() {
+
+                        toggleGeneraleLuce(
+                            indice
+                        );
+                    }
+                )
+
             );
         }
     );
@@ -2276,11 +2701,13 @@ function toggleGeneraleDevice(device) {
             !generale.frigo;
     }
 
+
     if (device === "incubatrice") {
 
         generale.incubatrice =
             !generale.incubatrice;
     }
+
 
     aggiornaTutto();
 }
@@ -2294,41 +2721,42 @@ function aggiornaHome() {
 
     let luciAccese = 0;
     let sportelliAperti = 0;
-
     let camereOnline = 0;
     let camereTotali = 0;
 
 
     Object.values(zone)
-        .forEach(function(zona) {
+        .forEach(
+            function(zona) {
 
-            luciAccese +=
-                zona.luci.filter(
-                    function(luce) {
-                        return luce.on;
-                    }
-                ).length;
-
-
-            sportelliAperti +=
-                zona.sportelli.filter(
-                    function(sportello) {
-                        return sportello.open;
-                    }
-                ).length;
+                luciAccese +=
+                    zona.luci.filter(
+                        function(luce) {
+                            return luce.on;
+                        }
+                    ).length;
 
 
-            camereOnline +=
-                zona.camere.filter(
-                    function(camera) {
-                        return camera.online;
-                    }
-                ).length;
+                sportelliAperti +=
+                    zona.sportelli.filter(
+                        function(sportello) {
+                            return sportello.open;
+                        }
+                    ).length;
 
 
-            camereTotali +=
-                zona.camere.length;
-        });
+                camereOnline +=
+                    zona.camere.filter(
+                        function(camera) {
+                            return camera.online;
+                        }
+                    ).length;
+
+
+                camereTotali +=
+                    zona.camere.length;
+            }
+        );
 
 
     luciAccese +=
@@ -2339,8 +2767,11 @@ function aggiornaHome() {
         ).length;
 
 
-    camereOnline += 1;
-    camereTotali += 1;
+    if (generale.camera.online) {
+        camereOnline++;
+    }
+
+    camereTotali++;
 
 
     document
@@ -2410,6 +2841,7 @@ function chiudiCamera() {
 
 let toastTimer;
 
+
 function mostraToast(testo) {
 
     const toast =
@@ -2417,8 +2849,10 @@ function mostraToast(testo) {
             "toast"
         );
 
+
     toast.textContent =
         testo;
+
 
     toast.classList.add(
         "visibile"
@@ -2445,7 +2879,7 @@ function mostraToast(testo) {
 
 
 /* ===================================
-   AGGIORNA
+   AGGIORNA TUTTO
    =================================== */
 
 function aggiornaTutto() {
@@ -2455,6 +2889,7 @@ function aggiornaTutto() {
     renderGeneraleLuci();
 
     renderGeneraleDevices();
+
 
     if (
         document
@@ -2466,6 +2901,45 @@ function aggiornaTutto() {
     ) {
 
         renderZona();
+    }
+
+
+    if (
+        document
+            .getElementById(
+                "tutteLuciPage"
+            )
+            .classList
+            .contains("attiva")
+    ) {
+
+        renderTutteLuci();
+    }
+
+
+    if (
+        document
+            .getElementById(
+                "tuttiSportelliPage"
+            )
+            .classList
+            .contains("attiva")
+    ) {
+
+        renderTuttiSportelli();
+    }
+
+
+    if (
+        document
+            .getElementById(
+                "tutteCamerePage"
+            )
+            .classList
+            .contains("attiva")
+    ) {
+
+        renderTutteCamere();
     }
 }
 
