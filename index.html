@@ -242,6 +242,11 @@ h1 {
     font-weight:bold;
 }
 
+.system-error {
+    background:var(--red-bg);
+    border-color:var(--red);
+}
+
 .status {
     display:flex;
     gap:8px;
@@ -264,7 +269,6 @@ h1 {
 
 .card-click {
     cursor:pointer;
-    transition:transform .12s, border-color .12s;
 }
 
 .card-click:active {
@@ -324,6 +328,10 @@ h1 {
     align-items:flex-start;
 }
 
+.alert-testo {
+    flex:1;
+}
+
 .alert-testo strong {
     display:block;
     margin-bottom:4px;
@@ -335,7 +343,6 @@ h1 {
 }
 
 .alert-count {
-    margin-left:auto;
     min-width:27px;
     height:27px;
     padding:0 8px;
@@ -374,6 +381,24 @@ h1 {
     display:block;
     font-size:30px;
     margin-bottom:8px;
+}
+
+
+/* DEMO HOME */
+
+.demo-home-button {
+    width:100%;
+    border:1px dashed #505750;
+    background:#111411;
+    border-radius:17px;
+    padding:16px;
+    color:var(--secondary);
+    font-weight:800;
+    cursor:pointer;
+}
+
+.demo-home-button:active {
+    transform:scale(.985);
 }
 
 
@@ -441,6 +466,11 @@ h1 {
     background:var(--card2);
     border-radius:14px;
     padding:13px;
+}
+
+.dato-error {
+    background:var(--red-bg);
+    border:1px solid var(--red);
 }
 
 .dato-label {
@@ -589,6 +619,8 @@ h1 {
 
 .camera-status {
     margin-top:8px;
+    font-size:12px;
+    font-weight:800;
 }
 
 
@@ -675,6 +707,11 @@ h1 {
     padding:18px;
 }
 
+.livello-box.error {
+    background:var(--red-bg);
+    border-color:var(--red);
+}
+
 .livello-top {
     display:flex;
     justify-content:space-between;
@@ -688,6 +725,10 @@ h1 {
     font-size:20px;
 }
 
+.livello-percentuale.error {
+    color:var(--red);
+}
+
 .livello-barra {
     width:100%;
     height:16px;
@@ -697,10 +738,14 @@ h1 {
 }
 
 .livello-riempimento {
-    width:78%;
     height:100%;
     background:var(--green);
     border-radius:20px;
+    transition:.3s;
+}
+
+.livello-riempimento.error {
+    background:var(--red);
 }
 
 .info-grid {
@@ -715,6 +760,11 @@ h1 {
     border-radius:17px;
     padding:16px 10px;
     text-align:center;
+}
+
+.info-card.error {
+    background:var(--red-bg);
+    border-color:var(--red);
 }
 
 .info-icon {
@@ -732,6 +782,105 @@ h1 {
     margin-top:7px;
     font-size:14px;
     font-weight:800;
+}
+
+
+/* DEMO */
+
+.demo-banner {
+    background:var(--yellow-bg);
+    border:1px solid var(--yellow);
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:18px;
+}
+
+.demo-banner strong {
+    display:block;
+    color:var(--yellow);
+    margin-bottom:5px;
+}
+
+.demo-banner span {
+    color:#ddd3b4;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.demo-reset {
+    width:100%;
+    min-height:52px;
+    border:1px solid var(--red);
+    background:var(--red-bg);
+    border-radius:15px;
+    color:white;
+    font-weight:900;
+    cursor:pointer;
+    margin-bottom:8px;
+}
+
+.demo-reset:active {
+    transform:scale(.985);
+}
+
+.demo-list {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.demo-item {
+    width:100%;
+    min-height:58px;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:14px;
+    padding:10px 13px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    text-align:left;
+    cursor:pointer;
+}
+
+.demo-item:active {
+    transform:scale(.985);
+}
+
+.demo-item.anomalia {
+    background:var(--red-bg);
+    border-color:var(--red);
+}
+
+.demo-item-left {
+    min-width:0;
+}
+
+.demo-item-name {
+    font-size:13px;
+    font-weight:900;
+}
+
+.demo-item-description {
+    margin-top:4px;
+    color:var(--secondary);
+    font-size:11px;
+}
+
+.demo-state {
+    flex-shrink:0;
+    border-radius:20px;
+    padding:7px 9px;
+    font-size:10px;
+    font-weight:900;
+    background:var(--green-bg);
+    color:var(--green);
+}
+
+.demo-item.anomalia .demo-state {
+    background:var(--red);
+    color:white;
 }
 
 
@@ -821,6 +970,10 @@ h1 {
     .device-name {
         font-size:11px;
     }
+
+    .demo-item-name {
+        font-size:12px;
+    }
 }
 </style>
 </head>
@@ -831,6 +984,7 @@ h1 {
 <!-- LOGIN -->
 
 <section id="loginScreen">
+
 <div class="login-box">
 
     <div class="login-icon">🌱</div>
@@ -860,6 +1014,7 @@ h1 {
     <div id="pinError"></div>
 
 </div>
+
 </section>
 
 
@@ -916,14 +1071,17 @@ h1 {
     </div>
 
 
-    <div class="system">
+    <div
+        class="system"
+        id="systemHome"
+    >
 
         <span>SYSTEM</span>
 
-        <div class="status">
-            <span class="dot verde"></span>
-            ONLINE
-        </div>
+        <div
+            class="status"
+            id="systemHomeStatus"
+        ></div>
 
     </div>
 
@@ -1038,9 +1196,7 @@ h1 {
 
                 <div class="alert-testo">
 
-                    <strong id="alertHomeTitolo">
-                        ANOMALIA
-                    </strong>
+                    <strong id="alertHomeTitolo"></strong>
 
                     <span id="alertHomeTesto"></span>
 
@@ -1049,9 +1205,7 @@ h1 {
                 <div
                     class="alert-count"
                     id="alertHomeCount"
-                >
-                    1
-                </div>
+                ></div>
 
             </div>
 
@@ -1104,7 +1258,20 @@ h1 {
 
     </section>
 
+
+    <div class="titolo-sezione">
+        SISTEMA
+    </div>
+
+    <button
+        class="demo-home-button"
+        onclick="apriPagina('demoPage')"
+    >
+        🧪 MODALITÀ DEMO / TEST
+    </button>
+
 </main>
+
 </div>
 
 
@@ -1142,20 +1309,21 @@ h1 {
             <div
                 class="riepilogo-ok"
                 id="zonaStatoGenerale"
-            >
-                <span class="dot verde"></span>
-                TUTTO OK
-            </div>
+            ></div>
 
         </div>
 
 
         <div class="riepilogo-grid">
 
-            <div class="dato">
+            <div
+                class="dato"
+                id="zonaTemperaturaCard"
+            >
                 <div class="dato-label">
                     🌡 TEMPERATURA
                 </div>
+
                 <div
                     class="dato-valore"
                     id="zonaTemperatura"
@@ -1163,13 +1331,18 @@ h1 {
             </div>
 
 
-            <div class="dato">
+            <div
+                class="dato"
+                id="zonaAcquaCard"
+            >
                 <div class="dato-label">
                     💧 ACQUA
                 </div>
-                <div class="dato-valore">
-                    OK
-                </div>
+
+                <div
+                    class="dato-valore"
+                    id="zonaAcqua"
+                ></div>
             </div>
 
 
@@ -1177,6 +1350,7 @@ h1 {
                 <div class="dato-label">
                     💡 LUCI
                 </div>
+
                 <div
                     class="dato-valore"
                     id="zonaRiepilogoLuci"
@@ -1188,6 +1362,7 @@ h1 {
                 <div class="dato-label">
                     🚪 SPORTELLI
                 </div>
+
                 <div
                     class="dato-valore"
                     id="zonaRiepilogoSportelli"
@@ -1199,6 +1374,7 @@ h1 {
                 <div class="dato-label">
                     📷 CAMERE
                 </div>
+
                 <div
                     class="dato-valore"
                     id="zonaRiepilogoCamere"
@@ -1240,6 +1416,7 @@ h1 {
     ></section>
 
 </main>
+
 </div>
 
 
@@ -1267,6 +1444,7 @@ h1 {
     <div id="tutteLuciContainer"></div>
 
 </main>
+
 </div>
 
 
@@ -1294,6 +1472,7 @@ h1 {
     <div id="tuttiSportelliContainer"></div>
 
 </main>
+
 </div>
 
 
@@ -1321,6 +1500,7 @@ h1 {
     <div id="tutteCamereContainer"></div>
 
 </main>
+
 </div>
 
 
@@ -1351,6 +1531,7 @@ h1 {
     ></div>
 
 </main>
+
 </div>
 
 
@@ -1384,47 +1565,63 @@ h1 {
                 STATO GENERALE
             </div>
 
-            <div class="riepilogo-ok">
-                <span class="dot verde"></span>
-                TUTTO OK
-            </div>
+            <div
+                class="riepilogo-ok"
+                id="generaleStatoGenerale"
+            ></div>
 
         </div>
 
 
         <div class="riepilogo-grid">
 
-            <div class="dato">
+            <div
+                class="dato"
+                id="reteCard"
+            >
                 <div class="dato-label">
                     ⚡ RETE ELETTRICA
                 </div>
-                <div class="dato-valore">
-                    PRESENTE
-                </div>
+
+                <div
+                    class="dato-valore"
+                    id="reteValue"
+                ></div>
             </div>
 
-            <div class="dato">
+
+            <div
+                class="dato"
+                id="generaleAcquaCard"
+            >
                 <div class="dato-label">
                     💧 ACQUA
                 </div>
-                <div class="dato-valore">
-                    OK
-                </div>
+
+                <div
+                    class="dato-valore"
+                    id="generaleAcquaValue"
+                ></div>
             </div>
+
 
             <div class="dato">
                 <div class="dato-label">
                     📷 CAMERA
                 </div>
-                <div class="dato-valore">
-                    ONLINE
-                </div>
+
+                <div
+                    class="dato-valore"
+                    id="generaleCameraValue"
+                ></div>
             </div>
+
 
             <div class="dato">
                 <div class="dato-label">
                     🔋 BACKUP
                 </div>
+
                 <div class="dato-valore">
                     DISPONIBILE
                 </div>
@@ -1439,7 +1636,10 @@ h1 {
         SERBATOIO ACQUA
     </div>
 
-    <section class="livello-box">
+    <section
+        class="livello-box"
+        id="serbatoioBox"
+    >
 
         <div class="livello-top">
 
@@ -1447,14 +1647,20 @@ h1 {
                 💧 LIVELLO
             </span>
 
-            <span class="livello-percentuale">
-                78%
-            </span>
+            <span
+                class="livello-percentuale"
+                id="serbatoioPercentuale"
+            ></span>
 
         </div>
 
         <div class="livello-barra">
-            <div class="livello-riempimento"></div>
+
+            <div
+                class="livello-riempimento"
+                id="serbatoioRiempimento"
+            ></div>
+
         </div>
 
     </section>
@@ -1549,12 +1755,66 @@ h1 {
     </section>
 
 </main>
+
 </div>
+
+
+<!-- DEMO -->
+
+<div id="demoPage" class="pagina">
+
+<main class="app">
+
+    <div class="zona-header">
+
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
+            ‹
+        </button>
+
+        <div class="zona-titolo">
+            🧪 DEMO / TEST
+        </div>
+
+    </div>
+
+
+    <div class="demo-banner">
+
+        <strong>
+            MODALITÀ DI SIMULAZIONE
+        </strong>
+
+        <span>
+            Tocca un elemento per simulare o rimuovere
+            un'anomalia. Le modifiche si riflettono
+            immediatamente su tutta l'interfaccia.
+        </span>
+
+    </div>
+
+
+    <button
+        class="demo-reset"
+        onclick="resetDemo()"
+    >
+        ↻ RESET TUTTI I TEST
+    </button>
+
+
+    <div id="demoContainer"></div>
+
+</main>
+
+</div>
+
 
 </section>
 
 
-<!-- CAMERA OVERLAY -->
+<!-- CAMERA -->
 
 <div id="cameraDemo">
 
@@ -1571,10 +1831,7 @@ h1 {
         CAMERA
     </div>
 
-    <div
-        id="cameraDemoText"
-        class="camera-demo-text"
-    >
+    <div class="camera-demo-text">
         Qui verrà visualizzato il flusso video della telecamera.
     </div>
 
@@ -1601,92 +1858,80 @@ h1 {
 
 const zone = {
 
-    conigli: {
-
+    conigli:{
         nome:"CONIGLI",
         emoji:"🐇",
         temperatura:"18,5°C",
+        temperaturaAlta:false,
+        acquaProblema:false,
 
         luci:[
-            {nome:"LUCE 1", on:true, working:false},
-            {nome:"LUCE 2", on:false, working:false},
-            {nome:"LUCE 3", on:true, working:false}
+            {nome:"LUCE 1",on:true,working:false,anomalia:false},
+            {nome:"LUCE 2",on:false,working:false,anomalia:false},
+            {nome:"LUCE 3",on:true,working:false,anomalia:false}
         ],
 
         sportelli:[
-            {nome:"SPORTELLO 1", open:true, auto:true, working:false},
-            {nome:"SPORTELLO 2", open:false, auto:false, working:false},
-            {nome:"SPORTELLO 3", open:true, auto:true, working:false}
+            {nome:"SPORTELLO 1",open:true,auto:true,working:false,anomalia:false},
+            {nome:"SPORTELLO 2",open:false,auto:false,working:false,anomalia:false},
+            {nome:"SPORTELLO 3",open:true,auto:true,working:false,anomalia:false}
         ],
 
         camere:[
-            {nome:"CAMERA 1", online:true},
-            {nome:"CAMERA 2", online:true}
+            {nome:"CAMERA 1",online:true},
+            {nome:"CAMERA 2",online:true}
         ]
     },
 
 
-    pollaio: {
-
+    pollaio:{
         nome:"POLLAIO",
         emoji:"🐔",
         temperatura:"19,2°C",
+        temperaturaAlta:false,
+        acquaProblema:false,
 
         luci:[
-            {
-                nome:"LUCE 1",
-                on:true,
-                working:false
-            },
-            {
-                nome:"LUCE 2",
-                on:true,
-                working:false,
-
-                /* ALLARME SIMULATO */
-                anomalia:"Accesa fuori dall'orario previsto"
-            },
-            {
-                nome:"LUCE 3",
-                on:false,
-                working:false
-            }
+            {nome:"LUCE 1",on:true,working:false,anomalia:false},
+            {nome:"LUCE 2",on:true,working:false,anomalia:false},
+            {nome:"LUCE 3",on:false,working:false,anomalia:false}
         ],
 
         sportelli:[
-            {nome:"SPORTELLO 1", open:true, auto:true, working:false},
-            {nome:"SPORTELLO 2", open:true, auto:true, working:false},
-            {nome:"SPORTELLO 3", open:false, auto:false, working:false}
+            {nome:"SPORTELLO 1",open:true,auto:true,working:false,anomalia:false},
+            {nome:"SPORTELLO 2",open:true,auto:true,working:false,anomalia:false},
+            {nome:"SPORTELLO 3",open:false,auto:false,working:false,anomalia:false}
         ],
 
         camere:[
-            {nome:"CAMERA 1", online:true},
-            {nome:"CAMERA 2", online:true}
+            {nome:"CAMERA 1",online:true},
+            {nome:"CAMERA 2",online:true}
         ]
     },
 
 
-    quaglie: {
-
+    quaglie:{
         nome:"QUAGLIE",
         emoji:"🐦",
         temperatura:"20,1°C",
+        temperaturaAlta:false,
+        acquaProblema:false,
 
         luci:[
-            {nome:"LUCE 1", on:false, working:false},
-            {nome:"LUCE 2", on:true, working:false},
-            {nome:"LUCE 3", on:false, working:false}
+            {nome:"LUCE 1",on:false,working:false,anomalia:false},
+            {nome:"LUCE 2",on:true,working:false,anomalia:false},
+            {nome:"LUCE 3",on:false,working:false,anomalia:false}
         ],
 
         sportelli:[
-            {nome:"SPORTELLO 1", open:true, auto:true, working:false},
-            {nome:"SPORTELLO 2", open:false, auto:true, working:false},
-            {nome:"SPORTELLO 3", open:false, auto:false, working:false}
+            {nome:"SPORTELLO 1",open:true,auto:true,working:false,anomalia:false},
+            {nome:"SPORTELLO 2",open:false,auto:true,working:false,anomalia:false},
+            {nome:"SPORTELLO 3",open:false,auto:false,working:false,anomalia:false}
         ],
 
         camere:[
-            {nome:"CAMERA 1", online:true},
-            {nome:"CAMERA 2", online:true}
+            {nome:"CAMERA 1",online:true},
+            {nome:"CAMERA 2",online:true}
         ]
     }
 };
@@ -1695,9 +1940,9 @@ const zone = {
 const generale = {
 
     luci:[
-        {nome:"LUCE 1", on:true, working:false},
-        {nome:"LUCE 2", on:false, working:false},
-        {nome:"LUCE 3", on:false, working:false}
+        {nome:"LUCE 1",on:true,working:false,anomalia:false},
+        {nome:"LUCE 2",on:false,working:false,anomalia:false},
+        {nome:"LUCE 3",on:false,working:false,anomalia:false}
     ],
 
     camera:{
@@ -1706,29 +1951,33 @@ const generale = {
     },
 
     frigo:true,
-    incubatrice:false
+    incubatrice:false,
+
+    serbatoioBasso:false,
+    reteElettrica:true,
+    systemOnline:true
 };
 
 
-let zonaAttuale = "conigli";
+let zonaAttuale="conigli";
 
 
 /* ===================================
    LOGIN
    =================================== */
 
-const PIN_CORRETTO = "5588";
+const PIN_CORRETTO="5588";
 
-const loginScreen =
+const loginScreen=
     document.getElementById("loginScreen");
 
-const appScreen =
+const appScreen=
     document.getElementById("appScreen");
 
-const pinInput =
+const pinInput=
     document.getElementById("pinInput");
 
-const pinError =
+const pinError=
     document.getElementById("pinError");
 
 
@@ -1842,9 +2091,7 @@ function apriPagina(id) {
     .querySelectorAll(".pagina")
     .forEach(function(pagina) {
 
-        pagina.classList.remove(
-            "attiva"
-        );
+        pagina.classList.remove("attiva");
     });
 
     document
@@ -1868,23 +2115,74 @@ function apriZona(nomeZona) {
 
 
 /* ===================================
-   FUNZIONI STATO
+   ALLARMI
    =================================== */
-
-function contaAllarmi() {
-
-    return generaAllarmi().length;
-}
-
 
 function generaAllarmi() {
 
     const allarmi=[];
 
+
+    if(!generale.systemOnline) {
+
+        allarmi.push({
+            tipo:"system",
+            zona:"SISTEMA",
+            dispositivo:"SYSTEM",
+            messaggio:"Sistema di controllo offline"
+        });
+    }
+
+
+    if(!generale.reteElettrica) {
+
+        allarmi.push({
+            tipo:"generale",
+            zona:"GENERALE",
+            dispositivo:"RETE ELETTRICA",
+            messaggio:"Alimentazione di rete assente"
+        });
+    }
+
+
+    if(generale.serbatoioBasso) {
+
+        allarmi.push({
+            tipo:"generale",
+            zona:"GENERALE",
+            dispositivo:"SERBATOIO",
+            messaggio:"Livello acqua basso"
+        });
+    }
+
+
     Object.keys(zone)
     .forEach(function(chiaveZona) {
 
         const zona=zone[chiaveZona];
+
+
+        if(zona.temperaturaAlta) {
+
+            allarmi.push({
+                tipo:"generale",
+                zona:zona.nome,
+                dispositivo:"TEMPERATURA",
+                messaggio:"Temperatura troppo alta"
+            });
+        }
+
+
+        if(zona.acquaProblema) {
+
+            allarmi.push({
+                tipo:"generale",
+                zona:zona.nome,
+                dispositivo:"ACQUA",
+                messaggio:"Anomalia sistema acqua"
+            });
+        }
+
 
         zona.luci.forEach(
             function(luce) {
@@ -1895,7 +2193,7 @@ function generaAllarmi() {
                         tipo:"luce",
                         zona:zona.nome,
                         dispositivo:luce.nome,
-                        messaggio:luce.anomalia
+                        messaggio:"Anomalia luce"
                     });
                 }
             }
@@ -1911,7 +2209,7 @@ function generaAllarmi() {
                         tipo:"sportello",
                         zona:zona.nome,
                         dispositivo:sportello.nome,
-                        messaggio:sportello.anomalia
+                        messaggio:"Malfunzionamento sportello"
                     });
                 }
             }
@@ -1935,6 +2233,22 @@ function generaAllarmi() {
     });
 
 
+    generale.luci.forEach(
+        function(luce) {
+
+            if(luce.anomalia) {
+
+                allarmi.push({
+                    tipo:"luce",
+                    zona:"GENERALE",
+                    dispositivo:luce.nome,
+                    messaggio:"Anomalia luce"
+                });
+            }
+        }
+    );
+
+
     if(!generale.camera.online) {
 
         allarmi.push({
@@ -1953,9 +2267,9 @@ function generaAllarmi() {
 function esisteAllarmeTipo(tipo) {
 
     return generaAllarmi()
-        .some(function(allarme) {
-            return allarme.tipo===tipo;
-        });
+    .some(function(allarme) {
+        return allarme.tipo===tipo;
+    });
 }
 
 
@@ -1977,6 +2291,7 @@ function esisteLuceInMovimento() {
         }
     });
 
+
     if(
         generale.luci.some(
             function(luce) {
@@ -1987,6 +2302,7 @@ function esisteLuceInMovimento() {
         movimento=true;
     }
 
+
     return movimento;
 }
 
@@ -1994,14 +2310,14 @@ function esisteLuceInMovimento() {
 function esisteSportelloInMovimento() {
 
     return Object.values(zone)
-        .some(function(zona) {
+    .some(function(zona) {
 
-            return zona.sportelli.some(
-                function(sportello) {
-                    return sportello.working;
-                }
-            );
-        });
+        return zona.sportelli.some(
+            function(sportello) {
+                return sportello.working;
+            }
+        );
+    });
 }
 
 
@@ -2009,15 +2325,7 @@ function impostaDot(elemento,stato) {
 
     elemento.className="dot";
 
-    if(stato==="rosso") {
-        elemento.classList.add("rosso");
-    }
-    else if(stato==="giallo") {
-        elemento.classList.add("giallo");
-    }
-    else {
-        elemento.classList.add("verde");
-    }
+    elemento.classList.add(stato);
 }
 
 
@@ -2029,16 +2337,73 @@ function renderZona() {
 
     const zona=zone[zonaAttuale];
 
+
     document
     .getElementById("zonaTitolo")
     .textContent=
         zona.emoji+" "+zona.nome;
 
 
-    document
-    .getElementById("zonaTemperatura")
-    .textContent=
-        zona.temperatura;
+    const temperaturaCard=
+        document.getElementById(
+            "zonaTemperaturaCard"
+        );
+
+    const temperaturaValue=
+        document.getElementById(
+            "zonaTemperatura"
+        );
+
+
+    if(zona.temperaturaAlta) {
+
+        temperaturaCard.classList.add(
+            "dato-error"
+        );
+
+        temperaturaValue.textContent=
+            "35,0°C ⚠️";
+
+    } else {
+
+        temperaturaCard.classList.remove(
+            "dato-error"
+        );
+
+        temperaturaValue.textContent=
+            zona.temperatura;
+    }
+
+
+    const acquaCard=
+        document.getElementById(
+            "zonaAcquaCard"
+        );
+
+    const acquaValue=
+        document.getElementById(
+            "zonaAcqua"
+        );
+
+
+    if(zona.acquaProblema) {
+
+        acquaCard.classList.add(
+            "dato-error"
+        );
+
+        acquaValue.textContent=
+            "ANOMALIA";
+
+    } else {
+
+        acquaCard.classList.remove(
+            "dato-error"
+        );
+
+        acquaValue.textContent=
+            "OK";
+    }
 
 
     const luciAccese=
@@ -2066,7 +2431,9 @@ function renderZona() {
 
 
     document
-    .getElementById("zonaRiepilogoLuci")
+    .getElementById(
+        "zonaRiepilogoLuci"
+    )
     .textContent=
         luciAccese+
         " / "+
@@ -2075,7 +2442,9 @@ function renderZona() {
 
 
     document
-    .getElementById("zonaRiepilogoSportelli")
+    .getElementById(
+        "zonaRiepilogoSportelli"
+    )
     .textContent=
         sportelliAperti+
         " / "+
@@ -2084,7 +2453,9 @@ function renderZona() {
 
 
     document
-    .getElementById("zonaRiepilogoCamere")
+    .getElementById(
+        "zonaRiepilogoCamere"
+    )
     .textContent=
         camereOnline+
         " / "+
@@ -2101,7 +2472,7 @@ function renderZona() {
         );
 
 
-    const statoGenerale=
+    const stato=
         document.getElementById(
             "zonaStatoGenerale"
         );
@@ -2109,14 +2480,14 @@ function renderZona() {
 
     if(problemiZona.length>0) {
 
-        statoGenerale.innerHTML=
+        stato.innerHTML=
             '<span class="dot rosso"></span>'+
             problemiZona.length+
             " ALLERT";
 
     } else {
 
-        statoGenerale.innerHTML=
+        stato.innerHTML=
             '<span class="dot verde"></span>'+
             "TUTTO OK";
     }
@@ -2129,7 +2500,7 @@ function renderZona() {
 
 
 /* ===================================
-   LUCI ZONA
+   LUCI
    =================================== */
 
 function creaBottoneLuce(
@@ -2140,8 +2511,7 @@ function creaBottoneLuce(
     const button=
         document.createElement("button");
 
-    button.className=
-        "device-button";
+    button.className="device-button";
 
 
     let stato="";
@@ -2179,6 +2549,7 @@ function creaBottoneLuce(
 
     button.classList.add(classe);
 
+
     button.innerHTML=
         '<div class="device-icon">💡</div>'+
         '<div class="device-name">'+
@@ -2187,6 +2558,7 @@ function creaBottoneLuce(
         '<div class="device-state">'+
         stato+
         '</div>';
+
 
     button.onclick=callback;
 
@@ -2213,6 +2585,7 @@ function renderLuciZona() {
                 creaBottoneLuce(
                     luce,
                     function() {
+
                         toggleLuceZona(
                             zonaAttuale,
                             indice
@@ -2231,11 +2604,14 @@ function toggleLuceZona(
 ) {
 
     const luce=
-        zone[chiaveZona].luci[indice];
+        zone[chiaveZona]
+        .luci[indice];
+
 
     if(luce.working) {
         return;
     }
+
 
     luce.working=true;
 
@@ -2247,18 +2623,6 @@ function toggleLuceZona(
 
             luce.on=!luce.on;
             luce.working=false;
-
-            /*
-            L'allarme simulato della luce
-            viene eliminato se la spegni.
-            */
-
-            if(
-                luce.anomalia &&
-                !luce.on
-            ) {
-                delete luce.anomalia;
-            }
 
             aggiornaTutto();
 
@@ -2334,6 +2698,7 @@ function creaSportello(
 
     button.classList.add(classe);
 
+
     button.innerHTML=
         '<div class="device-icon">🚪</div>'+
         '<div class="device-name">'+
@@ -2343,7 +2708,9 @@ function creaSportello(
         stato+
         '</div>';
 
-    button.onclick=callbackComando;
+
+    button.onclick=
+        callbackComando;
 
 
     const label=
@@ -2358,8 +2725,10 @@ function creaSportello(
     checkbox.type="checkbox";
     checkbox.checked=sportello.auto;
 
+
     checkbox.onchange=
         function() {
+
             callbackAuto(
                 checkbox.checked
             );
@@ -2412,7 +2781,8 @@ function renderSportelliZona() {
 
                     function(valore) {
 
-                        sportello.auto=valore;
+                        sportello.auto=
+                            valore;
 
                         aggiornaTutto();
                     }
@@ -2486,6 +2856,7 @@ function creaCameraButton(
 
 
     if(!camera.online) {
+
         button.classList.add(
             "camera-offline"
         );
@@ -2567,6 +2938,164 @@ function renderCamereZona() {
    GENERALE
    =================================== */
 
+function renderGenerale() {
+
+    const problemi=
+        generaAllarmi()
+        .filter(
+            function(allarme) {
+                return allarme.zona==="GENERALE";
+            }
+        );
+
+
+    const stato=
+        document.getElementById(
+            "generaleStatoGenerale"
+        );
+
+
+    if(problemi.length>0) {
+
+        stato.innerHTML=
+            '<span class="dot rosso"></span>'+
+            problemi.length+
+            " ALLERT";
+
+    } else {
+
+        stato.innerHTML=
+            '<span class="dot verde"></span>'+
+            "TUTTO OK";
+    }
+
+
+    const reteCard=
+        document.getElementById(
+            "reteCard"
+        );
+
+    const reteValue=
+        document.getElementById(
+            "reteValue"
+        );
+
+
+    if(generale.reteElettrica) {
+
+        reteCard.classList.remove(
+            "dato-error"
+        );
+
+        reteValue.textContent=
+            "PRESENTE";
+
+    } else {
+
+        reteCard.classList.add(
+            "dato-error"
+        );
+
+        reteValue.textContent=
+            "ASSENTE";
+    }
+
+
+    const acquaCard=
+        document.getElementById(
+            "generaleAcquaCard"
+        );
+
+    const acquaValue=
+        document.getElementById(
+            "generaleAcquaValue"
+        );
+
+
+    if(generale.serbatoioBasso) {
+
+        acquaCard.classList.add(
+            "dato-error"
+        );
+
+        acquaValue.textContent=
+            "LIVELLO BASSO";
+
+    } else {
+
+        acquaCard.classList.remove(
+            "dato-error"
+        );
+
+        acquaValue.textContent=
+            "OK";
+    }
+
+
+    document
+    .getElementById(
+        "generaleCameraValue"
+    )
+    .textContent=
+        generale.camera.online
+        ? "ONLINE"
+        : "OFFLINE";
+
+
+    const box=
+        document.getElementById(
+            "serbatoioBox"
+        );
+
+    const percentuale=
+        document.getElementById(
+            "serbatoioPercentuale"
+        );
+
+    const riempimento=
+        document.getElementById(
+            "serbatoioRiempimento"
+        );
+
+
+    if(generale.serbatoioBasso) {
+
+        box.classList.add("error");
+
+        percentuale.classList.add(
+            "error"
+        );
+
+        riempimento.classList.add(
+            "error"
+        );
+
+        percentuale.textContent="12%";
+        riempimento.style.width="12%";
+
+    } else {
+
+        box.classList.remove("error");
+
+        percentuale.classList.remove(
+            "error"
+        );
+
+        riempimento.classList.remove(
+            "error"
+        );
+
+        percentuale.textContent="78%";
+        riempimento.style.width="78%";
+    }
+
+
+    renderGeneraleLuci();
+    renderGeneraleDevices();
+    renderCameraGenerale();
+}
+
+
 function renderGeneraleLuci() {
 
     const contenitore=
@@ -2584,6 +3113,7 @@ function renderGeneraleLuci() {
                 creaBottoneLuce(
                     luce,
                     function() {
+
                         toggleGeneraleLuce(
                             indice
                         );
@@ -2600,9 +3130,11 @@ function toggleGeneraleLuce(indice) {
     const luce=
         generale.luci[indice];
 
+
     if(luce.working) {
         return;
     }
+
 
     luce.working=true;
 
@@ -2711,6 +3243,7 @@ function renderCameraGenerale() {
 
 
     if(!camera.online) {
+
         contenitore.classList.add(
             "camera-offline"
         );
@@ -2826,31 +3359,30 @@ function renderTutteLuci() {
     });
 
 
-    const gruppoGenerale=
+    const gruppo=
         document.createElement("div");
 
-    gruppoGenerale.className=
-        "gruppo-zona";
+    gruppo.className="gruppo-zona";
 
 
-    gruppoGenerale.innerHTML=
+    gruppo.innerHTML=
         '<div class="gruppo-header">'+
         '<span class="emoji">⚙️</span>'+
         'GENERALE'+
         '</div>';
 
 
-    const gridGenerale=
+    const grid=
         document.createElement("div");
 
-    gridGenerale.className=
+    grid.className=
         "controlli-grid";
 
 
     generale.luci.forEach(
         function(luce,indice) {
 
-            gridGenerale.appendChild(
+            grid.appendChild(
                 creaBottoneLuce(
                     luce,
                     function() {
@@ -2865,13 +3397,9 @@ function renderTutteLuci() {
     );
 
 
-    gruppoGenerale.appendChild(
-        gridGenerale
-    );
+    gruppo.appendChild(grid);
 
-    contenitore.appendChild(
-        gruppoGenerale
-    );
+    contenitore.appendChild(gruppo);
 }
 
 
@@ -2918,10 +3446,7 @@ function renderTuttiSportelli() {
 
 
         zona.sportelli.forEach(
-            function(
-                sportello,
-                indice
-            ) {
+            function(sportello,indice) {
 
                 grid.appendChild(
                     creaSportello(
@@ -3021,14 +3546,14 @@ function renderTutteCamere() {
     });
 
 
-    const gruppoGenerale=
+    const gruppo=
         document.createElement("div");
 
-    gruppoGenerale.className=
+    gruppo.className=
         "gruppo-zona";
 
 
-    gruppoGenerale.innerHTML=
+    gruppo.innerHTML=
         '<div class="gruppo-header">'+
         '<span class="emoji">⚙️</span>'+
         'GENERALE'+
@@ -3051,18 +3576,14 @@ function renderTutteCamere() {
     );
 
 
-    gruppoGenerale.appendChild(
-        grid
-    );
+    gruppo.appendChild(grid);
 
-    contenitore.appendChild(
-        gruppoGenerale
-    );
+    contenitore.appendChild(gruppo);
 }
 
 
 /* ===================================
-   ALLARMI
+   PAGINA ALLARMI
    =================================== */
 
 function renderAllarmi() {
@@ -3105,6 +3626,10 @@ function renderAllarmi() {
 
             if(allarme.tipo==="camera") {
                 icona="📷";
+            }
+
+            if(allarme.tipo==="system") {
+                icona="🖥️";
             }
 
 
@@ -3218,12 +3743,11 @@ function aggiornaHome() {
         camereTotali;
 
 
-    /* LUCI */
-
     const dotLuci=
         document.getElementById(
             "homeLuciDot"
         );
+
 
     if(esisteAllarmeTipo("luce")) {
 
@@ -3240,8 +3764,7 @@ function aggiornaHome() {
             "giallo"
         );
 
-    }
-    else {
+    } else {
 
         impostaDot(
             dotLuci,
@@ -3250,12 +3773,11 @@ function aggiornaHome() {
     }
 
 
-    /* SPORTELLI */
-
     const dotSportelli=
         document.getElementById(
             "homeSportelliDot"
         );
+
 
     if(esisteAllarmeTipo("sportello")) {
 
@@ -3265,17 +3787,14 @@ function aggiornaHome() {
         );
 
     }
-    else if(
-        esisteSportelloInMovimento()
-    ) {
+    else if(esisteSportelloInMovimento()) {
 
         impostaDot(
             dotSportelli,
             "giallo"
         );
 
-    }
-    else {
+    } else {
 
         impostaDot(
             dotSportelli,
@@ -3284,12 +3803,11 @@ function aggiornaHome() {
     }
 
 
-    /* CAMERE */
-
     const dotCamere=
         document.getElementById(
             "homeCamereDot"
         );
+
 
     if(esisteAllarmeTipo("camera")) {
 
@@ -3307,7 +3825,38 @@ function aggiornaHome() {
     }
 
 
-    /* ALLARMI HOME */
+    const systemBox=
+        document.getElementById(
+            "systemHome"
+        );
+
+    const systemStatus=
+        document.getElementById(
+            "systemHomeStatus"
+        );
+
+
+    if(generale.systemOnline) {
+
+        systemBox.classList.remove(
+            "system-error"
+        );
+
+        systemStatus.innerHTML=
+            '<span class="dot verde"></span>'+
+            'ONLINE';
+
+    } else {
+
+        systemBox.classList.add(
+            "system-error"
+        );
+
+        systemStatus.innerHTML=
+            '<span class="dot rosso"></span>'+
+            'OFFLINE';
+    }
+
 
     const allarmi=
         generaAllarmi();
@@ -3348,7 +3897,7 @@ function aggiornaHome() {
             allarmi.length===1
             ? primo.messaggio
             : primo.messaggio+
-              " · Tocca per vedere tutti gli allarmi";
+              " · Tocca per vedere tutti";
 
 
         document
@@ -3362,7 +3911,427 @@ function aggiornaHome() {
 
 
 /* ===================================
-   CAMERA OVERLAY
+   DEMO
+   =================================== */
+
+function creaDemoItem(
+    nome,
+    descrizione,
+    anomalia,
+    statoNormale,
+    statoAnomalia,
+    callback
+) {
+
+    const button=
+        document.createElement(
+            "button"
+        );
+
+    button.className=
+        "demo-item";
+
+
+    if(anomalia) {
+
+        button.classList.add(
+            "anomalia"
+        );
+    }
+
+
+    button.innerHTML=
+        '<div class="demo-item-left">'+
+        '<div class="demo-item-name">'+
+        nome+
+        '</div>'+
+        '<div class="demo-item-description">'+
+        descrizione+
+        '</div>'+
+        '</div>'+
+        '<div class="demo-state">'+
+        (
+            anomalia
+            ? statoAnomalia
+            : statoNormale
+        )+
+        '</div>';
+
+
+    button.onclick=callback;
+
+    return button;
+}
+
+
+function renderDemo() {
+
+    const contenitore=
+        document.getElementById(
+            "demoContainer"
+        );
+
+    contenitore.innerHTML="";
+
+
+    /* SISTEMA */
+
+    const gruppoSistema=
+        document.createElement("div");
+
+    gruppoSistema.className=
+        "gruppo-zona";
+
+    gruppoSistema.innerHTML=
+        '<div class="gruppo-header">'+
+        '<span class="emoji">🖥️</span>'+
+        'SISTEMA'+
+        '</div>';
+
+
+    const listaSistema=
+        document.createElement("div");
+
+    listaSistema.className=
+        "demo-list";
+
+
+    listaSistema.appendChild(
+        creaDemoItem(
+            "SYSTEM",
+            "Stato del sistema di controllo",
+            !generale.systemOnline,
+            "ONLINE",
+            "OFFLINE",
+            function() {
+
+                generale.systemOnline=
+                    !generale.systemOnline;
+
+                aggiornaTutto();
+            }
+        )
+    );
+
+
+    listaSistema.appendChild(
+        creaDemoItem(
+            "RETE ELETTRICA",
+            "Alimentazione generale",
+            !generale.reteElettrica,
+            "PRESENTE",
+            "ASSENTE",
+            function() {
+
+                generale.reteElettrica=
+                    !generale.reteElettrica;
+
+                aggiornaTutto();
+            }
+        )
+    );
+
+
+    listaSistema.appendChild(
+        creaDemoItem(
+            "SERBATOIO ACQUA",
+            "Livello serbatoio generale",
+            generale.serbatoioBasso,
+            "78%",
+            "12%",
+            function() {
+
+                generale.serbatoioBasso=
+                    !generale.serbatoioBasso;
+
+                aggiornaTutto();
+            }
+        )
+    );
+
+
+    gruppoSistema.appendChild(
+        listaSistema
+    );
+
+    contenitore.appendChild(
+        gruppoSistema
+    );
+
+
+    /* ZONE */
+
+    Object.keys(zone)
+    .forEach(function(chiaveZona) {
+
+        const zona=
+            zone[chiaveZona];
+
+
+        const gruppo=
+            document.createElement("div");
+
+        gruppo.className=
+            "gruppo-zona";
+
+
+        gruppo.innerHTML=
+            '<div class="gruppo-header">'+
+            '<span class="emoji">'+
+            zona.emoji+
+            '</span>'+
+            zona.nome+
+            '</div>';
+
+
+        const lista=
+            document.createElement("div");
+
+        lista.className=
+            "demo-list";
+
+
+        lista.appendChild(
+            creaDemoItem(
+                "🌡️ TEMPERATURA",
+                "Sensore temperatura zona",
+                zona.temperaturaAlta,
+                "NORMALE",
+                "35°C",
+                function() {
+
+                    zona.temperaturaAlta=
+                        !zona.temperaturaAlta;
+
+                    aggiornaTutto();
+                }
+            )
+        );
+
+
+        lista.appendChild(
+            creaDemoItem(
+                "💧 ACQUA",
+                "Stato alimentazione acqua",
+                zona.acquaProblema,
+                "OK",
+                "ANOMALIA",
+                function() {
+
+                    zona.acquaProblema=
+                        !zona.acquaProblema;
+
+                    aggiornaTutto();
+                }
+            )
+        );
+
+
+        zona.luci.forEach(
+            function(luce) {
+
+                lista.appendChild(
+                    creaDemoItem(
+                        "💡 "+luce.nome,
+                        "Simulazione anomalia luce",
+                        luce.anomalia,
+                        "NORMALE",
+                        "ANOMALIA",
+                        function() {
+
+                            luce.anomalia=
+                                !luce.anomalia;
+
+                            aggiornaTutto();
+                        }
+                    )
+                );
+            }
+        );
+
+
+        zona.sportelli.forEach(
+            function(sportello) {
+
+                lista.appendChild(
+                    creaDemoItem(
+                        "🚪 "+sportello.nome,
+                        "Simulazione guasto sportello",
+                        sportello.anomalia,
+                        "NORMALE",
+                        "ERRORE",
+                        function() {
+
+                            sportello.anomalia=
+                                !sportello.anomalia;
+
+                            aggiornaTutto();
+                        }
+                    )
+                );
+            }
+        );
+
+
+        zona.camere.forEach(
+            function(camera) {
+
+                lista.appendChild(
+                    creaDemoItem(
+                        "📷 "+camera.nome,
+                        "Stato connessione telecamera",
+                        !camera.online,
+                        "ONLINE",
+                        "OFFLINE",
+                        function() {
+
+                            camera.online=
+                                !camera.online;
+
+                            aggiornaTutto();
+                        }
+                    )
+                );
+            }
+        );
+
+
+        gruppo.appendChild(lista);
+
+        contenitore.appendChild(
+            gruppo
+        );
+    });
+
+
+    /* GENERALE */
+
+    const gruppoGenerale=
+        document.createElement("div");
+
+    gruppoGenerale.className=
+        "gruppo-zona";
+
+
+    gruppoGenerale.innerHTML=
+        '<div class="gruppo-header">'+
+        '<span class="emoji">⚙️</span>'+
+        'GENERALE'+
+        '</div>';
+
+
+    const listaGenerale=
+        document.createElement("div");
+
+    listaGenerale.className=
+        "demo-list";
+
+
+    generale.luci.forEach(
+        function(luce) {
+
+            listaGenerale.appendChild(
+                creaDemoItem(
+                    "💡 "+luce.nome,
+                    "Simulazione anomalia luce",
+                    luce.anomalia,
+                    "NORMALE",
+                    "ANOMALIA",
+                    function() {
+
+                        luce.anomalia=
+                            !luce.anomalia;
+
+                        aggiornaTutto();
+                    }
+                )
+            );
+        }
+    );
+
+
+    listaGenerale.appendChild(
+        creaDemoItem(
+            "📷 "+generale.camera.nome,
+            "Stato connessione telecamera",
+            !generale.camera.online,
+            "ONLINE",
+            "OFFLINE",
+            function() {
+
+                generale.camera.online=
+                    !generale.camera.online;
+
+                aggiornaTutto();
+            }
+        )
+    );
+
+
+    gruppoGenerale.appendChild(
+        listaGenerale
+    );
+
+    contenitore.appendChild(
+        gruppoGenerale
+    );
+}
+
+
+function resetDemo() {
+
+    generale.systemOnline=true;
+    generale.reteElettrica=true;
+    generale.serbatoioBasso=false;
+    generale.camera.online=true;
+
+
+    generale.luci.forEach(
+        function(luce) {
+            luce.anomalia=false;
+        }
+    );
+
+
+    Object.values(zone)
+    .forEach(function(zona) {
+
+        zona.temperaturaAlta=false;
+        zona.acquaProblema=false;
+
+
+        zona.luci.forEach(
+            function(luce) {
+                luce.anomalia=false;
+            }
+        );
+
+
+        zona.sportelli.forEach(
+            function(sportello) {
+                sportello.anomalia=false;
+            }
+        );
+
+
+        zona.camere.forEach(
+            function(camera) {
+                camera.online=true;
+            }
+        );
+    });
+
+
+    aggiornaTutto();
+
+    mostraToast(
+        "Tutti i test sono stati azzerati"
+    );
+}
+
+
+/* ===================================
+   CAMERA
    =================================== */
 
 function apriCamera(nome) {
@@ -3373,14 +4342,6 @@ function apriCamera(nome) {
     )
     .textContent=
         nome;
-
-
-    document
-    .getElementById(
-        "cameraDemoText"
-    )
-    .textContent=
-        "Qui verrà visualizzato il flusso video della telecamera.";
 
 
     document
@@ -3450,14 +4411,13 @@ function aggiornaTutto() {
 
     aggiornaHome();
 
-    renderGeneraleLuci();
-    renderGeneraleDevices();
-    renderCameraGenerale();
+    renderGenerale();
 
     renderTutteLuci();
     renderTuttiSportelli();
     renderTutteCamere();
     renderAllarmi();
+    renderDemo();
 
 
     if(
