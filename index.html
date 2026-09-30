@@ -13,714 +13,813 @@
 }
 
 :root {
-    --bg: #090b0a;
-    --card: #151816;
-    --card2: #1c201d;
-    --border: #2a2f2b;
-    --text: #f4f6f4;
-    --secondary: #9ca39e;
-    --green: #36c55f;
-    --green-bg: #173720;
-    --yellow: #e7bd37;
-    --yellow-bg: #403718;
-    --red: #e05252;
-    --red-bg: #401c1c;
-    --grey: #747b76;
-    --grey-bg: #292d2a;
+    --bg:#090b0a;
+    --card:#151816;
+    --card2:#1c201d;
+    --border:#2a2f2b;
+    --text:#f4f6f4;
+    --secondary:#9ca39e;
+
+    --green:#36c55f;
+    --green-bg:#173720;
+
+    --yellow:#e7bd37;
+    --yellow-bg:#403718;
+
+    --red:#e05252;
+    --red-bg:#401c1c;
+
+    --grey:#747b76;
+    --grey-bg:#292d2a;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
 button {
-    font-family: inherit;
-    color: inherit;
+    font-family:inherit;
+    color:inherit;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    display:inline-block;
+    flex-shrink:0;
 }
 
-.verde { background: var(--green); }
-.giallo { background: var(--yellow); }
-.rosso { background: var(--red); }
-.grigio { background: var(--grey); }
+.verde { background:var(--green); }
+.giallo { background:var(--yellow); }
+.rosso { background:var(--red); }
+.grigio { background:var(--grey); }
+
 
 /* LOGIN */
 
 #loginScreen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
 }
 
 .login-box {
-    width: 100%;
-    max-width: 380px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 32px 24px;
-    text-align: center;
+    width:100%;
+    max-width:380px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:32px 24px;
+    text-align:center;
 }
 
 .login-icon {
-    font-size: 46px;
-    margin-bottom: 12px;
+    font-size:46px;
+    margin-bottom:12px;
 }
 
 .login-box h1 {
-    margin: 0;
-    font-size: 30px;
+    margin:0;
+    font-size:30px;
 }
 
 .login-subtitle {
-    margin-top: 7px;
-    color: var(--secondary);
+    margin-top:7px;
+    color:var(--secondary);
 }
 
 .pin-label {
-    display: block;
-    margin-top: 30px;
-    margin-bottom: 9px;
-    color: var(--secondary);
-    font-size: 14px;
-    font-weight: bold;
+    display:block;
+    margin-top:30px;
+    margin-bottom:9px;
+    color:var(--secondary);
+    font-size:14px;
+    font-weight:bold;
 }
 
 #pinInput {
-    width: 100%;
-    height: 58px;
-    border: 2px solid var(--border);
-    border-radius: 15px;
-    background: var(--card2);
-    color: white;
-    font-size: 28px;
-    text-align: center;
-    letter-spacing: 10px;
-    outline: none;
+    width:100%;
+    height:58px;
+    border:2px solid var(--border);
+    border-radius:15px;
+    background:var(--card2);
+    color:white;
+    font-size:28px;
+    text-align:center;
+    letter-spacing:10px;
+    outline:none;
 }
 
 #pinInput:focus {
-    border-color: var(--green);
+    border-color:var(--green);
 }
 
 #loginButton {
-    width: 100%;
-    height: 54px;
-    margin-top: 16px;
-    border: 0;
-    border-radius: 15px;
-    background: var(--green);
-    color: #071009;
-    font-weight: 900;
-    font-size: 16px;
-    cursor: pointer;
+    width:100%;
+    height:54px;
+    margin-top:16px;
+    border:0;
+    border-radius:15px;
+    background:var(--green);
+    color:#071009;
+    font-weight:900;
+    font-size:16px;
+    cursor:pointer;
 }
 
 #pinError {
-    min-height: 20px;
-    margin-top: 13px;
-    color: var(--red);
-    font-size: 14px;
-    font-weight: bold;
+    min-height:20px;
+    margin-top:13px;
+    color:var(--red);
+    font-size:14px;
+    font-weight:bold;
 }
+
 
 /* STRUTTURA */
 
 #appScreen {
-    display: none;
+    display:none;
 }
 
 .pagina {
-    display: none;
+    display:none;
 }
 
 .pagina.attiva {
-    display: block;
+    display:block;
 }
 
 .app {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    padding: 22px 16px 45px;
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    padding:22px 16px 45px;
 }
 
 .titolo-sezione {
-    margin: 28px 2px 12px;
-    color: var(--secondary);
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
+    margin:28px 2px 12px;
+    color:var(--secondary);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.2px;
 }
+
 
 /* HOME */
 
 .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
 }
 
 h1 {
-    margin: 0;
-    font-size: 28px;
+    margin:0;
+    font-size:28px;
 }
 
 #data {
-    margin-top: 6px;
-    color: var(--secondary);
-    font-size: 15px;
+    margin-top:6px;
+    color:var(--secondary);
+    font-size:15px;
 }
 
 .logout {
-    border: 1px solid var(--border);
-    background: var(--card2);
-    border-radius: 10px;
-    padding: 8px 11px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
+    border:1px solid var(--border);
+    background:var(--card2);
+    border-radius:10px;
+    padding:8px 11px;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .meteo {
-    margin-top: 18px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 18px;
+    margin-top:18px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
 }
 
 .meteo-principale {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
 .meteo-icona {
-    font-size: 38px;
+    font-size:38px;
 }
 
 .temperatura {
-    font-size: 30px;
-    font-weight: 800;
+    font-size:30px;
+    font-weight:800;
 }
 
 .umidita {
-    margin-top: 5px;
-    color: var(--secondary);
+    margin-top:5px;
+    color:var(--secondary);
 }
 
 .system {
-    margin-top: 14px;
-    padding: 14px 18px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
+    margin-top:14px;
+    padding:14px 18px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:bold;
 }
 
 .status {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    display:flex;
+    gap:8px;
+    align-items:center;
 }
 
 .indicatori {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
 .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 20px 14px;
-    text-align: center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px 14px;
+    text-align:center;
 }
 
 .card-click {
-    cursor: pointer;
-    transition: transform .12s, border-color .12s;
+    cursor:pointer;
+    transition:transform .12s, border-color .12s;
 }
 
 .card-click:active {
-    transform: scale(.97);
-    border-color: var(--green);
+    transform:scale(.97);
 }
 
 .card .icona {
-    font-size: 30px;
-    margin-bottom: 8px;
+    font-size:30px;
+    margin-bottom:8px;
 }
 
 .numero {
-    font-size: 30px;
-    font-weight: 800;
+    font-size:30px;
+    font-weight:800;
 }
 
 .label {
-    margin-top: 4px;
-    color: var(--secondary);
-    font-size: 13px;
-    font-weight: bold;
+    margin-top:4px;
+    color:var(--secondary);
+    font-size:13px;
+    font-weight:bold;
 }
 
 .stato-card {
-    margin-top: 10px;
+    margin-top:10px;
 }
 
 .camere {
-    grid-column: 1 / -1;
+    grid-column:1 / -1;
+}
+
+
+/* ALLARMI HOME */
+
+#alertHomeArea {
+    display:none;
 }
 
 .alert {
-    background: var(--red-bg);
-    border: 1px solid var(--red);
-    border-radius: 18px;
-    padding: 16px;
+    width:100%;
+    background:var(--red-bg);
+    border:1px solid var(--red);
+    border-radius:18px;
+    padding:16px;
+    color:white;
+    text-align:left;
+    cursor:pointer;
+}
+
+.alert:active {
+    transform:scale(.985);
 }
 
 .alert-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
 }
 
 .alert-testo strong {
-    display: block;
-    margin-bottom: 4px;
+    display:block;
+    margin-bottom:4px;
 }
 
 .alert-testo span {
-    color: #d7c2c2;
-    font-size: 14px;
+    color:#d7c2c2;
+    font-size:14px;
 }
 
+.alert-count {
+    margin-left:auto;
+    min-width:27px;
+    height:27px;
+    padding:0 8px;
+    border-radius:20px;
+    background:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:900;
+}
+
+
+/* ZONE */
+
 .zone {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
 .zona {
-    border: 1px solid var(--border);
-    background: var(--card);
-    border-radius: 18px;
-    padding: 20px 10px;
-    font-weight: 800;
-    cursor: pointer;
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:18px;
+    padding:20px 10px;
+    font-weight:800;
+    cursor:pointer;
 }
 
 .zona:active {
-    transform: scale(.97);
+    transform:scale(.97);
 }
 
 .zona .emoji {
-    display: block;
-    font-size: 30px;
-    margin-bottom: 8px;
+    display:block;
+    font-size:30px;
+    margin-bottom:8px;
 }
+
 
 /* HEADER PAGINE */
 
 .zona-header {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    margin-bottom: 18px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:18px;
 }
 
 .back-button {
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    background: var(--card);
-    font-size: 25px;
-    cursor: pointer;
+    width:42px;
+    height:42px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:var(--card);
+    font-size:25px;
+    cursor:pointer;
 }
 
 .zona-titolo {
-    font-size: 25px;
-    font-weight: 800;
+    font-size:25px;
+    font-weight:800;
 }
+
 
 /* RIEPILOGO */
 
 .riepilogo {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 18px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:18px;
 }
 
 .riepilogo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 17px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:17px;
 }
 
 .riepilogo-titolo {
-    font-weight: 800;
+    font-weight:800;
 }
 
 .riepilogo-ok {
-    display: flex;
-    gap: 7px;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 800;
+    display:flex;
+    gap:7px;
+    align-items:center;
+    font-size:12px;
+    font-weight:800;
 }
 
 .riepilogo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 .dato {
-    background: var(--card2);
-    border-radius: 14px;
-    padding: 13px;
+    background:var(--card2);
+    border-radius:14px;
+    padding:13px;
 }
 
 .dato-label {
-    color: var(--secondary);
-    font-size: 11px;
-    margin-bottom: 6px;
+    color:var(--secondary);
+    font-size:11px;
+    margin-bottom:6px;
 }
 
 .dato-valore {
-    font-size: 15px;
-    font-weight: 800;
+    font-size:15px;
+    font-weight:800;
 }
+
 
 /* CONTROLLI */
 
 .controlli-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 9px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
 }
 
 .device-button {
-    width: 100%;
-    min-height: 120px;
-    border-radius: 17px;
-    padding: 12px 5px;
-    cursor: pointer;
-    color: white;
+    width:100%;
+    min-height:120px;
+    border-radius:17px;
+    padding:12px 5px;
+    cursor:pointer;
+    color:white;
 }
 
 .device-button:active {
-    transform: scale(.96);
+    transform:scale(.96);
 }
 
 .device-icon {
-    font-size: 27px;
-    margin-bottom: 8px;
+    font-size:27px;
+    margin-bottom:8px;
 }
 
 .device-name {
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 8px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:8px;
 }
 
 .device-state {
-    font-size: 11px;
-    font-weight: 800;
+    font-size:11px;
+    font-weight:800;
 }
 
 .stato-on {
-    background: var(--green-bg);
-    border: 2px solid var(--green);
+    background:var(--green-bg);
+    border:2px solid var(--green);
 }
 
 .stato-off {
-    background: var(--grey-bg);
-    border: 2px solid var(--grey);
+    background:var(--grey-bg);
+    border:2px solid var(--grey);
 }
 
 .stato-working {
-    background: var(--yellow-bg);
-    border: 2px solid var(--yellow);
+    background:var(--yellow-bg);
+    border:2px solid var(--yellow);
 }
 
 .stato-error {
-    background: var(--red-bg);
-    border: 2px solid var(--red);
+    background:var(--red-bg);
+    border:2px solid var(--red);
 }
+
 
 /* SPORTELLI */
 
 .sportello {
-    background: var(--card);
-    border-radius: 17px;
-    overflow: hidden;
-    border: 1px solid var(--border);
+    background:var(--card);
+    border-radius:17px;
+    overflow:hidden;
+    border:1px solid var(--border);
 }
 
 .sportello-comando {
-    width: 100%;
-    min-height: 112px;
-    padding: 12px 5px;
-    cursor: pointer;
-    color: white;
+    width:100%;
+    min-height:112px;
+    padding:12px 5px;
+    cursor:pointer;
+    color:white;
 }
 
 .sportello-comando.bloccato {
-    opacity: .55;
-    cursor: default;
+    opacity:.55;
+    cursor:default;
 }
 
 .auto-row {
-    display: block;
-    border-top: 1px solid var(--border);
-    padding: 11px 2px;
-    text-align: center;
-    background: var(--card2);
-    font-size: 11px;
-    font-weight: 800;
-    cursor: pointer;
+    display:block;
+    border-top:1px solid var(--border);
+    padding:11px 2px;
+    text-align:center;
+    background:var(--card2);
+    font-size:11px;
+    font-weight:800;
+    cursor:pointer;
 }
 
 .auto-row input {
-    transform: scale(1.15);
-    margin-right: 4px;
+    transform:scale(1.15);
+    margin-right:4px;
 }
+
 
 /* CAMERE */
 
 .camere-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
 .camera-button {
-    min-height: 100px;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: var(--card);
-    cursor: pointer;
+    min-height:100px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--card);
+    cursor:pointer;
 }
 
 .camera-button:active {
-    transform: scale(.97);
+    transform:scale(.97);
+}
+
+.camera-offline {
+    background:var(--red-bg);
+    border-color:var(--red);
 }
 
 .camera-icon {
-    font-size: 28px;
-    margin-bottom: 7px;
+    font-size:28px;
+    margin-bottom:7px;
 }
 
 .camera-name {
-    font-size: 13px;
-    font-weight: 800;
+    font-size:13px;
+    font-weight:800;
 }
 
 .camera-status {
-    margin-top: 8px;
+    margin-top:8px;
 }
+
 
 /* PAGINE TRASVERSALI */
 
-.gruppo-generale {
-    margin-bottom: 28px;
+.gruppo-zona {
+    margin-bottom:24px;
 }
 
 .gruppo-header {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    margin: 0 2px 11px;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: .7px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 2px 10px;
+    font-size:13px;
+    font-weight:900;
+    color:var(--secondary);
+    letter-spacing:.7px;
 }
 
-.gruppo-emoji {
-    font-size: 20px;
+.gruppo-header .emoji {
+    font-size:18px;
 }
 
-.gruppo-count {
-    margin-left: auto;
-    color: var(--secondary);
-    font-size: 11px;
-    font-weight: 700;
+.gruppo-camere {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
+
+
+/* ALLARMI */
+
+.allarmi-lista {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.allarme-card {
+    background:var(--red-bg);
+    border:1px solid var(--red);
+    border-radius:17px;
+    padding:16px;
+}
+
+.allarme-header {
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-weight:900;
+    font-size:14px;
+}
+
+.allarme-messaggio {
+    margin-top:8px;
+    padding-left:21px;
+    color:#d7c2c2;
+    font-size:14px;
+    line-height:1.4;
+}
+
+.no-allarmi {
+    background:var(--green-bg);
+    border:1px solid var(--green);
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    font-weight:800;
+}
+
+.no-allarmi .big {
+    font-size:34px;
+    margin-bottom:10px;
+}
+
 
 /* GENERALE */
 
 .livello-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 18px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
 }
 
 .livello-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    font-weight: 800;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+    font-weight:800;
 }
 
 .livello-percentuale {
-    color: var(--green);
-    font-size: 20px;
+    color:var(--green);
+    font-size:20px;
 }
 
 .livello-barra {
-    width: 100%;
-    height: 16px;
-    background: var(--card2);
-    border-radius: 20px;
-    overflow: hidden;
+    width:100%;
+    height:16px;
+    background:var(--card2);
+    border-radius:20px;
+    overflow:hidden;
 }
 
 .livello-riempimento {
-    width: 78%;
-    height: 100%;
-    background: var(--green);
-    border-radius: 20px;
+    width:78%;
+    height:100%;
+    background:var(--green);
+    border-radius:20px;
 }
 
 .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 .info-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    padding: 16px 10px;
-    text-align: center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:16px 10px;
+    text-align:center;
 }
 
 .info-icon {
-    font-size: 27px;
-    margin-bottom: 8px;
+    font-size:27px;
+    margin-bottom:8px;
 }
 
 .info-name {
-    color: var(--secondary);
-    font-size: 11px;
-    font-weight: 800;
+    color:var(--secondary);
+    font-size:11px;
+    font-weight:800;
 }
 
 .info-value {
-    margin-top: 7px;
-    font-size: 14px;
-    font-weight: 800;
+    margin-top:7px;
+    font-size:14px;
+    font-weight:800;
 }
+
 
 /* CAMERA OVERLAY */
 
 #cameraDemo {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.88);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 100;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.88);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
 }
 
 .camera-demo-box {
-    width: 100%;
-    max-width: 500px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 25px;
-    text-align: center;
+    width:100%;
+    max-width:500px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
 }
 
 .camera-demo-icon {
-    font-size: 55px;
+    font-size:55px;
 }
 
 .camera-demo-title {
-    margin-top: 10px;
-    font-size: 22px;
-    font-weight: 800;
+    margin-top:10px;
+    font-size:22px;
+    font-weight:800;
 }
 
 .camera-demo-text {
-    margin-top: 8px;
-    color: var(--secondary);
-    font-size: 14px;
+    margin-top:8px;
+    color:var(--secondary);
+    font-size:14px;
 }
 
 .camera-close {
-    width: 100%;
-    height: 48px;
-    margin-top: 25px;
-    border: 0;
-    border-radius: 13px;
-    background: var(--card2);
-    font-weight: 800;
-    cursor: pointer;
+    width:100%;
+    height:48px;
+    margin-top:25px;
+    border:0;
+    border-radius:13px;
+    background:var(--card2);
+    font-weight:800;
+    cursor:pointer;
 }
+
 
 /* TOAST */
 
 #toast {
-    position: fixed;
-    left: 50%;
-    bottom: 25px;
-    transform: translateX(-50%) translateY(100px);
-    opacity: 0;
-    background: #252a26;
-    border: 1px solid var(--border);
-    color: white;
-    padding: 12px 18px;
-    border-radius: 13px;
-    font-size: 13px;
-    font-weight: 700;
-    z-index: 200;
-    transition: .25s;
-    white-space: nowrap;
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%) translateY(100px);
+    opacity:0;
+    background:#252a26;
+    border:1px solid var(--border);
+    color:white;
+    padding:12px 18px;
+    border-radius:13px;
+    font-size:13px;
+    font-weight:700;
+    z-index:200;
+    transition:.25s;
+    white-space:nowrap;
+    max-width:calc(100vw - 30px);
 }
 
 #toast.visibile {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
+    transform:translateX(-50%) translateY(0);
+    opacity:1;
 }
 
 @media(max-width:390px) {
     .app {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left:12px;
+        padding-right:12px;
     }
 
     .device-name {
-        font-size: 11px;
+        font-size:11px;
     }
 }
 </style>
@@ -728,13 +827,14 @@ h1 {
 
 <body>
 
+
 <!-- LOGIN -->
 
 <section id="loginScreen">
-
 <div class="login-box">
 
     <div class="login-icon">🌱</div>
+
     <h1>ORTO p.g.a.</h1>
 
     <div class="login-subtitle">
@@ -760,7 +860,6 @@ h1 {
     <div id="pinError"></div>
 
 </div>
-
 </section>
 
 
@@ -782,7 +881,10 @@ h1 {
             <div id="data"></div>
         </div>
 
-        <button class="logout" id="logoutButton">
+        <button
+            class="logout"
+            id="logoutButton"
+        >
             ESCI
         </button>
 
@@ -798,6 +900,7 @@ h1 {
             </div>
 
             <div>
+
                 <div class="temperatura">
                     18°C
                 </div>
@@ -805,6 +908,7 @@ h1 {
                 <div class="umidita">
                     Umidità 64% · Parzialmente nuvoloso
                 </div>
+
             </div>
 
         </div>
@@ -833,12 +937,15 @@ h1 {
 
         <div
             class="card card-click"
-            onclick="apriPaginaGenerale('luci')"
+            onclick="apriPagina('tutteLuciPage')"
         >
 
             <div class="icona">💡</div>
 
-            <div class="numero" id="homeLuci">
+            <div
+                class="numero"
+                id="homeLuci"
+            >
                 0
             </div>
 
@@ -847,7 +954,10 @@ h1 {
             </div>
 
             <div class="stato-card">
-                <span class="dot verde"></span>
+                <span
+                    id="homeLuciDot"
+                    class="dot verde"
+                ></span>
             </div>
 
         </div>
@@ -855,12 +965,15 @@ h1 {
 
         <div
             class="card card-click"
-            onclick="apriPaginaGenerale('sportelli')"
+            onclick="apriPagina('tuttiSportelliPage')"
         >
 
             <div class="icona">🚪</div>
 
-            <div class="numero" id="homeSportelli">
+            <div
+                class="numero"
+                id="homeSportelli"
+            >
                 0
             </div>
 
@@ -869,7 +982,10 @@ h1 {
             </div>
 
             <div class="stato-card">
-                <span class="dot verde"></span>
+                <span
+                    id="homeSportelliDot"
+                    class="dot verde"
+                ></span>
             </div>
 
         </div>
@@ -877,12 +993,15 @@ h1 {
 
         <div
             class="card camere card-click"
-            onclick="apriPaginaGenerale('camere')"
+            onclick="apriPagina('tutteCamerePage')"
         >
 
             <div class="icona">📷</div>
 
-            <div class="numero" id="homeCamere">
+            <div
+                class="numero"
+                id="homeCamere"
+            >
                 0 / 0
             </div>
 
@@ -891,7 +1010,10 @@ h1 {
             </div>
 
             <div class="stato-card">
-                <span class="dot verde"></span>
+                <span
+                    id="homeCamereDot"
+                    class="dot verde"
+                ></span>
             </div>
 
         </div>
@@ -899,31 +1021,43 @@ h1 {
     </section>
 
 
-    <div class="titolo-sezione">
-        ALLERT
+    <div id="alertHomeArea">
+
+        <div class="titolo-sezione">
+            ALLERT
+        </div>
+
+        <button
+            class="alert"
+            onclick="apriPagina('allarmiPage')"
+        >
+
+            <div class="alert-item">
+
+                <span class="dot rosso"></span>
+
+                <div class="alert-testo">
+
+                    <strong id="alertHomeTitolo">
+                        ANOMALIA
+                    </strong>
+
+                    <span id="alertHomeTesto"></span>
+
+                </div>
+
+                <div
+                    class="alert-count"
+                    id="alertHomeCount"
+                >
+                    1
+                </div>
+
+            </div>
+
+        </button>
+
     </div>
-
-    <section class="alert">
-
-        <div class="alert-item">
-
-            <span class="dot rosso"></span>
-
-            <div class="alert-testo">
-
-                <strong>
-                    POLLAIO · LUCE 2
-                </strong>
-
-                <span>
-                    Accesa fuori dall'orario previsto
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
 
 
     <div class="titolo-sezione">
@@ -933,22 +1067,37 @@ h1 {
 
     <section class="zone">
 
-        <button class="zona" onclick="apriZona('conigli')">
+        <button
+            class="zona"
+            onclick="apriZona('conigli')"
+        >
             <span class="emoji">🐇</span>
             CONIGLI
         </button>
 
-        <button class="zona" onclick="apriZona('pollaio')">
+
+        <button
+            class="zona"
+            onclick="apriZona('pollaio')"
+        >
             <span class="emoji">🐔</span>
             POLLAIO
         </button>
 
-        <button class="zona" onclick="apriZona('quaglie')">
+
+        <button
+            class="zona"
+            onclick="apriZona('quaglie')"
+        >
             <span class="emoji">🐦</span>
             QUAGLIE
         </button>
 
-        <button class="zona" onclick="apriPagina('generalePage')">
+
+        <button
+            class="zona"
+            onclick="apriPagina('generalePage')"
+        >
             <span class="emoji">⚙️</span>
             GENERALE
         </button>
@@ -956,7 +1105,6 @@ h1 {
     </section>
 
 </main>
-
 </div>
 
 
@@ -968,11 +1116,17 @@ h1 {
 
     <div class="zona-header">
 
-        <button class="back-button" onclick="apriPagina('homePage')">
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
             ‹
         </button>
 
-        <div class="zona-titolo" id="zonaTitolo"></div>
+        <div
+            class="zona-titolo"
+            id="zonaTitolo"
+        ></div>
 
     </div>
 
@@ -985,7 +1139,10 @@ h1 {
                 STATO GENERALE
             </div>
 
-            <div class="riepilogo-ok">
+            <div
+                class="riepilogo-ok"
+                id="zonaStatoGenerale"
+            >
                 <span class="dot verde"></span>
                 TUTTO OK
             </div>
@@ -999,8 +1156,12 @@ h1 {
                 <div class="dato-label">
                     🌡 TEMPERATURA
                 </div>
-                <div class="dato-valore" id="zonaTemperatura"></div>
+                <div
+                    class="dato-valore"
+                    id="zonaTemperatura"
+                ></div>
             </div>
+
 
             <div class="dato">
                 <div class="dato-label">
@@ -1011,25 +1172,37 @@ h1 {
                 </div>
             </div>
 
+
             <div class="dato">
                 <div class="dato-label">
                     💡 LUCI
                 </div>
-                <div class="dato-valore" id="zonaRiepilogoLuci"></div>
+                <div
+                    class="dato-valore"
+                    id="zonaRiepilogoLuci"
+                ></div>
             </div>
+
 
             <div class="dato">
                 <div class="dato-label">
                     🚪 SPORTELLI
                 </div>
-                <div class="dato-valore" id="zonaRiepilogoSportelli"></div>
+                <div
+                    class="dato-valore"
+                    id="zonaRiepilogoSportelli"
+                ></div>
             </div>
+
 
             <div class="dato">
                 <div class="dato-label">
                     📷 CAMERE
                 </div>
-                <div class="dato-valore" id="zonaRiepilogoCamere"></div>
+                <div
+                    class="dato-valore"
+                    id="zonaRiepilogoCamere"
+                ></div>
             </div>
 
         </div>
@@ -1041,24 +1214,32 @@ h1 {
         LUCI
     </div>
 
-    <section class="controlli-grid" id="zonaLuci"></section>
+    <section
+        class="controlli-grid"
+        id="zonaLuci"
+    ></section>
 
 
     <div class="titolo-sezione">
         SPORTELLI
     </div>
 
-    <section class="controlli-grid" id="zonaSportelli"></section>
+    <section
+        class="controlli-grid"
+        id="zonaSportelli"
+    ></section>
 
 
     <div class="titolo-sezione">
         TELECAMERE
     </div>
 
-    <section class="camere-grid" id="zonaCamere"></section>
+    <section
+        class="camere-grid"
+        id="zonaCamere"
+    ></section>
 
 </main>
-
 </div>
 
 
@@ -1070,7 +1251,10 @@ h1 {
 
     <div class="zona-header">
 
-        <button class="back-button" onclick="apriPagina('homePage')">
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
             ‹
         </button>
 
@@ -1080,10 +1264,9 @@ h1 {
 
     </div>
 
-    <div id="tutteLuciContenuto"></div>
+    <div id="tutteLuciContainer"></div>
 
 </main>
-
 </div>
 
 
@@ -1095,7 +1278,10 @@ h1 {
 
     <div class="zona-header">
 
-        <button class="back-button" onclick="apriPagina('homePage')">
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
             ‹
         </button>
 
@@ -1105,10 +1291,9 @@ h1 {
 
     </div>
 
-    <div id="tuttiSportelliContenuto"></div>
+    <div id="tuttiSportelliContainer"></div>
 
 </main>
-
 </div>
 
 
@@ -1120,7 +1305,10 @@ h1 {
 
     <div class="zona-header">
 
-        <button class="back-button" onclick="apriPagina('homePage')">
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
             ‹
         </button>
 
@@ -1130,10 +1318,39 @@ h1 {
 
     </div>
 
-    <div id="tutteCamereContenuto"></div>
+    <div id="tutteCamereContainer"></div>
 
 </main>
+</div>
 
+
+<!-- ALLARMI -->
+
+<div id="allarmiPage" class="pagina">
+
+<main class="app">
+
+    <div class="zona-header">
+
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
+            ‹
+        </button>
+
+        <div class="zona-titolo">
+            🚨 ALLARMI
+        </div>
+
+    </div>
+
+    <div
+        class="allarmi-lista"
+        id="allarmiContainer"
+    ></div>
+
+</main>
 </div>
 
 
@@ -1145,7 +1362,10 @@ h1 {
 
     <div class="zona-header">
 
-        <button class="back-button" onclick="apriPagina('homePage')">
+        <button
+            class="back-button"
+            onclick="apriPagina('homePage')"
+        >
             ‹
         </button>
 
@@ -1222,8 +1442,15 @@ h1 {
     <section class="livello-box">
 
         <div class="livello-top">
-            <span>💧 LIVELLO</span>
-            <span class="livello-percentuale">78%</span>
+
+            <span>
+                💧 LIVELLO
+            </span>
+
+            <span class="livello-percentuale">
+                78%
+            </span>
+
         </div>
 
         <div class="livello-barra">
@@ -1237,7 +1464,10 @@ h1 {
         LUCI AREA SERVIZI
     </div>
 
-    <section class="controlli-grid" id="generaleLuci"></section>
+    <section
+        class="controlli-grid"
+        id="generaleLuci"
+    ></section>
 
 
     <div class="titolo-sezione">
@@ -1248,7 +1478,9 @@ h1 {
 
         <div class="info-card">
 
-            <div class="info-icon">🚪</div>
+            <div class="info-icon">
+                🚪
+            </div>
 
             <div class="info-name">
                 PORTA DEPOSITO
@@ -1264,7 +1496,9 @@ h1 {
 
         <div class="info-card">
 
-            <div class="info-icon">🌡️</div>
+            <div class="info-icon">
+                🌡️
+            </div>
 
             <div class="info-name">
                 TEMPERATURA
@@ -1307,28 +1541,14 @@ h1 {
     <section class="camere-grid">
 
         <button
+            id="cameraGeneraleButton"
             class="camera-button"
-            onclick="apriCamera('GENERALE · CAMERA GENERALE')"
-        >
-
-            <div class="camera-icon">
-                📷
-            </div>
-
-            <div class="camera-name">
-                CAMERA GENERALE
-            </div>
-
-            <div class="camera-status">
-                <span class="dot verde"></span>
-            </div>
-
-        </button>
+            onclick="apriCameraGenerale()"
+        ></button>
 
     </section>
 
 </main>
-
 </div>
 
 </section>
@@ -1344,15 +1564,24 @@ h1 {
         📷
     </div>
 
-    <div id="cameraDemoTitle" class="camera-demo-title">
+    <div
+        id="cameraDemoTitle"
+        class="camera-demo-title"
+    >
         CAMERA
     </div>
 
-    <div class="camera-demo-text">
+    <div
+        id="cameraDemoText"
+        class="camera-demo-text"
+    >
         Qui verrà visualizzato il flusso video della telecamera.
     </div>
 
-    <button class="camera-close" onclick="chiudiCamera()">
+    <button
+        class="camera-close"
+        onclick="chiudiCamera()"
+    >
         CHIUDI
     </button>
 
@@ -1373,94 +1602,111 @@ h1 {
 const zone = {
 
     conigli: {
-        nome: "CONIGLI",
-        emoji: "🐇",
-        temperatura: "18,5°C",
 
-        luci: [
-            { nome: "LUCE 1", on: true, working: false },
-            { nome: "LUCE 2", on: false, working: false },
-            { nome: "LUCE 3", on: true, working: false }
+        nome:"CONIGLI",
+        emoji:"🐇",
+        temperatura:"18,5°C",
+
+        luci:[
+            {nome:"LUCE 1", on:true, working:false},
+            {nome:"LUCE 2", on:false, working:false},
+            {nome:"LUCE 3", on:true, working:false}
         ],
 
-        sportelli: [
-            { nome: "SPORTELLO 1", open: true, auto: true, working: false },
-            { nome: "SPORTELLO 2", open: false, auto: false, working: false },
-            { nome: "SPORTELLO 3", open: true, auto: true, working: false }
+        sportelli:[
+            {nome:"SPORTELLO 1", open:true, auto:true, working:false},
+            {nome:"SPORTELLO 2", open:false, auto:false, working:false},
+            {nome:"SPORTELLO 3", open:true, auto:true, working:false}
         ],
 
-        camere: [
-            { nome: "CAMERA 1", online: true },
-            { nome: "CAMERA 2", online: true }
+        camere:[
+            {nome:"CAMERA 1", online:true},
+            {nome:"CAMERA 2", online:true}
         ]
     },
 
 
     pollaio: {
-        nome: "POLLAIO",
-        emoji: "🐔",
-        temperatura: "19,2°C",
 
-        luci: [
-            { nome: "LUCE 1", on: true, working: false },
-            { nome: "LUCE 2", on: true, working: false },
-            { nome: "LUCE 3", on: false, working: false }
+        nome:"POLLAIO",
+        emoji:"🐔",
+        temperatura:"19,2°C",
+
+        luci:[
+            {
+                nome:"LUCE 1",
+                on:true,
+                working:false
+            },
+            {
+                nome:"LUCE 2",
+                on:true,
+                working:false,
+
+                /* ALLARME SIMULATO */
+                anomalia:"Accesa fuori dall'orario previsto"
+            },
+            {
+                nome:"LUCE 3",
+                on:false,
+                working:false
+            }
         ],
 
-        sportelli: [
-            { nome: "SPORTELLO 1", open: true, auto: true, working: false },
-            { nome: "SPORTELLO 2", open: true, auto: true, working: false },
-            { nome: "SPORTELLO 3", open: false, auto: false, working: false }
+        sportelli:[
+            {nome:"SPORTELLO 1", open:true, auto:true, working:false},
+            {nome:"SPORTELLO 2", open:true, auto:true, working:false},
+            {nome:"SPORTELLO 3", open:false, auto:false, working:false}
         ],
 
-        camere: [
-            { nome: "CAMERA 1", online: true },
-            { nome: "CAMERA 2", online: true }
+        camere:[
+            {nome:"CAMERA 1", online:true},
+            {nome:"CAMERA 2", online:true}
         ]
     },
 
 
     quaglie: {
-        nome: "QUAGLIE",
-        emoji: "🐦",
-        temperatura: "20,1°C",
 
-        luci: [
-            { nome: "LUCE 1", on: false, working: false },
-            { nome: "LUCE 2", on: true, working: false },
-            { nome: "LUCE 3", on: false, working: false }
+        nome:"QUAGLIE",
+        emoji:"🐦",
+        temperatura:"20,1°C",
+
+        luci:[
+            {nome:"LUCE 1", on:false, working:false},
+            {nome:"LUCE 2", on:true, working:false},
+            {nome:"LUCE 3", on:false, working:false}
         ],
 
-        sportelli: [
-            { nome: "SPORTELLO 1", open: true, auto: true, working: false },
-            { nome: "SPORTELLO 2", open: false, auto: true, working: false },
-            { nome: "SPORTELLO 3", open: false, auto: false, working: false }
+        sportelli:[
+            {nome:"SPORTELLO 1", open:true, auto:true, working:false},
+            {nome:"SPORTELLO 2", open:false, auto:true, working:false},
+            {nome:"SPORTELLO 3", open:false, auto:false, working:false}
         ],
 
-        camere: [
-            { nome: "CAMERA 1", online: true },
-            { nome: "CAMERA 2", online: true }
+        camere:[
+            {nome:"CAMERA 1", online:true},
+            {nome:"CAMERA 2", online:true}
         ]
     }
-
 };
 
 
 const generale = {
 
-    luci: [
-        { nome: "LUCE 1", on: true, working: false },
-        { nome: "LUCE 2", on: false, working: false },
-        { nome: "LUCE 3", on: false, working: false }
+    luci:[
+        {nome:"LUCE 1", on:true, working:false},
+        {nome:"LUCE 2", on:false, working:false},
+        {nome:"LUCE 3", on:false, working:false}
     ],
 
-    camera: {
-        nome: "CAMERA GENERALE",
-        online: true
+    camera:{
+        nome:"CAMERA GENERALE",
+        online:true
     },
 
-    frigo: true,
-    incubatrice: false
+    frigo:true,
+    incubatrice:false
 };
 
 
@@ -1488,8 +1734,8 @@ const pinError =
 
 function mostraApp() {
 
-    loginScreen.style.display = "none";
-    appScreen.style.display = "block";
+    loginScreen.style.display="none";
+    appScreen.style.display="block";
 
     sessionStorage.setItem(
         "ortoAccesso",
@@ -1502,15 +1748,15 @@ function mostraApp() {
 
 function mostraLogin() {
 
-    appScreen.style.display = "none";
-    loginScreen.style.display = "flex";
+    appScreen.style.display="none";
+    loginScreen.style.display="flex";
 
     sessionStorage.removeItem(
         "ortoAccesso"
     );
 
-    pinInput.value = "";
-    pinError.textContent = "";
+    pinInput.value="";
+    pinError.textContent="";
 
     apriPagina("homePage");
 }
@@ -1518,35 +1764,35 @@ function mostraLogin() {
 
 function verificaPin() {
 
-    if (pinInput.value === PIN_CORRETTO) {
+    if(pinInput.value===PIN_CORRETTO) {
 
-        pinError.textContent = "";
+        pinError.textContent="";
         mostraApp();
 
     } else {
 
-        pinError.textContent =
+        pinError.textContent=
             "PIN non corretto";
 
-        pinInput.value = "";
+        pinInput.value="";
         pinInput.focus();
     }
 }
 
 
 document
-    .getElementById("loginButton")
-    .addEventListener(
-        "click",
-        verificaPin
-    );
+.getElementById("loginButton")
+.addEventListener(
+    "click",
+    verificaPin
+);
 
 
 pinInput.addEventListener(
     "keydown",
     function(event) {
 
-        if (event.key === "Enter") {
+        if(event.key==="Enter") {
             verificaPin();
         }
     }
@@ -1554,36 +1800,36 @@ pinInput.addEventListener(
 
 
 document
-    .getElementById("logoutButton")
-    .addEventListener(
-        "click",
-        mostraLogin
-    );
+.getElementById("logoutButton")
+.addEventListener(
+    "click",
+    mostraLogin
+);
 
 
 /* ===================================
    DATA
    =================================== */
 
-const oggi = new Date();
+const oggi=new Date();
 
-const dataFormattata =
+const dataFormattata=
     oggi.toLocaleDateString(
         "it-IT",
         {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
+            weekday:"long",
+            day:"numeric",
+            month:"long",
+            year:"numeric"
         }
     );
 
 document
-    .getElementById("data")
-    .textContent =
-        dataFormattata.charAt(0).toUpperCase()
-        +
-        dataFormattata.slice(1);
+.getElementById("data")
+.textContent=
+    dataFormattata.charAt(0).toUpperCase()
+    +
+    dataFormattata.slice(1);
 
 
 /* ===================================
@@ -1593,21 +1839,19 @@ document
 function apriPagina(id) {
 
     document
-        .querySelectorAll(".pagina")
-        .forEach(function(pagina) {
+    .querySelectorAll(".pagina")
+    .forEach(function(pagina) {
 
-            pagina.classList.remove(
-                "attiva"
-            );
-        });
-
+        pagina.classList.remove(
+            "attiva"
+        );
+    });
 
     document
-        .getElementById(id)
-        .classList.add("attiva");
+    .getElementById(id)
+    .classList.add("attiva");
 
-
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
 
     aggiornaTutto();
 }
@@ -1615,7 +1859,7 @@ function apriPagina(id) {
 
 function apriZona(nomeZona) {
 
-    zonaAttuale = nomeZona;
+    zonaAttuale=nomeZona;
 
     renderZona();
 
@@ -1623,286 +1867,181 @@ function apriZona(nomeZona) {
 }
 
 
-function apriPaginaGenerale(tipo) {
-
-    if (tipo === "luci") {
-
-        renderTutteLuci();
-        apriPagina("tutteLuciPage");
-
-    } else if (tipo === "sportelli") {
-
-        renderTuttiSportelli();
-        apriPagina("tuttiSportelliPage");
-
-    } else if (tipo === "camere") {
-
-        renderTutteCamere();
-        apriPagina("tutteCamerePage");
-    }
-}
-
-
 /* ===================================
-   HELPERS GRAFICI
+   FUNZIONI STATO
    =================================== */
 
-function creaPulsanteLuce(luce, callback) {
+function contaAllarmi() {
 
-    const button =
-        document.createElement("button");
-
-    button.className =
-        "device-button";
-
-
-    let stato = "";
-    let classe = "";
-
-
-    if (luce.working) {
-
-        classe =
-            "stato-working";
-
-        stato =
-            luce.on
-            ? "SPEGNIMENTO..."
-            : "ACCENSIONE...";
-
-    } else if (luce.on) {
-
-        classe =
-            "stato-on";
-
-        stato =
-            "ACCESA";
-
-    } else {
-
-        classe =
-            "stato-off";
-
-        stato =
-            "SPENTA";
-    }
-
-
-    button.classList.add(classe);
-
-
-    button.innerHTML =
-        '<div class="device-icon">💡</div>' +
-        '<div class="device-name">' +
-        luce.nome +
-        '</div>' +
-        '<div class="device-state">' +
-        stato +
-        '</div>';
-
-
-    button.onclick = callback;
-
-    return button;
+    return generaAllarmi().length;
 }
 
 
-function creaSportello(sportello, callbackComando, callbackAuto) {
+function generaAllarmi() {
 
-    const box =
-        document.createElement("div");
+    const allarmi=[];
 
-    box.className =
-        "sportello";
+    Object.keys(zone)
+    .forEach(function(chiaveZona) {
 
+        const zona=zone[chiaveZona];
 
-    const button =
-        document.createElement("button");
+        zona.luci.forEach(
+            function(luce) {
 
-    button.className =
-        "sportello-comando";
+                if(luce.anomalia) {
 
-
-    if (sportello.auto) {
-
-        button.classList.add(
-            "bloccato"
-        );
-    }
-
-
-    let stato = "";
-    let classe = "";
-
-
-    if (sportello.working) {
-
-        classe =
-            "stato-working";
-
-        stato =
-            sportello.open
-            ? "CHIUSURA..."
-            : "APERTURA...";
-
-    } else if (sportello.open) {
-
-        classe =
-            "stato-on";
-
-        stato =
-            "APERTO";
-
-    } else {
-
-        classe =
-            "stato-off";
-
-        stato =
-            "CHIUSO";
-    }
-
-
-    button.classList.add(classe);
-
-
-    button.innerHTML =
-        '<div class="device-icon">🚪</div>' +
-        '<div class="device-name">' +
-        sportello.nome +
-        '</div>' +
-        '<div class="device-state">' +
-        stato +
-        '</div>';
-
-
-    button.onclick =
-        callbackComando;
-
-
-    const label =
-        document.createElement("label");
-
-    label.className =
-        "auto-row";
-
-
-    const checkbox =
-        document.createElement("input");
-
-    checkbox.type =
-        "checkbox";
-
-    checkbox.checked =
-        sportello.auto;
-
-
-    checkbox.onchange =
-        function() {
-
-            callbackAuto(
-                checkbox.checked
-            );
-        };
-
-
-    label.appendChild(
-        checkbox
-    );
-
-    label.appendChild(
-        document.createTextNode(
-            " AUTO"
-        )
-    );
-
-
-    box.appendChild(
-        button
-    );
-
-    box.appendChild(
-        label
-    );
-
-    return box;
-}
-
-
-function creaPulsanteCamera(camera, titoloCompleto) {
-
-    const button =
-        document.createElement("button");
-
-    button.className =
-        "camera-button";
-
-
-    button.innerHTML =
-        '<div class="camera-icon">📷</div>' +
-        '<div class="camera-name">' +
-        camera.nome +
-        '</div>' +
-        '<div class="camera-status">' +
-        '<span class="dot ' +
-        (
-            camera.online
-            ? "verde"
-            : "rosso"
-        ) +
-        '"></span>' +
-        '</div>';
-
-
-    button.onclick =
-        function() {
-
-            if (!camera.online) {
-
-                mostraToast(
-                    "Telecamera offline"
-                );
-
-                return;
+                    allarmi.push({
+                        tipo:"luce",
+                        zona:zona.nome,
+                        dispositivo:luce.nome,
+                        messaggio:luce.anomalia
+                    });
+                }
             }
+        );
 
-            apriCamera(
-                titoloCompleto
+
+        zona.sportelli.forEach(
+            function(sportello) {
+
+                if(sportello.anomalia) {
+
+                    allarmi.push({
+                        tipo:"sportello",
+                        zona:zona.nome,
+                        dispositivo:sportello.nome,
+                        messaggio:sportello.anomalia
+                    });
+                }
+            }
+        );
+
+
+        zona.camere.forEach(
+            function(camera) {
+
+                if(!camera.online) {
+
+                    allarmi.push({
+                        tipo:"camera",
+                        zona:zona.nome,
+                        dispositivo:camera.nome,
+                        messaggio:"Telecamera offline"
+                    });
+                }
+            }
+        );
+    });
+
+
+    if(!generale.camera.online) {
+
+        allarmi.push({
+            tipo:"camera",
+            zona:"GENERALE",
+            dispositivo:generale.camera.nome,
+            messaggio:"Telecamera offline"
+        });
+    }
+
+
+    return allarmi;
+}
+
+
+function esisteAllarmeTipo(tipo) {
+
+    return generaAllarmi()
+        .some(function(allarme) {
+            return allarme.tipo===tipo;
+        });
+}
+
+
+function esisteLuceInMovimento() {
+
+    let movimento=false;
+
+    Object.values(zone)
+    .forEach(function(zona) {
+
+        if(
+            zona.luci.some(
+                function(luce) {
+                    return luce.working;
+                }
+            )
+        ) {
+            movimento=true;
+        }
+    });
+
+    if(
+        generale.luci.some(
+            function(luce) {
+                return luce.working;
+            }
+        )
+    ) {
+        movimento=true;
+    }
+
+    return movimento;
+}
+
+
+function esisteSportelloInMovimento() {
+
+    return Object.values(zone)
+        .some(function(zona) {
+
+            return zona.sportelli.some(
+                function(sportello) {
+                    return sportello.working;
+                }
             );
-        };
+        });
+}
 
 
-    return button;
+function impostaDot(elemento,stato) {
+
+    elemento.className="dot";
+
+    if(stato==="rosso") {
+        elemento.classList.add("rosso");
+    }
+    else if(stato==="giallo") {
+        elemento.classList.add("giallo");
+    }
+    else {
+        elemento.classList.add("verde");
+    }
 }
 
 
 /* ===================================
-   PAGINA ZONA
+   RENDER ZONA
    =================================== */
 
 function renderZona() {
 
-    const zona =
-        zone[zonaAttuale];
+    const zona=zone[zonaAttuale];
+
+    document
+    .getElementById("zonaTitolo")
+    .textContent=
+        zona.emoji+" "+zona.nome;
 
 
     document
-        .getElementById("zonaTitolo")
-        .textContent =
-            zona.emoji +
-            " " +
-            zona.nome;
+    .getElementById("zonaTemperatura")
+    .textContent=
+        zona.temperatura;
 
 
-    document
-        .getElementById(
-            "zonaTemperatura"
-        )
-        .textContent =
-            zona.temperatura;
-
-
-    const luciAccese =
+    const luciAccese=
         zona.luci.filter(
             function(luce) {
                 return luce.on;
@@ -1910,7 +2049,7 @@ function renderZona() {
         ).length;
 
 
-    const sportelliAperti =
+    const sportelliAperti=
         zona.sportelli.filter(
             function(sportello) {
                 return sportello.open;
@@ -1918,7 +2057,7 @@ function renderZona() {
         ).length;
 
 
-    const camereOnline =
+    const camereOnline=
         zona.camere.filter(
             function(camera) {
                 return camera.online;
@@ -1927,36 +2066,60 @@ function renderZona() {
 
 
     document
-        .getElementById(
-            "zonaRiepilogoLuci"
-        )
-        .textContent =
-            luciAccese +
-            " / " +
-            zona.luci.length +
-            " accese";
+    .getElementById("zonaRiepilogoLuci")
+    .textContent=
+        luciAccese+
+        " / "+
+        zona.luci.length+
+        " accese";
 
 
     document
-        .getElementById(
-            "zonaRiepilogoSportelli"
-        )
-        .textContent =
-            sportelliAperti +
-            " / " +
-            zona.sportelli.length +
-            " aperti";
+    .getElementById("zonaRiepilogoSportelli")
+    .textContent=
+        sportelliAperti+
+        " / "+
+        zona.sportelli.length+
+        " aperti";
 
 
     document
-        .getElementById(
-            "zonaRiepilogoCamere"
-        )
-        .textContent =
-            camereOnline +
-            " / " +
-            zona.camere.length +
-            " online";
+    .getElementById("zonaRiepilogoCamere")
+    .textContent=
+        camereOnline+
+        " / "+
+        zona.camere.length+
+        " online";
+
+
+    const problemiZona=
+        generaAllarmi()
+        .filter(
+            function(allarme) {
+                return allarme.zona===zona.nome;
+            }
+        );
+
+
+    const statoGenerale=
+        document.getElementById(
+            "zonaStatoGenerale"
+        );
+
+
+    if(problemiZona.length>0) {
+
+        statoGenerale.innerHTML=
+            '<span class="dot rosso"></span>'+
+            problemiZona.length+
+            " ALLERT";
+
+    } else {
+
+        statoGenerale.innerHTML=
+            '<span class="dot verde"></span>'+
+            "TUTTO OK";
+    }
 
 
     renderLuciZona();
@@ -1969,54 +2132,112 @@ function renderZona() {
    LUCI ZONA
    =================================== */
 
+function creaBottoneLuce(
+    luce,
+    callback
+) {
+
+    const button=
+        document.createElement("button");
+
+    button.className=
+        "device-button";
+
+
+    let stato="";
+    let classe="";
+
+
+    if(luce.anomalia) {
+
+        classe="stato-error";
+        stato="ANOMALIA";
+
+    }
+    else if(luce.working) {
+
+        classe="stato-working";
+
+        stato=
+            luce.on
+            ? "SPEGNIMENTO..."
+            : "ACCENSIONE...";
+
+    }
+    else if(luce.on) {
+
+        classe="stato-on";
+        stato="ACCESA";
+
+    }
+    else {
+
+        classe="stato-off";
+        stato="SPENTA";
+    }
+
+
+    button.classList.add(classe);
+
+    button.innerHTML=
+        '<div class="device-icon">💡</div>'+
+        '<div class="device-name">'+
+        luce.nome+
+        '</div>'+
+        '<div class="device-state">'+
+        stato+
+        '</div>';
+
+    button.onclick=callback;
+
+    return button;
+}
+
+
 function renderLuciZona() {
 
-    const zona =
-        zone[zonaAttuale];
+    const zona=zone[zonaAttuale];
 
-    const contenitore =
+    const contenitore=
         document.getElementById(
             "zonaLuci"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
     zona.luci.forEach(
-        function(luce, indice) {
+        function(luce,indice) {
 
             contenitore.appendChild(
-
-                creaPulsanteLuce(
+                creaBottoneLuce(
                     luce,
                     function() {
-
                         toggleLuceZona(
                             zonaAttuale,
                             indice
                         );
                     }
                 )
-
             );
         }
     );
 }
 
 
-function toggleLuceZona(nomeZona, indice) {
+function toggleLuceZona(
+    chiaveZona,
+    indice
+) {
 
-    const luce =
-        zone[nomeZona]
-            .luci[indice];
+    const luce=
+        zone[chiaveZona].luci[indice];
 
-
-    if (luce.working) {
+    if(luce.working) {
         return;
     }
 
-
-    luce.working = true;
+    luce.working=true;
 
     aggiornaTutto();
 
@@ -2024,11 +2245,20 @@ function toggleLuceZona(nomeZona, indice) {
     setTimeout(
         function() {
 
-            luce.on =
-                !luce.on;
+            luce.on=!luce.on;
+            luce.working=false;
 
-            luce.working =
-                false;
+            /*
+            L'allarme simulato della luce
+            viene eliminato se la spegni.
+            */
+
+            if(
+                luce.anomalia &&
+                !luce.on
+            ) {
+                delete luce.anomalia;
+            }
 
             aggiornaTutto();
 
@@ -2039,27 +2269,135 @@ function toggleLuceZona(nomeZona, indice) {
 
 
 /* ===================================
-   SPORTELLI ZONA
+   SPORTELLI
    =================================== */
+
+function creaSportello(
+    sportello,
+    callbackComando,
+    callbackAuto
+) {
+
+    const box=
+        document.createElement("div");
+
+    box.className="sportello";
+
+
+    const button=
+        document.createElement("button");
+
+    button.className=
+        "sportello-comando";
+
+
+    if(sportello.auto) {
+
+        button.classList.add(
+            "bloccato"
+        );
+    }
+
+
+    let stato="";
+    let classe="";
+
+
+    if(sportello.anomalia) {
+
+        classe="stato-error";
+        stato="ANOMALIA";
+
+    }
+    else if(sportello.working) {
+
+        classe="stato-working";
+
+        stato=
+            sportello.open
+            ? "CHIUSURA..."
+            : "APERTURA...";
+
+    }
+    else if(sportello.open) {
+
+        classe="stato-on";
+        stato="APERTO";
+
+    }
+    else {
+
+        classe="stato-off";
+        stato="CHIUSO";
+    }
+
+
+    button.classList.add(classe);
+
+    button.innerHTML=
+        '<div class="device-icon">🚪</div>'+
+        '<div class="device-name">'+
+        sportello.nome+
+        '</div>'+
+        '<div class="device-state">'+
+        stato+
+        '</div>';
+
+    button.onclick=callbackComando;
+
+
+    const label=
+        document.createElement("label");
+
+    label.className="auto-row";
+
+
+    const checkbox=
+        document.createElement("input");
+
+    checkbox.type="checkbox";
+    checkbox.checked=sportello.auto;
+
+    checkbox.onchange=
+        function() {
+            callbackAuto(
+                checkbox.checked
+            );
+        };
+
+
+    label.appendChild(checkbox);
+
+    label.appendChild(
+        document.createTextNode(
+            " AUTO"
+        )
+    );
+
+
+    box.appendChild(button);
+    box.appendChild(label);
+
+    return box;
+}
+
 
 function renderSportelliZona() {
 
-    const zona =
-        zone[zonaAttuale];
+    const zona=zone[zonaAttuale];
 
-    const contenitore =
+    const contenitore=
         document.getElementById(
             "zonaSportelli"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
     zona.sportelli.forEach(
-        function(sportello, indice) {
+        function(sportello,indice) {
 
             contenitore.appendChild(
-
                 creaSportello(
 
                     sportello,
@@ -2074,27 +2412,28 @@ function renderSportelliZona() {
 
                     function(valore) {
 
-                        sportello.auto =
-                            valore;
+                        sportello.auto=valore;
 
                         aggiornaTutto();
                     }
                 )
-
             );
         }
     );
 }
 
 
-function toggleSportelloZona(nomeZona, indice) {
+function toggleSportelloZona(
+    chiaveZona,
+    indice
+) {
 
-    const sportello =
-        zone[nomeZona]
-            .sportelli[indice];
+    const sportello=
+        zone[chiaveZona]
+        .sportelli[indice];
 
 
-    if (sportello.auto) {
+    if(sportello.auto) {
 
         mostraToast(
             "Disattiva AUTO per il comando manuale"
@@ -2104,12 +2443,12 @@ function toggleSportelloZona(nomeZona, indice) {
     }
 
 
-    if (sportello.working) {
+    if(sportello.working) {
         return;
     }
 
 
-    sportello.working = true;
+    sportello.working=true;
 
     aggiornaTutto();
 
@@ -2117,11 +2456,10 @@ function toggleSportelloZona(nomeZona, indice) {
     setTimeout(
         function() {
 
-            sportello.open =
+            sportello.open=
                 !sportello.open;
 
-            sportello.working =
-                false;
+            sportello.working=false;
 
             aggiornaTutto();
 
@@ -2132,37 +2470,290 @@ function toggleSportelloZona(nomeZona, indice) {
 
 
 /* ===================================
-   CAMERE ZONA
+   CAMERE
    =================================== */
+
+function creaCameraButton(
+    camera,
+    nomeCompleto
+) {
+
+    const button=
+        document.createElement("button");
+
+    button.className=
+        "camera-button";
+
+
+    if(!camera.online) {
+        button.classList.add(
+            "camera-offline"
+        );
+    }
+
+
+    button.innerHTML=
+        '<div class="camera-icon">📷</div>'+
+        '<div class="camera-name">'+
+        camera.nome+
+        '</div>'+
+        '<div class="camera-status">'+
+        '<span class="dot '+
+        (
+            camera.online
+            ? "verde"
+            : "rosso"
+        )+
+        '"></span> '+
+        (
+            camera.online
+            ? "ONLINE"
+            : "OFFLINE"
+        )+
+        '</div>';
+
+
+    button.onclick=
+        function() {
+
+            if(camera.online) {
+
+                apriCamera(
+                    nomeCompleto
+                );
+
+            } else {
+
+                mostraToast(
+                    "Telecamera non disponibile"
+                );
+            }
+        };
+
+
+    return button;
+}
+
 
 function renderCamereZona() {
 
-    const zona =
-        zone[zonaAttuale];
+    const zona=zone[zonaAttuale];
 
-    const contenitore =
+    const contenitore=
         document.getElementById(
             "zonaCamere"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
     zona.camere.forEach(
         function(camera) {
 
             contenitore.appendChild(
-
-                creaPulsanteCamera(
+                creaCameraButton(
                     camera,
-                    zona.nome +
-                    " · " +
+                    zona.nome+
+                    " · "+
                     camera.nome
                 )
-
             );
         }
     );
+}
+
+
+/* ===================================
+   GENERALE
+   =================================== */
+
+function renderGeneraleLuci() {
+
+    const contenitore=
+        document.getElementById(
+            "generaleLuci"
+        );
+
+    contenitore.innerHTML="";
+
+
+    generale.luci.forEach(
+        function(luce,indice) {
+
+            contenitore.appendChild(
+                creaBottoneLuce(
+                    luce,
+                    function() {
+                        toggleGeneraleLuce(
+                            indice
+                        );
+                    }
+                )
+            );
+        }
+    );
+}
+
+
+function toggleGeneraleLuce(indice) {
+
+    const luce=
+        generale.luci[indice];
+
+    if(luce.working) {
+        return;
+    }
+
+    luce.working=true;
+
+    aggiornaTutto();
+
+
+    setTimeout(
+        function() {
+
+            luce.on=!luce.on;
+            luce.working=false;
+
+            aggiornaTutto();
+
+        },
+        700
+    );
+}
+
+
+function renderGeneraleDevices() {
+
+    const frigo=
+        document.getElementById(
+            "frigoButton"
+        );
+
+    const incubatrice=
+        document.getElementById(
+            "incubatriceButton"
+        );
+
+
+    frigo.className=
+        "device-button "+
+        (
+            generale.frigo
+            ? "stato-on"
+            : "stato-off"
+        );
+
+
+    frigo.innerHTML=
+        '<div class="device-icon">❄️</div>'+
+        '<div class="device-name">ALIMENTAZIONE FRIGO</div>'+
+        '<div class="device-state">'+
+        (
+            generale.frigo
+            ? "ON"
+            : "OFF"
+        )+
+        '</div>';
+
+
+    incubatrice.className=
+        "device-button "+
+        (
+            generale.incubatrice
+            ? "stato-on"
+            : "stato-off"
+        );
+
+
+    incubatrice.innerHTML=
+        '<div class="device-icon">🥚</div>'+
+        '<div class="device-name">ALIMENTAZIONE INCUBATRICE</div>'+
+        '<div class="device-state">'+
+        (
+            generale.incubatrice
+            ? "ON"
+            : "OFF"
+        )+
+        '</div>';
+}
+
+
+function toggleGeneraleDevice(device) {
+
+    if(device==="frigo") {
+        generale.frigo=
+            !generale.frigo;
+    }
+
+    if(device==="incubatrice") {
+        generale.incubatrice=
+            !generale.incubatrice;
+    }
+
+    aggiornaTutto();
+}
+
+
+function renderCameraGenerale() {
+
+    const contenitore=
+        document.getElementById(
+            "cameraGeneraleButton"
+        );
+
+    const camera=
+        generale.camera;
+
+
+    contenitore.className=
+        "camera-button";
+
+
+    if(!camera.online) {
+        contenitore.classList.add(
+            "camera-offline"
+        );
+    }
+
+
+    contenitore.innerHTML=
+        '<div class="camera-icon">📷</div>'+
+        '<div class="camera-name">'+
+        camera.nome+
+        '</div>'+
+        '<div class="camera-status">'+
+        '<span class="dot '+
+        (
+            camera.online
+            ? "verde"
+            : "rosso"
+        )+
+        '"></span> '+
+        (
+            camera.online
+            ? "ONLINE"
+            : "OFFLINE"
+        )+
+        '</div>';
+}
+
+
+function apriCameraGenerale() {
+
+    if(generale.camera.online) {
+
+        apriCamera(
+            "GENERALE · "+
+            generale.camera.nome
+        );
+
+    } else {
+
+        mostraToast(
+            "Telecamera non disponibile"
+        );
+    }
 }
 
 
@@ -2172,134 +2763,95 @@ function renderCamereZona() {
 
 function renderTutteLuci() {
 
-    const contenitore =
+    const contenitore=
         document.getElementById(
-            "tutteLuciContenuto"
+            "tutteLuciContainer"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
-    Object.entries(zone)
-        .forEach(
-            function([chiave, zona]) {
+    Object.keys(zone)
+    .forEach(function(chiaveZona) {
 
-                const gruppo =
-                    document.createElement(
-                        "section"
-                    );
+        const zona=zone[chiaveZona];
 
-                gruppo.className =
-                    "gruppo-generale";
+        const gruppo=
+            document.createElement("div");
+
+        gruppo.className=
+            "gruppo-zona";
 
 
-                const accese =
-                    zona.luci.filter(
-                        function(luce) {
-                            return luce.on;
+        gruppo.innerHTML=
+            '<div class="gruppo-header">'+
+            '<span class="emoji">'+
+            zona.emoji+
+            '</span>'+
+            zona.nome+
+            '</div>';
+
+
+        const grid=
+            document.createElement("div");
+
+        grid.className=
+            "controlli-grid";
+
+
+        zona.luci.forEach(
+            function(luce,indice) {
+
+                grid.appendChild(
+                    creaBottoneLuce(
+                        luce,
+                        function() {
+
+                            toggleLuceZona(
+                                chiaveZona,
+                                indice
+                            );
                         }
-                    ).length;
-
-
-                gruppo.innerHTML =
-                    '<div class="gruppo-header">' +
-                    '<span class="gruppo-emoji">' +
-                    zona.emoji +
-                    '</span>' +
-                    zona.nome +
-                    '<span class="gruppo-count">' +
-                    accese +
-                    ' / ' +
-                    zona.luci.length +
-                    ' ACCESE</span>' +
-                    '</div>';
-
-
-                const grid =
-                    document.createElement(
-                        "div"
-                    );
-
-                grid.className =
-                    "controlli-grid";
-
-
-                zona.luci.forEach(
-                    function(luce, indice) {
-
-                        grid.appendChild(
-
-                            creaPulsanteLuce(
-                                luce,
-                                function() {
-
-                                    toggleLuceZona(
-                                        chiave,
-                                        indice
-                                    );
-                                }
-                            )
-
-                        );
-                    }
-                );
-
-
-                gruppo.appendChild(
-                    grid
-                );
-
-                contenitore.appendChild(
-                    gruppo
+                    )
                 );
             }
         );
 
 
-    const gruppoGenerale =
-        document.createElement(
-            "section"
+        gruppo.appendChild(grid);
+
+        contenitore.appendChild(
+            gruppo
         );
-
-    gruppoGenerale.className =
-        "gruppo-generale";
+    });
 
 
-    const acceseGenerale =
-        generale.luci.filter(
-            function(luce) {
-                return luce.on;
-            }
-        ).length;
+    const gruppoGenerale=
+        document.createElement("div");
+
+    gruppoGenerale.className=
+        "gruppo-zona";
 
 
-    gruppoGenerale.innerHTML =
-        '<div class="gruppo-header">' +
-        '<span class="gruppo-emoji">⚙️</span>' +
-        'GENERALE' +
-        '<span class="gruppo-count">' +
-        acceseGenerale +
-        ' / ' +
-        generale.luci.length +
-        ' ACCESE</span>' +
+    gruppoGenerale.innerHTML=
+        '<div class="gruppo-header">'+
+        '<span class="emoji">⚙️</span>'+
+        'GENERALE'+
         '</div>';
 
 
-    const gridGenerale =
-        document.createElement(
-            "div"
-        );
+    const gridGenerale=
+        document.createElement("div");
 
-    gridGenerale.className =
+    gridGenerale.className=
         "controlli-grid";
 
 
     generale.luci.forEach(
-        function(luce, indice) {
+        function(luce,indice) {
 
             gridGenerale.appendChild(
-
-                creaPulsanteLuce(
+                creaBottoneLuce(
                     luce,
                     function() {
 
@@ -2308,7 +2860,6 @@ function renderTutteLuci() {
                         );
                     }
                 )
-
             );
         }
     );
@@ -2330,99 +2881,80 @@ function renderTutteLuci() {
 
 function renderTuttiSportelli() {
 
-    const contenitore =
+    const contenitore=
         document.getElementById(
-            "tuttiSportelliContenuto"
+            "tuttiSportelliContainer"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
-    Object.entries(zone)
-        .forEach(
-            function([chiave, zona]) {
+    Object.keys(zone)
+    .forEach(function(chiaveZona) {
 
-                const gruppo =
-                    document.createElement(
-                        "section"
-                    );
+        const zona=zone[chiaveZona];
 
-                gruppo.className =
-                    "gruppo-generale";
+        const gruppo=
+            document.createElement("div");
+
+        gruppo.className=
+            "gruppo-zona";
 
 
-                const aperti =
-                    zona.sportelli.filter(
-                        function(sportello) {
-                            return sportello.open;
+        gruppo.innerHTML=
+            '<div class="gruppo-header">'+
+            '<span class="emoji">'+
+            zona.emoji+
+            '</span>'+
+            zona.nome+
+            '</div>';
+
+
+        const grid=
+            document.createElement("div");
+
+        grid.className=
+            "controlli-grid";
+
+
+        zona.sportelli.forEach(
+            function(
+                sportello,
+                indice
+            ) {
+
+                grid.appendChild(
+                    creaSportello(
+
+                        sportello,
+
+                        function() {
+
+                            toggleSportelloZona(
+                                chiaveZona,
+                                indice
+                            );
+                        },
+
+                        function(valore) {
+
+                            sportello.auto=
+                                valore;
+
+                            aggiornaTutto();
                         }
-                    ).length;
-
-
-                gruppo.innerHTML =
-                    '<div class="gruppo-header">' +
-                    '<span class="gruppo-emoji">' +
-                    zona.emoji +
-                    '</span>' +
-                    zona.nome +
-                    '<span class="gruppo-count">' +
-                    aperti +
-                    ' / ' +
-                    zona.sportelli.length +
-                    ' APERTI</span>' +
-                    '</div>';
-
-
-                const grid =
-                    document.createElement(
-                        "div"
-                    );
-
-                grid.className =
-                    "controlli-grid";
-
-
-                zona.sportelli.forEach(
-                    function(sportello, indice) {
-
-                        grid.appendChild(
-
-                            creaSportello(
-
-                                sportello,
-
-                                function() {
-
-                                    toggleSportelloZona(
-                                        chiave,
-                                        indice
-                                    );
-                                },
-
-                                function(valore) {
-
-                                    sportello.auto =
-                                        valore;
-
-                                    aggiornaTutto();
-                                }
-
-                            )
-
-                        );
-                    }
-                );
-
-
-                gruppo.appendChild(
-                    grid
-                );
-
-                contenitore.appendChild(
-                    gruppo
+                    )
                 );
             }
         );
+
+
+        gruppo.appendChild(grid);
+
+        contenitore.appendChild(
+            gruppo
+        );
+    });
 }
 
 
@@ -2432,131 +2964,95 @@ function renderTuttiSportelli() {
 
 function renderTutteCamere() {
 
-    const contenitore =
+    const contenitore=
         document.getElementById(
-            "tutteCamereContenuto"
+            "tutteCamereContainer"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
     Object.values(zone)
-        .forEach(
-            function(zona) {
+    .forEach(function(zona) {
 
-                const gruppo =
-                    document.createElement(
-                        "section"
-                    );
+        const gruppo=
+            document.createElement("div");
 
-                gruppo.className =
-                    "gruppo-generale";
+        gruppo.className=
+            "gruppo-zona";
 
 
-                const online =
-                    zona.camere.filter(
-                        function(camera) {
-                            return camera.online;
-                        }
-                    ).length;
+        gruppo.innerHTML=
+            '<div class="gruppo-header">'+
+            '<span class="emoji">'+
+            zona.emoji+
+            '</span>'+
+            zona.nome+
+            '</div>';
 
 
-                gruppo.innerHTML =
-                    '<div class="gruppo-header">' +
-                    '<span class="gruppo-emoji">' +
-                    zona.emoji +
-                    '</span>' +
-                    zona.nome +
-                    '<span class="gruppo-count">' +
-                    online +
-                    ' / ' +
-                    zona.camere.length +
-                    ' ONLINE</span>' +
-                    '</div>';
+        const grid=
+            document.createElement("div");
+
+        grid.className=
+            "gruppo-camere";
 
 
-                const grid =
-                    document.createElement(
-                        "div"
-                    );
+        zona.camere.forEach(
+            function(camera) {
 
-                grid.className =
-                    "camere-grid";
-
-
-                zona.camere.forEach(
-                    function(camera) {
-
-                        grid.appendChild(
-
-                            creaPulsanteCamera(
-                                camera,
-                                zona.nome +
-                                " · " +
-                                camera.nome
-                            )
-
-                        );
-                    }
-                );
-
-
-                gruppo.appendChild(
-                    grid
-                );
-
-                contenitore.appendChild(
-                    gruppo
+                grid.appendChild(
+                    creaCameraButton(
+                        camera,
+                        zona.nome+
+                        " · "+
+                        camera.nome
+                    )
                 );
             }
         );
 
 
-    const gruppoGenerale =
-        document.createElement(
-            "section"
+        gruppo.appendChild(grid);
+
+        contenitore.appendChild(
+            gruppo
         );
-
-    gruppoGenerale.className =
-        "gruppo-generale";
+    });
 
 
-    gruppoGenerale.innerHTML =
-        '<div class="gruppo-header">' +
-        '<span class="gruppo-emoji">⚙️</span>' +
-        'GENERALE' +
-        '<span class="gruppo-count">' +
-        (
-            generale.camera.online
-            ? "1 / 1 ONLINE"
-            : "0 / 1 ONLINE"
-        ) +
-        '</span>' +
+    const gruppoGenerale=
+        document.createElement("div");
+
+    gruppoGenerale.className=
+        "gruppo-zona";
+
+
+    gruppoGenerale.innerHTML=
+        '<div class="gruppo-header">'+
+        '<span class="emoji">⚙️</span>'+
+        'GENERALE'+
         '</div>';
 
 
-    const gridGenerale =
-        document.createElement(
-            "div"
-        );
+    const grid=
+        document.createElement("div");
 
-    gridGenerale.className =
-        "camere-grid";
+    grid.className=
+        "gruppo-camere";
 
 
-    gridGenerale.appendChild(
-
-        creaPulsanteCamera(
+    grid.appendChild(
+        creaCameraButton(
             generale.camera,
-            "GENERALE · " +
+            "GENERALE · "+
             generale.camera.nome
         )
-
     );
 
 
     gruppoGenerale.appendChild(
-        gridGenerale
+        grid
     );
 
     contenitore.appendChild(
@@ -2566,150 +3062,80 @@ function renderTutteCamere() {
 
 
 /* ===================================
-   GENERALE - LUCI
+   ALLARMI
    =================================== */
 
-function renderGeneraleLuci() {
+function renderAllarmi() {
 
-    const contenitore =
+    const allarmi=
+        generaAllarmi();
+
+    const contenitore=
         document.getElementById(
-            "generaleLuci"
+            "allarmiContainer"
         );
 
-    contenitore.innerHTML = "";
+    contenitore.innerHTML="";
 
 
-    generale.luci.forEach(
-        function(luce, indice) {
+    if(allarmi.length===0) {
 
-            contenitore.appendChild(
+        contenitore.innerHTML=
+            '<div class="no-allarmi">'+
+            '<div class="big">✓</div>'+
+            'NESSUN ALLARME ATTIVO'+
+            '</div>';
 
-                creaPulsanteLuce(
-                    luce,
-                    function() {
-
-                        toggleGeneraleLuce(
-                            indice
-                        );
-                    }
-                )
-
-            );
-        }
-    );
-}
-
-
-function toggleGeneraleLuce(indice) {
-
-    const luce =
-        generale.luci[indice];
-
-
-    if (luce.working) {
         return;
     }
 
 
-    luce.working = true;
+    allarmi.forEach(
+        function(allarme) {
 
-    aggiornaTutto();
+            let icona="⚠️";
+
+            if(allarme.tipo==="luce") {
+                icona="💡";
+            }
+
+            if(allarme.tipo==="sportello") {
+                icona="🚪";
+            }
+
+            if(allarme.tipo==="camera") {
+                icona="📷";
+            }
 
 
-    setTimeout(
-        function() {
+            const card=
+                document.createElement(
+                    "div"
+                );
 
-            luce.on =
-                !luce.on;
+            card.className=
+                "allarme-card";
 
-            luce.working =
-                false;
 
-            aggiornaTutto();
+            card.innerHTML=
+                '<div class="allarme-header">'+
+                '<span class="dot rosso"></span>'+
+                icona+
+                " "+
+                allarme.zona+
+                " · "+
+                allarme.dispositivo+
+                '</div>'+
+                '<div class="allarme-messaggio">'+
+                allarme.messaggio+
+                '</div>';
 
-        },
-        700
+
+            contenitore.appendChild(
+                card
+            );
+        }
     );
-}
-
-
-/* ===================================
-   APPARECCHIATURE GENERALE
-   =================================== */
-
-function renderGeneraleDevices() {
-
-    const frigo =
-        document.getElementById(
-            "frigoButton"
-        );
-
-    const incubatrice =
-        document.getElementById(
-            "incubatriceButton"
-        );
-
-
-    frigo.className =
-        "device-button " +
-        (
-            generale.frigo
-            ? "stato-on"
-            : "stato-off"
-        );
-
-
-    frigo.innerHTML =
-        '<div class="device-icon">❄️</div>' +
-        '<div class="device-name">ALIMENTAZIONE FRIGO</div>' +
-        '<div class="device-state">' +
-        (
-            generale.frigo
-            ? "ON"
-            : "OFF"
-        ) +
-        '</div>';
-
-
-    incubatrice.className =
-        "device-button " +
-        (
-            generale.incubatrice
-            ? "stato-on"
-            : "stato-off"
-        );
-
-
-    incubatrice.innerHTML =
-        '<div class="device-icon">🥚</div>' +
-        '<div class="device-name">ALIMENTAZIONE INCUBATRICE</div>' +
-        '<div class="device-state">' +
-        (
-            generale.incubatrice
-            ? "ON"
-            : "OFF"
-        ) +
-        '</div>';
-}
-
-
-function toggleGeneraleDevice(device) {
-
-    if (device === "frigo") {
-
-        generale.frigo =
-            !generale.frigo;
-    }
-
-
-    if (device === "incubatrice") {
-
-        generale.incubatrice =
-            !generale.incubatrice;
-    }
-
-
-    aggiornaTutto();
 }
 
 
@@ -2719,47 +3145,45 @@ function toggleGeneraleDevice(device) {
 
 function aggiornaHome() {
 
-    let luciAccese = 0;
-    let sportelliAperti = 0;
-    let camereOnline = 0;
-    let camereTotali = 0;
+    let luciAccese=0;
+    let sportelliAperti=0;
+    let camereOnline=0;
+    let camereTotali=0;
 
 
     Object.values(zone)
-        .forEach(
-            function(zona) {
+    .forEach(function(zona) {
 
-                luciAccese +=
-                    zona.luci.filter(
-                        function(luce) {
-                            return luce.on;
-                        }
-                    ).length;
-
-
-                sportelliAperti +=
-                    zona.sportelli.filter(
-                        function(sportello) {
-                            return sportello.open;
-                        }
-                    ).length;
+        luciAccese+=
+            zona.luci.filter(
+                function(luce) {
+                    return luce.on;
+                }
+            ).length;
 
 
-                camereOnline +=
-                    zona.camere.filter(
-                        function(camera) {
-                            return camera.online;
-                        }
-                    ).length;
+        sportelliAperti+=
+            zona.sportelli.filter(
+                function(sportello) {
+                    return sportello.open;
+                }
+            ).length;
 
 
-                camereTotali +=
-                    zona.camere.length;
-            }
-        );
+        camereOnline+=
+            zona.camere.filter(
+                function(camera) {
+                    return camera.online;
+                }
+            ).length;
 
 
-    luciAccese +=
+        camereTotali+=
+            zona.camere.length;
+    });
+
+
+    luciAccese+=
         generale.luci.filter(
             function(luce) {
                 return luce.on;
@@ -2767,71 +3191,215 @@ function aggiornaHome() {
         ).length;
 
 
-    if (generale.camera.online) {
-        camereOnline++;
+    camereTotali+=1;
+
+    if(generale.camera.online) {
+        camereOnline+=1;
     }
 
-    camereTotali++;
+
+    document
+    .getElementById("homeLuci")
+    .textContent=
+        luciAccese;
 
 
     document
-        .getElementById(
-            "homeLuci"
-        )
-        .textContent =
-            luciAccese;
+    .getElementById("homeSportelli")
+    .textContent=
+        sportelliAperti;
 
 
     document
-        .getElementById(
-            "homeSportelli"
-        )
-        .textContent =
-            sportelliAperti;
+    .getElementById("homeCamere")
+    .textContent=
+        camereOnline+
+        " / "+
+        camereTotali;
 
 
-    document
+    /* LUCI */
+
+    const dotLuci=
+        document.getElementById(
+            "homeLuciDot"
+        );
+
+    if(esisteAllarmeTipo("luce")) {
+
+        impostaDot(
+            dotLuci,
+            "rosso"
+        );
+
+    }
+    else if(esisteLuceInMovimento()) {
+
+        impostaDot(
+            dotLuci,
+            "giallo"
+        );
+
+    }
+    else {
+
+        impostaDot(
+            dotLuci,
+            "verde"
+        );
+    }
+
+
+    /* SPORTELLI */
+
+    const dotSportelli=
+        document.getElementById(
+            "homeSportelliDot"
+        );
+
+    if(esisteAllarmeTipo("sportello")) {
+
+        impostaDot(
+            dotSportelli,
+            "rosso"
+        );
+
+    }
+    else if(
+        esisteSportelloInMovimento()
+    ) {
+
+        impostaDot(
+            dotSportelli,
+            "giallo"
+        );
+
+    }
+    else {
+
+        impostaDot(
+            dotSportelli,
+            "verde"
+        );
+    }
+
+
+    /* CAMERE */
+
+    const dotCamere=
+        document.getElementById(
+            "homeCamereDot"
+        );
+
+    if(esisteAllarmeTipo("camera")) {
+
+        impostaDot(
+            dotCamere,
+            "rosso"
+        );
+
+    } else {
+
+        impostaDot(
+            dotCamere,
+            "verde"
+        );
+    }
+
+
+    /* ALLARMI HOME */
+
+    const allarmi=
+        generaAllarmi();
+
+    const area=
+        document.getElementById(
+            "alertHomeArea"
+        );
+
+
+    if(allarmi.length===0) {
+
+        area.style.display="none";
+
+    } else {
+
+        area.style.display="block";
+
+        const primo=
+            allarmi[0];
+
+
+        document
         .getElementById(
-            "homeCamere"
+            "alertHomeTitolo"
         )
-        .textContent =
-            camereOnline +
-            " / " +
-            camereTotali;
+        .textContent=
+            primo.zona+
+            " · "+
+            primo.dispositivo;
+
+
+        document
+        .getElementById(
+            "alertHomeTesto"
+        )
+        .textContent=
+            allarmi.length===1
+            ? primo.messaggio
+            : primo.messaggio+
+              " · Tocca per vedere tutti gli allarmi";
+
+
+        document
+        .getElementById(
+            "alertHomeCount"
+        )
+        .textContent=
+            allarmi.length;
+    }
 }
 
 
 /* ===================================
-   CAMERA
+   CAMERA OVERLAY
    =================================== */
 
 function apriCamera(nome) {
 
     document
-        .getElementById(
-            "cameraDemoTitle"
-        )
-        .textContent =
-            nome;
+    .getElementById(
+        "cameraDemoTitle"
+    )
+    .textContent=
+        nome;
 
 
     document
-        .getElementById(
-            "cameraDemo"
-        )
-        .style.display =
-            "flex";
+    .getElementById(
+        "cameraDemoText"
+    )
+    .textContent=
+        "Qui verrà visualizzato il flusso video della telecamera.";
+
+
+    document
+    .getElementById(
+        "cameraDemo"
+    )
+    .style.display=
+        "flex";
 }
 
 
 function chiudiCamera() {
 
     document
-        .getElementById(
-            "cameraDemo"
-        )
-        .style.display =
-            "none";
+    .getElementById(
+        "cameraDemo"
+    )
+    .style.display=
+        "none";
 }
 
 
@@ -2841,18 +3409,14 @@ function chiudiCamera() {
 
 let toastTimer;
 
-
 function mostraToast(testo) {
 
-    const toast =
+    const toast=
         document.getElementById(
             "toast"
         );
 
-
-    toast.textContent =
-        testo;
-
+    toast.textContent=testo;
 
     toast.classList.add(
         "visibile"
@@ -2864,7 +3428,7 @@ function mostraToast(testo) {
     );
 
 
-    toastTimer =
+    toastTimer=
         setTimeout(
             function() {
 
@@ -2887,59 +3451,25 @@ function aggiornaTutto() {
     aggiornaHome();
 
     renderGeneraleLuci();
-
     renderGeneraleDevices();
+    renderCameraGenerale();
+
+    renderTutteLuci();
+    renderTuttiSportelli();
+    renderTutteCamere();
+    renderAllarmi();
 
 
-    if (
+    if(
         document
-            .getElementById(
-                "zonaPage"
-            )
-            .classList
-            .contains("attiva")
+        .getElementById(
+            "zonaPage"
+        )
+        .classList
+        .contains("attiva")
     ) {
 
         renderZona();
-    }
-
-
-    if (
-        document
-            .getElementById(
-                "tutteLuciPage"
-            )
-            .classList
-            .contains("attiva")
-    ) {
-
-        renderTutteLuci();
-    }
-
-
-    if (
-        document
-            .getElementById(
-                "tuttiSportelliPage"
-            )
-            .classList
-            .contains("attiva")
-    ) {
-
-        renderTuttiSportelli();
-    }
-
-
-    if (
-        document
-            .getElementById(
-                "tutteCamerePage"
-            )
-            .classList
-            .contains("attiva")
-    ) {
-
-        renderTutteCamere();
     }
 }
 
@@ -2951,10 +3481,10 @@ function aggiornaTutto() {
 aggiornaTutto();
 
 
-if (
+if(
     sessionStorage.getItem(
         "ortoAccesso"
-    ) === "consentito"
+    )==="consentito"
 ) {
 
     mostraApp();
